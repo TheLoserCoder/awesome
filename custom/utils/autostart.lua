@@ -20,7 +20,7 @@ local function run_on_tag(cmd, tag_index)
                 local t = screen[1].tags[tag_index]
                 if t then
                     c:move_to_tag(t)
-                    --t:view_only() -- переключиться сразу на этот тэг (можно убрать, если не хочешь)
+                    --5t:view_only() -- переключиться сразу на этот тэг (можно убрать, если не хочешь)
                 end
             end
         end
@@ -30,7 +30,9 @@ end
 function M.run()
     -- Клавиатура (us/ru/ua, переключение Alt+Shift)
     awful.spawn.once("setxkbmap -layout us,ru,ua -option grp:alt_shift_toggle")
-	
+	awful.spawn.once("playerctld daemon")
+    awful.spawn.with_shell("copyq")
+
 	--Запуск Dunst
 	--awful.spawn.with_shell("pgrep -x dunst || dunst &")
 

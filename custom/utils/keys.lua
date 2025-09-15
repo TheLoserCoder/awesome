@@ -22,9 +22,14 @@ Keys = {
     function ()
         awful.spawn("rofi -show drun")
     end,
-    {description = "launch Rofi", group = "launcher"})
-
-
+    {description = "launch Rofi", group = "launcher"}),
+    
+    -- Переключение между окнами
+   
+    awful.key({ "Mod1" }, "Tab" ,
+        function ()
+            awful.client.focus.byidx(1)
+end, {description = "focus previous client", group = "client"}),
 
 }
 return Keys

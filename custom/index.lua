@@ -18,12 +18,16 @@ end
 local keys = "custom.utils.keys"
 local autostart = "custom.utils.autostart"
 local windows = "custom.utils.windows"
+local wallpaper = "custom.utils.wallpaper"
 local bar = "custom.widgets.bar"
+local window_rules = "custom.utils.window_rules"
 
 loadModule(keys)
 loadModule(autostart)
 loadModule(windows)
+loadModule(wallpaper)
 loadModule(bar)
+loadModule(window_rules)
 
 function M.apply_keys(globalkeys)
     return gears.table.join(globalkeys, table.unpack(M[keys]))
@@ -33,9 +37,14 @@ function M.autostart(globalkeys)
     M[autostart].run()
 end
 
+function M.setWallpaper()
+    M[wallpaper].set()
+end
+
 function M.windowsSettings(client)
     M[windows].newWindowToTheEndOfWindowsList(client)
     M[windows].setupGaps()
+    M[window_rules].setup()
 end
 
 function M.createBar()

@@ -463,8 +463,8 @@ globalkeys = gears.table.join(
               {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
-              {description = "swap with next client by index", group = "client"}),
+   awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
+{description = "swap with next client by index", group = "client"}),  
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
@@ -541,14 +541,14 @@ globalkeys = gears.table.join(
 
 
 clientkeys = gears.table.join(
-    --[[awful.key({ modkey,           }, "f",
+    awful.key({ modkey,           }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
-              {description = "close", group = "client"}),]]
+              {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
@@ -563,7 +563,7 @@ clientkeys = gears.table.join(
             -- minimized, since minimized clients can't have the focus.
             c.minimized = true
         end ,
-        {description = "minimize", group = "client"}),
+    {description = "minimize", group = "client"}),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized = not c.maximized
@@ -655,6 +655,7 @@ clientbuttons = gears.table.join(
 globalkeys = customScripts.apply_keys(globalkeys)
 customScripts.autostart()
 customScripts.windowsSettings(client)
+customScripts.setWallpaper()
 -- >>> Пользовательский код: конец
 
 
@@ -663,6 +664,9 @@ customScripts.windowsSettings(client)
 root.keys(globalkeys)
 -- }}}
 
+-- >>> Пользовательский код: начало
+-- Оригинальные правила закомментированы, используются пользовательские из custom.utils.window_rules
+--[[
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
@@ -719,6 +723,9 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 }
+--]]
+-- Правила окон настраиваются через пользовательскую утилиту custom.utils.window_rules
+-- >>> Пользовательский код: конец
 -- }}}
 
 -- {{{ Signals

@@ -21,7 +21,8 @@ local settings = {
     fonts = {
         main = "Ubuntu 10",
         mono = "Ubuntu Mono 10",
-        icon = "Font Awesome 6 Free 12"
+        icon = "Font Awesome 6 Free 12",
+        widget_size = 10
     },
     
     -- Размеры и отступы
@@ -35,11 +36,52 @@ local settings = {
     
     -- Настройки панели
     bar = {
-        height = 32,
+        height = 25,
         position = "top",
-        opacity = 0.95,
-        background = "#2A2A3C",  -- используем surface цвет
-        foreground = "#ECEFF4"   -- используем основной текст
+        opacity = 0.8,
+        background = "#2A2A3C80",  -- прозрачный surface цвет
+        foreground = "#ECEFF4",    -- основной текст
+        margin = 5
+    },
+    
+    -- Иконки
+    icons = {
+        player = {
+            play = "",
+            pause = "󰏤",
+            stop = "󰏤",
+            next = "󰒭",
+            prev = "󰒮",
+            shuffle = "󰐝",
+            repeat_one = "󰑘",
+            repeat_all = "󰑖",
+            music = "󰎇"
+        },
+        
+        audio = {
+            high = "󰕾",
+            medium = "󰕽",
+            low = "󰕼",
+            muted = "󰕿",
+            mic_on = "󰕸",
+            mic_off = "󰕺"
+        },
+        
+        system = {
+            cpu = "",
+            gpu = "󰢮",
+            ram = "󰍛"
+        }
+    },
+    
+    -- Пути
+    paths = {
+        wallpaper = "/home/panic-attack/wallpapers/wallpaper.jpg"
+    },
+    
+    -- Команды
+    commands = {
+        system_monitor = "flatpak run net.nokyan.Resources"
     },
     
     -- Настройки виджетов
@@ -56,6 +98,14 @@ local settings = {
             handle_width = 10,
             update_interval = 1.0,
             debounce_timeout = 0.15
+        },
+        clock = {
+            show_seconds = false,
+            show_date = true,
+            show_time = true,
+            date_format = "%d.%m",
+            time_format = "%H:%M",
+            separator = " "
         }
     }
 }
