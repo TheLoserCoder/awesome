@@ -13,8 +13,10 @@ local NotificationList = require("custom.widgets.notification_list")
 local Clock = require("custom.widgets.clock")
 local settings = require("custom.settings")
 
+
 -- Создание виджета центра уведомлений
 function NotificationCenter.new(config)
+
     config = config or {}
     local self = setmetatable({}, NotificationCenter)
     
@@ -26,6 +28,7 @@ end
 
 -- Создание виджетов
 function NotificationCenter:_create_widgets()
+
     -- Кнопка в виде часов
     self.clock = Clock.new()
     self.widget = wibox.widget {
@@ -40,7 +43,9 @@ function NotificationCenter:_create_widgets()
     
     -- Создаем списки
     self.players_list = PlayersList.new()
+
     self.notification_list = NotificationList.new()
+
     
     -- Контейнер с содержимым
     local content = wibox.widget {
@@ -80,9 +85,12 @@ end
 
 -- Переключение popup
 function NotificationCenter:_toggle_popup()
+
     if not self.popup.visible then
         self.players_list:refresh()
+
         self.notification_list:refresh()
+
     end
     self.popup:toggle()
 end

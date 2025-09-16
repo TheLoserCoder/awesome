@@ -112,7 +112,8 @@ local settings = {
             width = 300,
             height = 80,
             icon_size = 48,
-            max_visible = 5
+            max_visible = 5,
+            default_icon = "󰵙"
         }
     }
 }
