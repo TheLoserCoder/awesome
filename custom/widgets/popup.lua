@@ -66,6 +66,14 @@ function Popup:toggle()
     self.popup.visible = not self.popup.visible
 end
 
+-- Свойство для проверки видимости
+function Popup:__index(key)
+    if key == "visible" then
+        return self.popup.visible
+    end
+    return Popup[key]
+end
+
 function Popup:set_content(content)
     self.popup.widget:get_children()[1]:set_widget(content)
 end

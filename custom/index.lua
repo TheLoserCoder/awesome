@@ -29,6 +29,9 @@ loadModule(wallpaper)
 loadModule(bar)
 loadModule(window_rules)
 
+-- Прямое подключение менеджера уведомлений
+local notification_manager = require("custom.utils.notification_manager")
+
 function M.apply_keys(globalkeys)
     return gears.table.join(globalkeys, table.unpack(M[keys]))
 end
@@ -49,6 +52,10 @@ end
 
 function M.createBar()
     return M[bar]
+end
+
+function M.getNotificationManager()
+    return notification_manager
 end
 
 return M

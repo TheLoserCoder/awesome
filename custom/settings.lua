@@ -106,6 +106,13 @@ local settings = {
             date_format = "%d.%m",
             time_format = "%H:%M",
             separator = " "
+        },
+        notifications = {
+            timeout = 5,
+            width = 300,
+            height = 80,
+            icon_size = 48,
+            max_visible = 5
         }
     }
 }

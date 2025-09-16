@@ -81,16 +81,14 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
     
     -- >>> Пользовательские виджеты: начало
     local Volume = require("custom.widgets.volume")
-    local PlayersCenter = require("custom.widgets.players_center")
+    local NotificationCenter = require("custom.widgets.notification_center")
     local SystemMonitor = require("custom.widgets.system_monitor")
     local Keyboard = require("custom.widgets.keyboard")
-    local Date = require("custom.widgets.date")
     
     local volume_widget = Volume.new({ show_icon = true, width = 120 })
-    local players_widget = PlayersCenter.new()
+    local notification_center_widget = NotificationCenter.new()
     local system_monitor_widget = SystemMonitor.new()
     local keyboard_widget = Keyboard.new()
-    local date_widget = Date.new()
     -- >>> Пользовательские виджеты: конец
 
     s.mywibox:setup {
@@ -107,8 +105,7 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
             },
             wibox.container.place({
                 layout = wibox.layout.fixed.horizontal,
-                players_widget.widget,
-                date_widget.widget,
+                notification_center_widget.widget,
             }),
             {
                 {

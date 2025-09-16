@@ -46,7 +46,7 @@ function M.run()
     run_on_tag("spotify", 2)
 
     -- Firefox
-    run_on_tag("firefox", 3)
+    run_on_tag("/home/panic-attack/Firefox/Firefox", 1)
 end
 
 return M

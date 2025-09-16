@@ -1,7 +1,7 @@
 -- ~/.config/awesome/custom/widgets/players_center.lua
 local gears = require("gears")
 local wibox = require("wibox")
-
+local awful = require("awful")
 local PlayersCenter = {}
 PlayersCenter.__index = PlayersCenter
 
@@ -16,11 +16,10 @@ function PlayersCenter.new(config)
     config = config or {}
     local self = setmetatable({}, PlayersCenter)
     
-    self:_create_widgets()
+
     
-    gears.timer.delayed_call(function()
-        self.popup:bind_to_widget(self.widget)
-    end)
+    self:_create_widgets()
+    self.popup:bind_to_widget(self.widget)
     
     return self
 end
@@ -57,15 +56,21 @@ function PlayersCenter:_create_widgets()
     
     self.popup = Popup.new({
         content = container,
-        width = 300
+        width = 300,
+        height = 300
     })
+    
+    -- Передаем ссылку на popup в PlayersList
+    self.players_list:set_popup(self.popup)
     
 
 end
 
 -- Переключение popup
 function PlayersCenter:_toggle_popup()
-    self.players_list:render()
+    if not self.popup.visible then
+        self.players_list:refresh()
+    end
     self.popup:toggle()
 end
 

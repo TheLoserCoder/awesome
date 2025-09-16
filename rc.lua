@@ -58,6 +58,13 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
+-- >>> Пользовательский код: начало
+-- Настройка уведомлений
+beautiful.notification_spacing = 10
+beautiful.notification_width = 350
+beautiful.notification_margin = {10, 10, 10, 10}  -- внутренние отступы: top, right, bottom, left
+-- >>> Пользовательский код: конец
+
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "editor"
