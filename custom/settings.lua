@@ -114,6 +114,12 @@ local settings = {
             icon_size = 48,
             max_visible = 5,
             default_icon = "󰵙"
+        },
+        desktop_notifications = {
+            position = "top_middle",  -- top_left, top_middle, top_right, bottom_left, bottom_middle, bottom_right
+            width = 350,
+            margin = 20,
+            spacing = 8
         }
     }
 }

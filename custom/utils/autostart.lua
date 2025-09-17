@@ -14,7 +14,7 @@ local function run_on_tag(cmd, tag_index)
     client.connect_signal("manage", function(c)
         if c.class then
             -- проверяем приложение по имени класса
-            if (cmd:match("firefox") and c.class:lower():match("firefox"))
+            if (cmd:match("firefox") and c.class:lower():match("firefox-dev"))
             or (cmd:match("spotify") and c.class:lower():match("spotify"))
             or (cmd:match("Telegram") and c.class:lower():match("telegram")) then
                 local t = screen[1].tags[tag_index]

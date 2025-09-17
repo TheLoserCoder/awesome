@@ -9,15 +9,7 @@ local listeners = {}
 function GlobalStorage.set(key, value)
     local old_value = storage[key]
     storage[key] = value
-    
-    -- Отладочное уведомление
-    local naughty = require("naughty")
-    naughty.notify({
-        title = "GlobalStorage Change",
-        text = key .. " = " .. tostring(value) .. " (was: " .. tostring(old_value) .. ")",
-        timeout = 2
-    })
-    
+
     -- Уведомляем слушателей если значение изменилось
     if old_value ~= value and listeners[key] then
         for _, callback in ipairs(listeners[key]) do

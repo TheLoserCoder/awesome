@@ -9,6 +9,11 @@ function DebugLogger.log(message)
     local timestamp = os.date("%Y-%m-%d %H:%M:%S")
     local log_entry = string.format("[%s] %s\n", timestamp, message)
     
+    -- Вывод в консоль с flush
+    io.write(log_entry)
+ 
+    
+    -- Запись в файл
     local file = io.open(log_file, "a")
     if file then
         file:write(log_entry)
