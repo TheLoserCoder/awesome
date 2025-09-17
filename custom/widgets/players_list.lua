@@ -23,11 +23,7 @@ function PlayersList.new(config)
         spacing = config.spacing or 8
     }
     
-    self.widget = wibox.widget {
-        self.layout,
-        forced_height = 200,
-        widget = wibox.container.constraint
-    }
+    self.widget = self.layout -- Прямое использование layout без фиксированной высоты
     
     -- Настраиваем события
     self:_setup_signals()

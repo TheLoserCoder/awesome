@@ -5,6 +5,7 @@ local awful = require("awful")
 local Provider = require("custom.widgets.provider")
 local settings = require("custom.settings")
 local IconCache = require("custom.utils.icon_cache")
+local Button = require("custom.widgets.button")
 
 
 
@@ -19,31 +20,26 @@ function NotificationItem.new(notification_data, on_click)
     local colors = Provider.get_colors()
 
     
-    local icon_size = 16
+    -- Размеры иконок
+    local container_size = 50 -- Единый размер контейнера
+    local icon_size = (notification_data.type == "urgent") and 16 or 50 -- Размер самой иконки
     
-    local notif_buttons = gears.table.join(
-        awful.button({}, 1, function()
-            if on_click then
-                on_click(notification_data)
-            end
-        end)
-    )
-    
-    self.widget = wibox.widget {
+    -- Создаем содержимое уведомления
+    local content = wibox.widget {
         {
             {
-                {
-                    -- Иконка с проверкой
-                    (function()
-                        local icon = notification_data.icon
+                -- Иконка с проверкой
+                (function()
+                    local icon = notification_data.icon
 
-                        
-                        -- Пробуем получить путь к иконке (конвертируем userdata в PNG)
-                        local icon_path = IconCache.get_icon_path(icon, notification_data.app_name)
-                        
-                        if icon_path then
-                            local success, result = pcall(function()
-                                return {
+                    
+                    -- Пробуем получить путь к иконке (конвертируем userdata в PNG)
+                    local icon_path = IconCache.get_icon_path(icon, notification_data.app_name)
+                    
+                    if icon_path then
+                        local success, result = pcall(function()
+                            return {
+                                {
                                     {
                                         image = icon_path,
                                         resize = true,
@@ -52,71 +48,94 @@ function NotificationItem.new(notification_data, on_click)
                                         widget = wibox.widget.imagebox,
                                     },
                                     valign = "center",
+                                    halign = "center",
                                     widget = wibox.container.place,
-                                }
-                            end)
-                            
-                            if success then
-                                return result
-                            end
-                        end
+                                },
+                                forced_width = container_size,
+                                forced_height = container_size,
+                                shape = function(cr, w, h)
+                                    gears.shape.rounded_rect(cr, w, h, 8)
+                                end,
+                                widget = wibox.container.background,
+                            }
+                        end)
                         
-                        -- Фолбэк иконка
-                        return {
+                        if success then
+                            return result
+                        end
+                    end
+                    
+                    -- Фолбэк иконка
+                    return {
+                        {
                             text = settings.widgets.notifications.default_icon,
                             font = settings.fonts.icon,
                             align = "center",
                             valign = "center",
-                            forced_width = icon_size,
-                            forced_height = icon_size,
                             fg = colors.accent,
                             widget = wibox.widget.textbox,
-                        }
-                    end)(),
-                    -- Текст
+                        },
+                        forced_width = container_size,
+                        forced_height = container_size,
+                        shape = function(cr, w, h)
+                            gears.shape.rounded_rect(cr, w, h, 8)
+                        end,
+                        widget = wibox.container.background,
+                    }
+                end)(),
+                -- Текст
+                {
                     {
                         {
-                            {
-                                text = notification_data.app_name or "Application",
-                                font = settings.fonts.main .. " Bold 10",
-                                fg = colors.accent,
-                                ellipsize = "end",
-                                widget = wibox.widget.textbox,
-                            },
-                            {
-                                text = notification_data.text or notification_data.title or "",
-                                font = settings.fonts.main .. " 9",
-                                fg = colors.text_primary,
-                                ellipsize = "end",
-                                widget = wibox.widget.textbox,
-                            },
-                            spacing = 2,
-                            layout = wibox.layout.fixed.vertical,
+                            text = notification_data.app_name or "Application",
+                            font = settings.fonts.main .. " Bold 10",
+                            fg = colors.accent,
+                            ellipsize = "end",
+                            widget = wibox.widget.textbox,
                         },
-                        valign = "center",
-                        widget = wibox.container.place,
+                        {
+                            text = notification_data.text or notification_data.title or "",
+                            font = settings.fonts.main .. " 9",
+                            fg = colors.text_primary,
+                            ellipsize = "end",
+                            widget = wibox.widget.textbox,
+                        },
+                        spacing = 2,
+                        layout = wibox.layout.fixed.vertical,
                     },
-                    spacing = 12,
-                    layout = wibox.layout.fixed.horizontal,
+                    valign = "center",
+                    widget = wibox.container.place,
                 },
-                left = 10,
-                right = 10,
-                top = 5,
-                bottom = 5,
-                widget = wibox.container.margin,
+                spacing = 12,
+                layout = wibox.layout.fixed.horizontal,
             },
-            valign = "center",
-            halign = "left",
-            widget = wibox.container.place,
+            left = 10,
+            right = 10,
+            top = 5,
+            bottom = 5,
+            widget = wibox.container.margin,
         },
-        forced_height = 60,
-        bg = colors.surface,
-        shape = function(cr, w, h)
-            gears.shape.rounded_rect(cr, w, h, settings.dimensions.corner_radius)
-        end,
-        widget = wibox.container.background,
-        buttons = notif_buttons,
+        valign = "center",
+        halign = "left",
+        widget = wibox.container.place,
     }
+    
+    -- Оборачиваем в Button со стандартными цветами
+    local button = Button.new({
+        content = content,
+        width = 350,
+        height = 60,
+        halign = "left", -- Выравнивание по левому краю
+        valign = "center",
+        margins = 0, -- Убираем padding
+        on_click = function()
+            if on_click then
+                on_click(notification_data)
+            end
+        end
+    })
+    
+    self.widget = button.widget
     
 
     return self

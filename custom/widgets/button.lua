@@ -23,6 +23,9 @@ function Button.new(config)
     self.height = config.height 
     self.on_click = config.on_click or function() end
     self.selected = false
+    self.halign = config.halign or "center"
+    self.valign = config.valign or "center"
+    self.margins = config.margins or 4
     
     -- Цвета
     local colors = Provider.get_colors()
@@ -46,11 +49,11 @@ function Button:_create_widgets()
         {
             {
                 self.content,
-                halign = "center",
-                valign = "center",
+                halign = self.halign,
+                valign = self.valign,
                 widget = wibox.container.place
             },
-            margins = 4,
+            margins = self.margins,
             widget = wibox.container.margin
         },
         forced_width = self.width,

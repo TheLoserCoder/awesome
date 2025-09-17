@@ -23,38 +23,14 @@ function NotificationList.new()
         layout = wibox.layout.fixed.vertical,
     }
     
-    -- Заголовок с кнопкой очистки
-    local header = wibox.widget {
-        {
-            text = "Уведомления",
-            font = settings.fonts.main .. " Bold 12",
-            fg = colors.text_primary,
-            widget = wibox.widget.textbox,
-        },
-        {
-            text = "Очистить",
-            font = settings.fonts.main .. " 9",
-            fg = colors.accent,
-            buttons = gears.table.join(
-                awful.button({}, 1, function()
-                    NotificationManager:clear_all()
-                end)
-            ),
-            widget = wibox.widget.textbox,
-        },
-        layout = wibox.layout.align.horizontal,
-    }
-    
-    -- Основной виджет
+    -- Основной виджет (без заголовка, прозрачный фон)
     self.widget = wibox.widget {
-        header,
         {
             self.container,
             forced_height = 300,
-            bg = colors.surface,
+            bg = "transparent", -- Прозрачный фон
             widget = wibox.container.background,
         },
-        spacing = 10,
         layout = wibox.layout.fixed.vertical,
     }
     
@@ -71,17 +47,40 @@ function NotificationList:_update_list(notifications)
     
     if #notifications == 0 then
         local colors = Provider.get_colors()
-        self.container:add(wibox.widget {
+        
+        -- Плашка с фоном
+        local empty_message = wibox.widget {
             {
                 text = "Нет уведомлений",
-                font = settings.fonts.main .. " 9",
+                font = settings.fonts.main .. " 10",
                 fg = colors.text_secondary,
                 align = "center",
+                valign = "center",
                 widget = wibox.widget.textbox,
             },
-            forced_height = 40,
-            valign = "center",
-            widget = wibox.container.place,
+            margins = 20,
+            widget = wibox.container.margin,
+        }
+        
+        local background_widget = wibox.widget {
+            empty_message,
+            bg = colors.surface,
+            shape = function(cr, w, h)
+                gears.shape.rounded_rect(cr, w, h, settings.dimensions.corner_radius)
+            end,
+            widget = wibox.container.background,
+        }
+        
+        -- Центрируем в контейнере
+        self.container:add(wibox.widget {
+            {
+                background_widget,
+                valign = "center",
+                halign = "center",
+                widget = wibox.container.place,
+            },
+            forced_height = 300,
+            widget = wibox.container.constraint,
         })
     else
         for _, notification in ipairs(notifications) do
@@ -92,6 +91,7 @@ function NotificationList:_update_list(notifications)
                 end
                 NotificationManager:remove_notification(data.id)
             end)
+            
             self.container:add(item.widget)
         end
     end

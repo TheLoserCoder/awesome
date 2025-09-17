@@ -2,16 +2,20 @@
 local gears = require("gears")
 local wibox = require("wibox")
 local awful = require("awful")
-
+local naughty = require("naughty")
 local Popup = {}
 Popup.__index = Popup
 
 local Provider = require("custom.widgets.provider")
 local click_to_hide = require("custom.utils.click_to_hide")
+local EventEmitter = require("custom.utils.event_emitter")
 
 function Popup.new(config)
     config = config or {}
     local self = setmetatable({}, Popup)
+    
+    -- Добавляем EventEmitter как локальное свойство
+    self._emitter = EventEmitter.new()
     
     local colors = Provider.get_colors()
     
@@ -38,6 +42,23 @@ function Popup.new(config)
         visible = false,
         ontop = true,
     }
+    
+    -- Отслеживаем состояние видимости
+    self.popup:connect_signal("property::visible", function()
+
+    
+        -- Обновляем свойство visible
+        self.visible = self.popup.visible
+        
+        if self.popup.visible then
+            self:emit("opened")
+        else
+            self:emit("closed")
+        end
+    end)
+    
+    -- Инициализируем visible
+    self.visible = false
     
 
     if config.click_to_hide ~= false then
@@ -67,15 +88,26 @@ function Popup:toggle()
 end
 
 -- Свойство для проверки видимости
-function Popup:__index(key)
-    if key == "visible" then
-        return self.popup.visible
-    end
-    return Popup[key]
+function Popup:get_visible()
+    return self.popup.visible
 end
 
 function Popup:set_content(content)
     self.popup.widget:get_children()[1]:set_widget(content)
+end
+
+-- Методы EventEmitter
+function Popup:on(event, callback)
+
+    if self._emitter then
+        self._emitter:on(event, callback)
+    end
+end
+
+function Popup:emit(event, ...)
+    if self._emitter then
+        self._emitter:emit(event, ...)
+    end
 end
 
 return Popup

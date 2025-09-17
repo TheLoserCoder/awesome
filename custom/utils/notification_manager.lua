@@ -21,12 +21,10 @@ function NotificationManager.new()
 end
 
 function NotificationManager:_setup_hooks()
-
     local manager = self -- Сохраняем ссылку для замыкания
     
     -- Перехватываем создание уведомлений
     naughty.connect_signal("request::display", function(n)
-
         manager:_add_notification({
             title = n.title or "Notification",
             text = n.text or n.message or "",
