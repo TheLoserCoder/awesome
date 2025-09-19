@@ -39,22 +39,6 @@ function DesktopNotifications.setup()
         end
     end
     
-    -- Функция для удаления wibox
-    local function remove_wibox(notification_wibox)
-        if notification_wibox then
-            notification_wibox.visible = false
-            -- Удаляем из списка активных
-            for i, box in ipairs(active_boxes) do
-                if box == notification_wibox then
-                    table.remove(active_boxes, i)
-                    break
-                end
-            end
-            -- Перепозиционируем оставшиеся уведомления
-            reposition_notifications()
-        end
-    end
-    
     -- Функция для перепозиционирования всех уведомлений
     local function reposition_notifications()
         local base_pos = get_base_position()
@@ -73,6 +57,39 @@ function DesktopNotifications.setup()
                 offset = offset + box.height + settings.widgets.desktop_notifications.spacing
             end
         end
+    end
+    
+    -- Функция для удаления wibox
+    local function remove_wibox(notification_wibox)
+        if notification_wibox then
+            notification_wibox.visible = false
+            -- Удаляем из списка активных
+            for i, box in ipairs(active_boxes) do
+                if box == notification_wibox then
+                    table.remove(active_boxes, i)
+                    break
+                end
+            end
+            -- Перепозиционируем оставшиеся уведомления
+            reposition_notifications()
+        end
+    end
+    
+    -- Функция для удаления всех уведомлений от одного приложения
+    local function remove_notifications_by_app(app_name)
+        if not app_name then return end
+        
+        -- Удаляем из активных wibox'ов
+        for i = #active_boxes, 1, -1 do
+            local box = active_boxes[i]
+            if box.notification_data and box.notification_data.app_name == app_name then
+                box.visible = false
+                table.remove(active_boxes, i)
+            end
+        end
+        
+        -- Перепозиционируем оставшиеся
+        reposition_notifications()
     end
     
     -- Функция для создания wibox уведомления
@@ -112,10 +129,12 @@ function DesktopNotifications.setup()
             widget = item.widget
         })
         
-        -- Обработчик клика для закрытия
+        -- Сохраняем данные уведомления в wibox
+        notification_wibox.notification_data = notification
+        
+        -- Обработчик клика для закрытия всех уведомлений от этого приложения
         notification_wibox:connect_signal("button::press", function()
-            remove_wibox(notification_wibox)
-            NotificationManager:remove_notification(notification.id)
+            remove_notifications_by_app(notification.app_name)
         end)
         
         -- Добавляем в начало списка (новое уведомление сверху)
@@ -133,9 +152,11 @@ function DesktopNotifications.setup()
         return notification_wibox
     end
     
-    -- Подписываемся на изменения состояния центра уведомлений
-    GlobalStorage.listen("notification_center_open", function(is_open)
-        if is_open then
+
+    
+    -- Подписываемся на изменения тихого режима
+    GlobalStorage.listen("notifications_disabled", function(is_disabled)
+        if is_disabled then
             -- Скрываем все активные уведомления
             for _, box in ipairs(active_boxes) do
                 box.visible = false
@@ -149,10 +170,10 @@ function DesktopNotifications.setup()
     NotificationManager:subscribe(function(notifications)
         DebugLogger.log("[DESKTOP_NOTIFICATIONS] Received " .. (notifications and #notifications or "nil") .. " notifications")
         
-        local center_open = GlobalStorage.get("notification_center_open") or false
+        local notifications_disabled = GlobalStorage.get("notifications_disabled") or false
         
-        if center_open then
-            DebugLogger.log("[DESKTOP_NOTIFICATIONS] Center is open, skipping")
+        if notifications_disabled then
+            DebugLogger.log("[DESKTOP_NOTIFICATIONS] Notifications disabled, skipping")
             return
         end
         

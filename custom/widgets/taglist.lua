@@ -71,14 +71,23 @@ function Taglist:_update_button_style(index)
     local tag = self.screen.tags[index]
     
     if tag.selected then
-        button:set_selected(true)
-        button:set_bg(colors.accent .. "40")
+        button:set_selected(true, colors.accent)
+        -- Текст становится surface для контраста с акцентным фоном
+        local content = button.widget:get_children()[1]:get_children()[1]:get_children()[1]
+        if content and content.set_markup then
+            content:set_markup('<span color="' .. colors.surface .. '">' .. content.text .. '</span>')
+        end
     elseif tag.urgent then
         button:set_selected(false)
         button:set_bg(colors.error)
     else
         button:set_selected(false)
         button:set_bg(colors.surface)
+        -- Сбрасываем цвет текста
+        local content = button.widget:get_children()[1]:get_children()[1]:get_children()[1]
+        if content and content.set_markup then
+            content:set_markup('<span color="' .. colors.text .. '">' .. content.text .. '</span>')
+        end
     end
 end
 

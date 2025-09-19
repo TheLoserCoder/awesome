@@ -7,8 +7,9 @@ local Popup = {}
 Popup.__index = Popup
 
 local Provider = require("custom.widgets.provider")
-local click_to_hide = require("custom.utils.click_to_hide")
+local click_to_hide_positioned = require("custom.utils.click_to_hide_positioned")
 local EventEmitter = require("custom.utils.event_emitter")
+local GlobalStorage = require("custom.utils.global_storage")
 
 function Popup.new(config)
     config = config or {}
@@ -19,6 +20,9 @@ function Popup.new(config)
     
     local colors = Provider.get_colors()
     
+    -- Сохраняем offset для последующего использования
+    self.saved_offset = config.offset or { y = -2 }
+    
     self.popup = awful.popup {
         widget = wibox.widget {
             {
@@ -26,7 +30,7 @@ function Popup.new(config)
                 margins = config.margins or 12,
                 widget = wibox.container.margin
             },
-            bg = colors.surface .. "60",
+            bg = config.bg or colors.surface .. "60",
             shape = gears.shape.rounded_rect,
             widget = wibox.container.background
         },
@@ -35,34 +39,23 @@ function Popup.new(config)
         shape = gears.shape.rounded_rect,
         preferred_positions = config.preferred_positions or "bottom",
         preferred_anchors = config.preferred_anchors or "middle",
-        offset = config.offset or { y = 5 },
+        offset = self.saved_offset,
         placement = config.placement,
         minimum_width = config.width,
         minimum_height = config.height,
-        visible = false,
-        ontop = true,
+   
+        x = -9999,
+        y = -9999,
+        ontop = false,
     }
-    
-    -- Отслеживаем состояние видимости
-    self.popup:connect_signal("property::visible", function()
-
-    
-        -- Обновляем свойство visible
-        self.visible = self.popup.visible
-        
-        if self.popup.visible then
-            self:emit("opened")
-        else
-            self:emit("closed")
-        end
-    end)
-    
-    -- Инициализируем visible
-    self.visible = false
     
 
     if config.click_to_hide ~= false then
-        click_to_hide(self.popup)
+        self.start_click_grabber = click_to_hide_positioned(self.popup, function()
+            self:hide()
+        end, function()
+            return self._visible
+        end)
     end
     
     return self
@@ -73,23 +66,40 @@ function Popup:bind_to_widget(widget)
 end
 
 function Popup:show()
-    -- Принудительно обновляем геометрию перед показом
-    gears.timer.delayed_call(function()
-        self.popup.visible = true
-    end)
+    -- Позиционируем popup правильно
+    self._visible = true
+    self:emit("opened")
+    if self.start_click_grabber then
+        self.start_click_grabber()
+    end
+     self.popup.ontop = true
 end
 
 function Popup:hide()
     self.popup.visible = false
+    self.popup.ontop = false
+    self._visible = false
+    
+    gears.timer.start_new(0.2, function()
+        self.popup.x = -9999
+        self.popup.y = -9999
+        self.popup.visible = true
+        self:emit("closed")
+        return false
+    end)
 end
 
 function Popup:toggle()
-    self.popup.visible = not self.popup.visible
+    if self._visible then
+        self:hide()
+    else
+        self:show()
+    end
 end
 
 -- Свойство для проверки видимости
 function Popup:get_visible()
-    return self.popup.visible
+    return self._visible
 end
 
 function Popup:set_content(content)

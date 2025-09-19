@@ -36,6 +36,12 @@ if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
                      text = awesome.startup_errors })
+    
+    -- Логируем startup ошибки
+    pcall(function()
+        local DebugLogger = require("custom.utils.debug_logger")
+        DebugLogger.log("STARTUP_ERROR: " .. tostring(awesome.startup_errors))
+    end)
 end
 
 -- Handle runtime errors after startup
@@ -49,6 +55,13 @@ do
         naughty.notify({ preset = naughty.config.presets.critical,
                          title = "Oops, an error happened!",
                          text = tostring(err) })
+        
+        -- Логируем runtime ошибки
+        pcall(function()
+            local DebugLogger = require("custom.utils.debug_logger")
+            DebugLogger.log("RUNTIME_ERROR: " .. tostring(err))
+        end)
+        
         in_error = false
     end)
 end

@@ -32,6 +32,7 @@ loadModule(window_rules)
 -- Прямое подключение менеджера уведомлений
 local notification_manager = require("custom.utils.notification_manager")
 local DesktopNotifications = require("custom.widgets.desktop_notifications")
+local WeatherAPI = require("custom.utils.weather_api")
 
 function M.apply_keys(globalkeys)
     return gears.table.join(globalkeys, table.unpack(M[keys]))
@@ -50,6 +51,7 @@ function M.windowsSettings(client)
     M[windows].setupGaps()
     M[window_rules].setup()
     DesktopNotifications.setup()
+    WeatherAPI.setup()
 end
 
 function M.createBar()

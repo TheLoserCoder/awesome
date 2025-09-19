@@ -10,13 +10,14 @@ local Button = require("custom.widgets.button")
 local Popup = require("custom.widgets.popup")
 local PlayersList = require("custom.widgets.players_list")
 local settings = require("custom.settings")
+local debug_logger = require("custom.utils.debug_logger")
 
 -- Создание виджета центра плееров
 function PlayersCenter.new(config)
     config = config or {}
     local self = setmetatable({}, PlayersCenter)
     
-
+    debug_logger.log("[PLAYERS_CENTER] Creating PlayersCenter widget")
     
     self:_create_widgets()
     self.popup:bind_to_widget(self.widget)
@@ -45,7 +46,9 @@ function PlayersCenter:_create_widgets()
     
     self.widget = self.button.widget
     
+    debug_logger.log("[PLAYERS_CENTER] Creating PlayersList")
     self.players_list = PlayersList.new()
+    debug_logger.log("[PLAYERS_CENTER] PlayersList created successfully")
     
     -- Контейнер с фиксированной шириной
     local container = wibox.widget {

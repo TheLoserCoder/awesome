@@ -135,11 +135,12 @@ function Button:set_bg(color)
 end
 
 -- Установка состояния selected
-function Button:set_selected(selected)
+function Button:set_selected(selected, selected_color)
     self.selected = selected
     if selected then
-        self.inner_button.bg = self.bg_selected
-        self.color_animator:set_color(self.bg_selected)
+        local color = selected_color or self.bg_selected
+        self.inner_button.bg = color
+        self.color_animator:set_color(color)
     else
         self.inner_button.bg = self.bg_default
         self.color_animator:set_color(self.bg_default)

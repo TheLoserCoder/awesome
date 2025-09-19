@@ -6,7 +6,8 @@ local settings = {
         surface = "#2A2A3C",           -- фон элементов (панели, виджеты)
         text = "#ECEFF4",              -- основной текст
         text_secondary = "#A6ADC8",    -- вторичный текст
-        accent = "#7AA2F7",            -- акцентный цвет (небесно-синий)
+        text_muted = "#6C7086",        -- приглушенный текст (более темный)
+        accent = "#F5F5F5",            -- акцентный цвет (более насыщенная версия основного текста)
         accent_alt = "#9D7CD8",        -- дополнительный акцент (фиолетовый)
         
         -- Дополнительные цвета для совместимости
@@ -19,9 +20,10 @@ local settings = {
     
     -- Шрифты
     fonts = {
-        main = "Ubuntu 10",
-        mono = "Ubuntu Mono 10",
-        icon = "Font Awesome 6 Free 12",
+        main = "DejaVu Sans 10",
+        mono = "DejaVu Sans Mono 10",
+        icon = "Symbols Nerd Font 12",
+        material = "Material Design Icons Desktop 12",
         widget_size = 10
     },
     
@@ -36,12 +38,12 @@ local settings = {
     
     -- Настройки панели
     bar = {
-        height = 25,
+        height = 28,
         position = "top",
         opacity = 0.8,
         background = "#2A2A3C80",  -- прозрачный surface цвет
         foreground = "#ECEFF4",    -- основной текст
-        margin = 5
+        margin = 0
     },
     
     -- Иконки
@@ -67,10 +69,43 @@ local settings = {
             mic_off = "󰕺"
         },
         
+        weather = {
+            clear_day = "",
+            clear_night = "",
+            cloudy = "󰖐",
+            fog = "",
+            heavy_rain = "",
+            heavy_snow = "",
+            light_rain = "",
+            light_snow = "",
+            partly_cloudy_day = "",
+            partly_cloudy_night = "",
+            rain = "",
+            snow = "",
+            thunderstorm = "",
+            wind = "",
+            default = "",
+            -- Параметры погоды
+            humidity = "",
+            wind_speed = "󰖝",
+            pressure = ""
+        },
+        
         system = {
             cpu = "",
             gpu = "󰢮",
-            ram = "󰍛"
+            ram = "󰍛",
+            awesome = "",
+            power = "󰐥",
+            poweroff = "󰐥",
+            sleep = "󰤄",
+            logout = "󰍃",
+            reboot = "󰜉",
+            cancel = "󰐍",
+            execute = "󰐄",
+            terminal = "󰆍",
+            launcher = "󰀻",
+            screenshot = ""
         }
     },
     
@@ -81,7 +116,10 @@ local settings = {
     
     -- Команды
     commands = {
-        system_monitor = "flatpak run net.nokyan.Resources"
+        system_monitor = "flatpak run net.nokyan.Resources",
+        weather_app = "gnome-weather",
+        screenshot = "flameshot gui",
+        launcher = "rofi -show drun"
     },
     
     -- Настройки виджетов
@@ -120,6 +158,28 @@ local settings = {
             width = 350,
             margin = 20,
             spacing = 8
+        },
+        list_item = {
+            height = 70,  -- высота элементов в списках
+            spacing = 8,  -- отступ между элементами в списке
+            gap_between_lists = 15  -- отступ между списком плееров и уведомлений
+        },
+        weather = {
+            width = 200,
+            height = 120
+        },
+        control_center = {
+            width = 200
+        }
+    },
+    
+    -- API настройки
+    api = {
+        weather = {
+            user_agent = "awesome-weather-widget/1.0 (panic-attack@example.com)",
+            latitude = "47.91",  -- Кривой Рог
+            longitude = "33.39",
+            update_interval = 600  -- 10 минут
         }
     }
 }

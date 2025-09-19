@@ -31,9 +31,8 @@ function Calendar.new()
             },
             -- Месяц, день и год (bold)
             {
-                markup = "<b>" .. months[current_date.month] .. " " .. current_date.day .. ", " .. current_date.year .. "</b>",
+                markup = "<b><span color='" .. colors.accent .. "'>" .. months[current_date.month] .. " " .. current_date.day .. ", " .. current_date.year .. "</span></b>",
                 font = settings.fonts.main .. " 12",
-                fg = colors.text_primary,
                 align = "left",
                 widget = wibox.widget.textbox
             },
@@ -121,6 +120,24 @@ function Calendar.new()
     }
     
     return self
+end
+
+function Calendar:update()
+    local current_date = os.date("*t")
+    local weekdays = {"Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"}
+    local months = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", 
+                   "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"}
+    
+    -- Обновляем календарь
+    self.calendar.date = current_date
+    
+    -- Обновляем заголовок (находим виджеты в структуре)
+    local colors = Provider.get_colors()
+    local header_widgets = self.widget.children[1].children[1].children[1].children
+    if header_widgets and #header_widgets >= 2 then
+        header_widgets[1].text = weekdays[current_date.wday]
+        header_widgets[2].markup = "<b><span color='" .. colors.accent .. "'>" .. months[current_date.month] .. " " .. current_date.day .. ", " .. current_date.year .. "</span></b>"
+    end
 end
 
 return Calendar

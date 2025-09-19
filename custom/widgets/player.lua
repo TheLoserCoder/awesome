@@ -14,7 +14,7 @@ local WindowFocus = require("custom.utils.window_focus")
 local settings = require("custom.settings")
 
 -- Создание виджета плеера
-function Player.new(player_name, initial_data, playerctl, popup)
+function Player.new(player_name, initial_data, playerctl, popup, height)
     local self = setmetatable({}, Player)
     
     self.player_name = player_name
@@ -46,11 +46,10 @@ function Player:_create_widgets()
     -- Источник плеера
     self.player_widget = wibox.widget {
         {
-            text = self.player_name,
+            markup = "<span color='" .. colors.text_muted .. "'>" .. self.player_name .. "</span>",
             align = "left",
             valign = "center", 
             font = "Ubuntu 7",
-            fg = colors.text_secondary,
             ellipsize = "end",
             widget = wibox.widget.textbox
         },
@@ -221,21 +220,21 @@ function Player:_create_widgets()
         end)
     ))
     
-    -- Основной виджет с двумя строками в скругленной обертке
+    -- Основной виджет с фоном и скруглениями
     self.widget = wibox.widget {
         {
-            {
-                second_row,
-                forced_width = 300,
-                widget = wibox.container.constraint
-            },
-            margins = 6,
+            second_row,
+            margins = 8,
             widget = wibox.container.margin
         },
         bg = colors.surface,
-        shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, settings.dimensions.corner_radius * 1.5) end,
+        forced_height = height or settings.widgets.list_item.height,
+        shape = function(cr, w, h)
+            gears.shape.rounded_rect(cr, w, h, settings.dimensions.corner_radius)
+        end,
         widget = wibox.container.background
     }
+
 end
 
 -- Обновление данных плеера

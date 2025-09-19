@@ -6,32 +6,6 @@ local beautiful = require("beautiful")
 
 local Bar = {}
 
--- Создание кнопок для tasklist
-local function create_tasklist_buttons()
-    return gears.table.join(
-        awful.button({ }, 1, function (c)
-            if c == client.focus then
-                c.minimized = true
-            else
-                c:emit_signal(
-                    "request::activate",
-                    "tasklist",
-                    {raise = true}
-                )
-            end
-        end),
-        awful.button({ }, 3, function()
-            awful.menu.client_list({ theme = { width = 250 } })
-        end),
-        awful.button({ }, 4, function ()
-            awful.client.focus.byidx(1)
-        end),
-        awful.button({ }, 5, function ()
-            awful.client.focus.byidx(-1)
-        end)
-    )
-end
-
 -- Создание wibox для экрана
 function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
     -- Создаем promptbox
@@ -80,15 +54,17 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
     ))
     
     -- >>> Пользовательские виджеты: начало
-    local Volume = require("custom.widgets.volume")
     local NotificationCenter = require("custom.widgets.notification_center")
     local SystemMonitor = require("custom.widgets.system_monitor")
     local Keyboard = require("custom.widgets.keyboard")
+    local ControlCenter = require("custom.widgets.control_center")
+    local AppList = require("custom.widgets.app_list")
     
-    local volume_widget = Volume.new({ show_icon = true, width = 120 })
     local notification_center_widget = NotificationCenter.new()
     local system_monitor_widget = SystemMonitor.new()
     local keyboard_widget = Keyboard.new()
+    local control_center_widget = ControlCenter.new(s)
+    local app_list_widget = AppList.new()
     -- >>> Пользовательские виджеты: конец
 
     s.mywibox:setup {
@@ -98,9 +74,15 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
                 { -- Left widgets
                     layout = wibox.layout.fixed.horizontal,
                     s.mytaglist,
+                    {
+                        app_list_widget.widget,
+                        left = 8,
+                        widget = wibox.container.margin
+                    },
                     s.mypromptbox,
                 },
-                forced_width = 400,
+                forced_width = 700,
+               
                 widget = wibox.container.constraint
             },
             wibox.container.place({
@@ -113,20 +95,18 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
                         layout = wibox.layout.fixed.horizontal,
                         system_monitor_widget.widget,
                         keyboard_widget.widget,
-                        volume_widget.widget,
-                        s.mylayoutbox,
+                        control_center_widget.widget,
                     },
                     halign = "right",
                     widget = wibox.container.place
                 },
-                forced_width = 400,
+                forced_width = 800,
                 widget = wibox.container.constraint
             },
         },
         left = 8,
         right = 8,
-        top = 4,
-        bottom = 4,
+    
         widget = wibox.container.margin
     }
 

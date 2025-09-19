@@ -2,6 +2,7 @@
 local gobject = require("gears.object")
 local gtable = require("gears.table")
 local bling = require("custom.utils.bling")
+local debug_logger = require("custom.utils.debug_logger")
 
 local PlayerctlWrap = {}
 PlayerctlWrap.__index = PlayerctlWrap
@@ -29,8 +30,15 @@ function PlayerctlWrap:_setup_signals()
         self:emit_signal("playback_status", player_name, playing)
     end)
     
+    -- Выход плеера
+    self.playerctl:connect_signal("exit", function(_, player_name)
+        print("[PLAYERCTL_WRAP] Exit signal: " .. tostring(player_name))
+        self:emit_signal("player_exit", player_name)
+    end)
+    
     -- Появление плеера (через awesome сигналы)
     awesome.connect_signal("bling::playerctl::title_artist_album", function(title, artist, art_path, player_name)
+        print("[PLAYERCTL_WRAP] Player added signal: " .. tostring(player_name))
         self:emit_signal("player_added", player_name)
     end)
 end

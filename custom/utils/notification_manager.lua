@@ -13,6 +13,8 @@ function NotificationManager.new()
     local self = setmetatable({}, NotificationManager)
     
     self.notifications = {}
+    self.hidden_notifications = {}  -- Скрытые уведомления в тихом режиме
+    self.silent_mode = false
     self.id_counter = 1
     self.subscribers = {}
     
@@ -22,14 +24,10 @@ function NotificationManager.new()
 end
 
 function NotificationManager:_setup_hooks()
-    DebugLogger.log("[NOTIFICATION_MANAGER] Setting up hooks")
-    
     local manager = self -- Сохраняем ссылку для замыкания
     
     -- Перехватываем создание уведомлений
     naughty.connect_signal("request::display", function(n)
-        DebugLogger.log("[NOTIFICATION_MANAGER] request::display triggered: " .. (n.title or "no title"))
-        
         manager:_add_notification({
             title = n.title or "Notification",
             text = n.text or n.message or "",
@@ -41,8 +39,6 @@ function NotificationManager:_setup_hooks()
 
         n:destroy()
     end)
-    
-    DebugLogger.log("[NOTIFICATION_MANAGER] request::display hook connected")
     
     -- Отслеживаем urgent окна
     client.connect_signal("property::urgent", function(c)
@@ -66,11 +62,16 @@ function NotificationManager:_setup_hooks()
             end)
         end
     end)
+    
+    -- Отслеживаем активацию окон для удаления уведомлений
+    client.connect_signal("focus", function(c)
+        if c.valid and c.class then
+            manager:clear_by_app(c.class)
+        end
+    end)
 end
 
 function NotificationManager:_add_notification(data)
-    DebugLogger.log("[NOTIFICATION_MANAGER] _add_notification called: " .. (data.title or "no title"))
-    
     local notification = {
         id = self.id_counter,
         title = data.title,
@@ -84,12 +85,14 @@ function NotificationManager:_add_notification(data)
         original = data.original
     }
     
-    self.notifications[self.id_counter] = notification
+    if not self.silent_mode then
+        -- В обычном режиме добавляем уведомление
+        self.notifications[self.id_counter] = notification
+        self:_notify_subscribers()
+    end
+    -- В тихом режиме просто игнорируем уведомление
+    
     self.id_counter = self.id_counter + 1
-    
-    DebugLogger.log("[NOTIFICATION_MANAGER] Added notification with ID: " .. notification.id)
-    
-    self:_notify_subscribers()
 end
 
 function NotificationManager:remove_notification(id)
@@ -137,11 +140,25 @@ end
 
 function NotificationManager:_notify_subscribers()
     local notifications = self:get_notifications()
-    DebugLogger.log("[NOTIFICATION_MANAGER] Notifying " .. #self.subscribers .. " subscribers with " .. #notifications .. " notifications")
     
     for _, callback in ipairs(self.subscribers) do
         callback(notifications)
     end
+end
+
+-- Методы тихого режима
+function NotificationManager:enable_silent_mode()
+    self.silent_mode = true
+    -- Очищаем все уведомления
+    self.notifications = {}
+    self.hidden_notifications = {}
+    self:_notify_subscribers()
+end
+
+function NotificationManager:disable_silent_mode()
+    self.silent_mode = false
+    -- При выключении тихого режима ничего не восстанавливаем
+    -- Новые уведомления будут отображаться нормально
 end
 
 -- Создаем единственный экземпляр менеджера

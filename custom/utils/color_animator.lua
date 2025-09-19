@@ -19,7 +19,13 @@ end
 
 -- Функция для конвертации RGBA в HEX
 local function rgba_to_hex(r,g,b,a)
-    if a and a < 255 then
+    -- Округляем и ограничиваем значения
+    r = math.max(0, math.min(255, math.floor(r + 0.5)))
+    g = math.max(0, math.min(255, math.floor(g + 0.5)))
+    b = math.max(0, math.min(255, math.floor(b + 0.5)))
+    a = a and math.max(0, math.min(255, math.floor(a + 0.5))) or 255
+    
+    if a < 255 then
         return string.format("#%02X%02X%02X%02X", r, g, b, a)
     else
         return string.format("#%02X%02X%02X", r, g, b)

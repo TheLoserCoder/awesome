@@ -1,0 +1,48 @@
+# Зависимости проекта AwesomeWM
+
+## Lua библиотеки (luarocks)
+dkjson                  # JSON парсер для weather API
+lgi                     # GObject introspection для Cairo, Gio, GLib
+
+## Системные пакеты
+playerctl               # Управление медиа плеерами (CLI)
+playerctld              # Демон для playerctl
+libplayerctl-dev        # Библиотека разработки playerctl
+gir1.2-playerctl-2.0    # GObject introspection для playerctl (для lgi)
+curl                    # HTTP клиент для API запросов
+picom                   # Композитор окон
+copyq                   # Менеджер буфера обмена
+x11-xkb-utils           # Утилиты для настройки клавиатуры (setxkbmap)
+
+## Приложения (опционально)
+spotify                 # Музыкальный плеер
+firefox                 # Веб браузер
+telegram                # Мессенджер
+flatpak                 # Для запуска приложений (net.nokyan.Resources)
+
+## Шрифты
+fonts-dejavu-core       # Основные шрифты DejaVu (уже установлены)
+nerd-fonts              # Иконочные шрифты Nerd Font (установлены вручную)
+material-design-icons   # Material Design Icons Desktop (установлены вручную)
+ubuntu-font-family      # Опционально: шрифты Ubuntu
+fonts-font-awesome      # Опционально: Font Awesome
+
+## Установка зависимостей:
+
+### Lua библиотеки:
+sudo luarocks install dkjson
+sudo luarocks install lgi
+
+### Системные пакеты (Ubuntu/Debian):
+sudo apt install playerctl libplayerctl-dev gir1.2-playerctl-2.0 curl picom copyq x11-xkb-utils
+
+### Шрифты:
+# DejaVu уже установлены по умолчанию
+# Nerd Fonts установлены вручную
+# Опционально:
+sudo apt install ubuntu-font-family fonts-font-awesome
+
+### Опционально:
+sudo apt install spotify-client firefox-esr
+# Telegram - скачать AppImage с официального сайта
+# flatpak - для системного монитора Resources
