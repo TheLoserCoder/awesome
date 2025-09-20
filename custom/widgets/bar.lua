@@ -16,13 +16,13 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
     local layoutbox_widget = Layoutbox.new(s)
     s.mylayoutbox = layoutbox_widget.widget
     
-    -- Создаем taglist
-    local Taglist = require("custom.widgets.taglist")
-    local taglist_widget = Taglist.new(s)
-    s.mytaglist = taglist_widget.widget
-
     -- Получаем настройки
     local settings = require("custom.settings")
+    
+    -- Создаем taglist
+    local Taglist = require("custom.widgets.taglist")
+    local taglist_widget = Taglist.new(s, settings.widgets.taglist)
+    s.mytaglist = taglist_widget.widget
     
     -- Создаем wibox
     s.mywibox = wibox({
@@ -59,12 +59,33 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
     local Keyboard = require("custom.widgets.keyboard")
     local ControlCenter = require("custom.widgets.control_center")
     local AppList = require("custom.widgets.app_list")
+    local Button = require("custom.widgets.button")
+    local Provider = require("custom.widgets.provider")
     
     local notification_center_widget = NotificationCenter.new()
     local system_monitor_widget = SystemMonitor.new()
     local keyboard_widget = Keyboard.new()
     local control_center_widget = ControlCenter.new(s)
     local app_list_widget = AppList.new()
+    
+    -- Кнопка лаунчера
+    local colors = Provider.get_colors()
+    local launcher_button = Button.new({
+        content = wibox.widget {
+            text = settings.icons.system.launcher,
+            font = settings.fonts.icon .. " 12",
+            align = "center",
+            valign = "center",
+            fg = colors.text,
+            widget = wibox.widget.textbox
+        },
+        width = 28,
+        height = 28,
+        shape = gears.shape.circle,
+        on_click = function()
+            awful.spawn(settings.commands.launcher)
+        end
+    })
     -- >>> Пользовательские виджеты: конец
 
     s.mywibox:setup {
@@ -73,7 +94,12 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
             {
                 { -- Left widgets
                     layout = wibox.layout.fixed.horizontal,
-                    s.mytaglist,
+                    launcher_button.widget,
+                    {
+                        s.mytaglist,
+                        left = 8,
+                        widget = wibox.container.margin
+                    },
                     {
                         app_list_widget.widget,
                         left = 8,

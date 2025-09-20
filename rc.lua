@@ -450,9 +450,7 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewprev),
-    awful.button({ }, 5, awful.tag.viewnext)
+    awful.button({ }, 3, function () mymainmenu:toggle() end)
 ))
 -- }}}
 
@@ -460,10 +458,20 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-              {description = "view next", group = "tag"}),
+    awful.key({ modkey,           }, "Left",   function()
+        local screen = awful.screen.focused()
+        local current_tag = screen.selected_tag
+        if current_tag and current_tag.index > 1 then
+            screen.tags[current_tag.index - 1]:view_only()
+        end
+    end, {description = "view previous", group = "tag"}),
+    awful.key({ modkey,           }, "Right",  function()
+        local screen = awful.screen.focused()
+        local current_tag = screen.selected_tag
+        if current_tag and current_tag.index < #screen.tags then
+            screen.tags[current_tag.index + 1]:view_only()
+        end
+    end, {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 

@@ -97,20 +97,21 @@ function AppList:_create_widgets()
     local app_button = Button.new({
         content = button_content,
         width = 250,
-       
         halign = "left",
         on_click = function()
-            local clients = self:_get_clients_on_current_tag()
-            local total_clients = #clients + (client.focus and 1 or 0)
-            
-            if total_clients == 0 then
-                -- Запускаем лаунчер
-                awful.spawn(settings.commands.launcher)
-            else
-                self:_toggle_popup()
-            end
+            self:_toggle_popup()
         end
     })
+    
+    -- Добавляем обработку колеса мыши
+    app_button.widget:buttons(gears.table.join(
+        app_button.widget:buttons(),
+        awful.button({}, 2, function() -- средняя кнопка мыши
+            if client.focus then
+                client.focus:kill()
+            end
+        end)
+    ))
     
     self.widget = app_button.widget
     self.popup_content = wibox.widget {
@@ -151,14 +152,17 @@ function AppList:_update_display()
     local clients = self:_get_clients_on_current_tag()
     local total_clients = #clients + (focused and 1 or 0)
     
+    -- Скрываем виджет если нет приложений
+    if total_clients == 0 then
+        self.widget.visible = false
+        return
+    else
+        self.widget.visible = true
+    end
+    
     -- Обновляем главную кнопку
     local text_widget = self.app_text:get_children()[1]
-    if total_clients == 0 then
-        -- Нет открытых приложений - показываем лаунчер
-        self.app_icon.image = nil
-        text_widget.align = "center"
-        text_widget.markup = "<span color='" .. colors.text .. "'>" .. settings.icons.system.launcher .. " Лаунчер</span>"
-    elseif focused then
+    if focused then
         self.app_icon.image = focused.icon
         text_widget.align = "left"
         text_widget.text = focused.name or focused.class or "Неизвестно"
@@ -192,15 +196,27 @@ function AppList:_update_display()
                     widget = wibox.widget.imagebox
                 },
                 {
-                    text = c.name or c.class or "Неизвестно",
-                    font = settings.fonts.main .. " 10",
-                    align = "left",
+                    {
+                        text = c.name or c.class or "Неизвестно",
+                        font = settings.fonts.main .. " 10",
+                        align = "left",
+                        valign = "center",
+                        fg = colors.text,
+                        ellipsize = "end",
+                        widget = wibox.widget.textbox
+                    },
+                    forced_width = 200,
+                    widget = wibox.container.constraint
+                },
+                {
+                    text = c.minimized and settings.icons.system.window_closed or settings.icons.system.window_open,
+                    font = settings.fonts.icon,
+                    align = "center",
                     valign = "center",
-                    fg = colors.text,
-                    ellipsize = "end",
+                    fg = c.minimized and colors.text_muted or colors.primary,
                     widget = wibox.widget.textbox
                 },
-                spacing = 8,
+                spacing = 6,
                 layout = wibox.layout.fixed.horizontal
             },
             width = 250,
@@ -211,6 +227,14 @@ function AppList:_update_display()
                 self.popup:hide()
             end
         })
+        
+        -- Добавляем обработку колеса мыши для закрытия окна
+        client_button.widget:buttons(gears.table.join(
+            client_button.widget:buttons(),
+            awful.button({}, 2, function()
+                c:kill()
+            end)
+        ))
         
         self.popup_content:add(client_button.widget)
     end

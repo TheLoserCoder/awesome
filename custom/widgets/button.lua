@@ -8,7 +8,6 @@ Button.__index = Button
 
 -- Получаем зависимости
 local rubato = require("custom.utils.rubato")
-local Provider = require("custom.widgets.provider")
 local Container = require("custom.widgets.container")
 local ColorAnimator = require("custom.utils.color_animator")
 
@@ -27,11 +26,10 @@ function Button.new(config)
     self.valign = config.valign or "center"
     self.margins = config.margins or 4
     
-    -- Цвета
-    local colors = Provider.get_colors()
-    self.bg_default = config.bg_default or colors.surface
+    -- Цвета (изолированные)
+    self.bg_default = config.bg_default or "#2A2A3A"
     self.bg_hover = config.bg_hover or "#3A3A4C80"
-    self.bg_selected = config.bg_selected or colors.accent .. "40"
+    self.bg_selected = config.bg_selected or "#5A5A6A40"
     self.shape = config.shape or gears.shape.rounded_rect
     
     -- Создаем виджеты
@@ -107,7 +105,11 @@ function Button:_setup_events()
     -- Нажатие кнопки
     self.widget:buttons(gears.table.join(
         awful.button({}, 1, function()
-            -- Вызываем callback без анимации
+            -- Сбрасываем hover эффект
+            if not self.selected then
+                self.color_animator:animate_to(self.bg_default)
+            end
+            -- Вызываем callback
             self.on_click()
         end)
     ))

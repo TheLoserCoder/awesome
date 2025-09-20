@@ -1,6 +1,29 @@
 local awful = require("awful")
 local modkey = "Mod4"
 
+-- Функции для некруговой прокрутки тегов
+local function tag_view_nonempty_prev()
+    local screen = awful.screen.focused()
+    local current_tag = screen.selected_tag
+    if not current_tag then return end
+    
+    local current_index = current_tag.index
+    if current_index > 1 then
+        screen.tags[current_index - 1]:view_only()
+    end
+end
+
+local function tag_view_nonempty_next()
+    local screen = awful.screen.focused()
+    local current_tag = screen.selected_tag
+    if not current_tag then return end
+    
+    local current_index = current_tag.index
+    if current_index < #screen.tags then
+        screen.tags[current_index + 1]:view_only()
+    end
+end
+
 Keys = {
     awful.key({}, "Print", function()
         awful.spawn("flameshot gui")

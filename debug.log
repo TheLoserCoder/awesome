@@ -1,1269 +1,864 @@
-[2025-09-19 10:08:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:08:26] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:08:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:08:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:08:26] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:08:27] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:08:27] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:08:27] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:08:27] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:08:27] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:08:27] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:08:27] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:08:27] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:08:27] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:08:28] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:08:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:08:28] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:08:28] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:08:29] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:08:29] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:08:29] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:08:31] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:08:44] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:08:44] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:08:44] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:08:48] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:08:49] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:08:49] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:08:49] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:08:50] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:10:11] [PLAYERS_LIST] Creating PlayersList widget
-[2025-09-19 10:10:11] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:11] [NOTIFICATION_LIST] notification_center is nil
-[2025-09-19 10:10:11] [WEATHER] Creating weather widget
-[2025-09-19 10:10:11] [WEATHER] Existing data: not found
-[2025-09-19 10:10:11] [WEATHER] Starting API fetch
-[2025-09-19 10:10:11] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:10:11] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:11] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:11] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:10:11] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:11] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:11] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:11] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:11] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:11] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:11] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:11] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:12] [PLAYERS_LIST] Starting initial render
-[2025-09-19 10:10:12] [PLAYERS_LIST] Initial render found 0 players
-[2025-09-19 10:10:12] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:10:12] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:10:12] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:10:12] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:10:12] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:10:12] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:10:12] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:10:12] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:10:12] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:10:12] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:10:12] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:10:12] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:10:12] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:10:12] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:10:12] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:10:12] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:10:12] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:10:12] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:10:12] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:10:12] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:10:12] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:10:12] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:10:12] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:10:12] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:10:12] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:10:12] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:12] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:12] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:12] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:12] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:10:12] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:12] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:10:12] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
-[2025-09-19 10:10:12] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:10:13] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:10:14] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:10:14] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:14] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:10:14] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:10:14] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:10:14] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:14] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:14] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:14] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:15] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:15] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:15] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:15] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:16] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:16] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:16] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:16] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:16] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:16] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:16] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:16] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:17] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:17] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:17] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:17] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:19] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:19] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:19] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:19] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:23] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:23] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:23] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:23] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:26] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:10:26] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:10:26] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:10:29] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:10:31] [PLAYERS_LIST] Creating PlayersList widget
-[2025-09-19 10:10:31] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:31] [NOTIFICATION_LIST] notification_center is nil
-[2025-09-19 10:10:31] [WEATHER] Creating weather widget
-[2025-09-19 10:10:31] [WEATHER] Existing data: not found
-[2025-09-19 10:10:31] [WEATHER] Starting API fetch
-[2025-09-19 10:10:31] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:10:31] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:31] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:31] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:10:31] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:31] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:31] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:31] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:31] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:10:31] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:10:31] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:10:31] [PLAYERS_LIST] Starting initial render
-[2025-09-19 10:10:31] [PLAYERS_LIST] Initial render found 1 players
-[2025-09-19 10:10:31] [PLAYERS_LIST] Initial render adding: spotify
-[2025-09-19 10:10:31] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:10:31] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:10:31] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:10:31] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:10:31] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:10:31] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:10:31] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:10:31] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:10:31] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:10:31] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:10:31] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:10:31] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:10:31] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:10:31] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:10:31] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:10:31] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:10:31] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:10:31] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:10:31] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:10:31] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:10:31] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:10:31] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:10:31] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:10:32] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:10:32] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:10:32] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:10:32] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:10:32] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:10:32] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:10:32] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:32] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:32] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:33] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:10:33] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:10:33] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:10:36] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
-[2025-09-19 10:10:38] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:10:39] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:10:40] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:10:40] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:10:40] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:10:41] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:10:41] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:41] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:41] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:41] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:10:42] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:10:42] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:10:42] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:10:42] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:11:50] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:11:50] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:11:50] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:11:53] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:12:32] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:12:32] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:12:32] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:12:32] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:12:36] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:12:36] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:12:36] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:12:38] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:13:49] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:13:49] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:13:49] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:13:50] [PLAYERS_LIST] Metadata signal for player: firefox
-[2025-09-19 10:13:50] [PLAYERS_LIST] Adding player widget: firefox
-[2025-09-19 10:13:50] [PLAYERS_LIST] Player widget added successfully: firefox
-[2025-09-19 10:13:51] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:13:51] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:13:51] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:13:51] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:13:54] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:13:56] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:13:56] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:13:56] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:13:56] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:14:04] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:14:04] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:14:04] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:14:04] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:14:06] [PLAYERS_LIST] Playback status signal for player: firefox, playing: false
-[2025-09-19 10:14:07] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:14:07] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:14:07] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:14:12] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:14:12] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:14:12] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:14:12] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:14:15] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:14:15] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:14:15] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:14:15] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:14:17] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:14:23] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:14:23] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:14:23] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:14:23] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:14:24] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:14:24] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:14:24] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:14:24] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:14:24] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:14:24] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:14:24] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:14:24] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:15:27] [PLAYERS_LIST] Creating PlayersList widget
-[2025-09-19 10:15:27] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:15:27] [NOTIFICATION_LIST] notification_center is nil
-[2025-09-19 10:15:27] [WEATHER] Creating weather widget
-[2025-09-19 10:15:27] [WEATHER] Existing data: not found
-[2025-09-19 10:15:27] [WEATHER] Starting API fetch
-[2025-09-19 10:15:27] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:15:27] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:15:27] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:15:27] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:15:27] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:15:27] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:27] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:15:27] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:15:27] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:15:27] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:27] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:15:27] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:15:27] [PLAYERS_LIST] Starting initial render
-[2025-09-19 10:15:27] [PLAYERS_LIST] Initial render found 0 players
-[2025-09-19 10:15:27] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:15:27] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:15:27] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:15:27] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:15:27] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:15:27] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:15:27] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:15:27] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:15:27] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:15:27] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:15:27] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:15:27] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:15:27] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:15:27] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:15:27] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:15:27] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:15:27] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:15:27] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:15:27] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:15:27] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:15:27] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:15:27] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:15:27] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:15:27] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:27] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:15:27] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:15:28] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:15:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:15:28] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:15:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:15:28] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:15:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:15:28] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:15:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:15:28] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:15:28] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:15:28] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:15:28] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:15:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:15:28] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:15:29] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:15:29] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:29] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:15:29] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:15:29] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:15:29] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:15:29] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:29] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:15:29] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:15:29] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:15:32] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:15:32] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:15:32] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:32] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:15:32] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:15:32] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:15:32] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:15:32] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:32] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:15:32] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:15:32] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:15:37] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:15:37] [PLAYERS_LIST] Adding player widget: firefox
-[2025-09-19 10:15:37] [PLAYERS_LIST] Player widget added successfully: firefox
-[2025-09-19 10:15:38] [NOTIFICATION_LIST] Updating times for 1 items
-[2025-09-19 10:15:38] [NotificationItem] Updating time from сейчас to сейчас
-[2025-09-19 10:15:38] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:15:38] [NOTIFICATION_LIST] Updating times for 1 items
-[2025-09-19 10:15:38] [NotificationItem] Updating time from сейчас to сейчас
-[2025-09-19 10:15:40] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:15:40] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:40] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:15:40] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:15:40] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:15:40] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:15:42] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:15:43] [NOTIFICATION_LIST] Updating times for 1 items
-[2025-09-19 10:15:43] [NotificationItem] Updating time from сейчас to сейчас
-[2025-09-19 10:15:43] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:15:43] [NOTIFICATION_LIST] Updating times for 1 items
-[2025-09-19 10:15:43] [NotificationItem] Updating time from сейчас to сейчас
-[2025-09-19 10:15:44] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:15:46] [PLAYERS_LIST] Playback status signal for player: firefox, playing: false
-[2025-09-19 10:15:46] [PLAYERS_LIST] Playback status signal for player: firefox, playing: true
-[2025-09-19 10:15:46] [NOTIFICATION_LIST] Updating times for 1 items
-[2025-09-19 10:15:46] [NotificationItem] Updating time from сейчас to сейчас
-[2025-09-19 10:15:46] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:15:46] [NOTIFICATION_LIST] Updating times for 1 items
-[2025-09-19 10:15:46] [NotificationItem] Updating time from сейчас to сейчас
-[2025-09-19 10:15:46] [PLAYERS_LIST] Metadata signal for player: firefox
-[2025-09-19 10:15:47] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:15:49] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:15:52] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:15:54] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:15:54] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:54] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:15:54] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:15:54] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:15:54] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:15:54] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:54] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:15:54] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:15:55] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:15:55] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:55] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:15:55] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:15:55] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:15:55] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:55] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:15:55] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:15:56] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:15:56] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:15:56] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:15:56] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:15:57] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:15:58] [PLAYERS_LIST] Playback status signal for player: firefox, playing: false
-[2025-09-19 10:15:58] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:15:58] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:15:59] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:15:59] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:15:59] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:16:01] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:16:01] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:16:01] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:16:01] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:16:02] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:02] [PLAYERS_LIST] Attempting to remove player widget: firefox
-[2025-09-19 10:16:02] [PLAYERS_LIST] Player widget removed successfully: firefox
-[2025-09-19 10:16:02] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:16:07] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:12] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:17] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:22] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:27] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:27] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:16:27] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:16:27] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:16:32] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:33] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:16:34] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:16:34] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:16:34] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:16:35] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:16:37] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:42] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:43] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:16:43] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:16:43] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:16:43] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:16:47] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:47] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:16:47] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:16:47] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:16:47] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:16:47] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:16:47] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:16:47] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:16:47] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:16:52] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:16:57] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:02] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:07] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:08] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:08] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:17:08] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:09] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
-[2025-09-19 10:17:10] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:17:12] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:13] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:17:14] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:17:14] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:17:14] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:17:14] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:17:17] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:22] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:27] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:32] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:37] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:39] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:39] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:17:39] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:39] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:17:42] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:43] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:43] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:17:43] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:44] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:17:46] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:46] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:17:46] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:47] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:52] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:52] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:17:52] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:52] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:17:52] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:54] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
-[2025-09-19 10:17:55] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:17:56] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:17:57] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:17:59] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:17:59] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:17:59] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:18:01] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
-[2025-09-19 10:18:01] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:18:02] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:03] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:18:04] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:18:05] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:18:05] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:18:05] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:18:05] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:18:07] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:12] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:17] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:22] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:27] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:32] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:37] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:42] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:47] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:52] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:18:57] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:19:02] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:19:07] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:19:12] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:19:17] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:19:22] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:19:27] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:19:32] [PLAYERS_LIST] Timer check for removed players
-[2025-09-19 10:19:33] [PLAYERS_LIST] Creating PlayersList widget
-[2025-09-19 10:19:33] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:19:33] [NOTIFICATION_LIST] notification_center is nil
-[2025-09-19 10:19:33] [WEATHER] Creating weather widget
-[2025-09-19 10:19:33] [WEATHER] Existing data: not found
-[2025-09-19 10:19:33] [WEATHER] Starting API fetch
-[2025-09-19 10:19:33] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:19:33] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:19:33] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:19:33] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:19:33] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:19:33] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:19:33] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:19:33] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:19:33] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:19:33] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:19:33] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:19:33] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:19:33] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:19:33] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:19:33] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:19:33] [PLAYERS_LIST] Starting initial render
-[2025-09-19 10:19:33] [PLAYERS_LIST] Initial render found 1 players
-[2025-09-19 10:19:33] [PLAYERS_LIST] Initial render adding: spotify
-[2025-09-19 10:19:33] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:19:33] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:19:33] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:19:33] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:19:33] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
-[2025-09-19 10:19:33] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:19:34] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:19:34] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:19:34] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:19:34] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:19:34] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:19:34] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:19:34] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:19:34] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:19:34] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:19:34] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:19:34] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:19:34] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:19:34] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:19:34] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:19:34] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:19:34] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:19:34] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:19:34] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:19:34] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:19:34] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:19:34] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:19:34] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:19:35] [NOTIFICATION_LIST] Updating times for 1 items
-[2025-09-19 10:19:35] [NotificationItem] Updating time from сейчас to сейчас
-[2025-09-19 10:19:35] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:19:35] [NOTIFICATION_LIST] Updating times for 1 items
-[2025-09-19 10:19:35] [NotificationItem] Updating time from сейчас to сейчас
-[2025-09-19 10:19:36] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:19:36] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:19:36] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:19:36] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:19:36] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:19:38] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
-[2025-09-19 10:19:41] [PLAYERS_LIST] Attempting to remove player widget: spotify
-[2025-09-19 10:19:41] [PLAYERS_LIST] Player widget removed successfully: spotify
-[2025-09-19 10:19:41] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:19:41] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:19:41] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:19:42] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:19:47] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:19:47] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:19:47] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:19:47] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:19:47] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:19:47] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:19:47] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:19:47] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:19:49] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:19:49] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:19:49] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:19:51] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
-[2025-09-19 10:19:52] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:19:52] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:19:52] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:19:52] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:19:54] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:19:54] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:19:54] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:19:54] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:19:54] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:19:55] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:19:55] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:19:55] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:19:55] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:20:06] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:20:06] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:20:06] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:20:07] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:20:08] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:20:11] [PLAYERS_LIST] Adding player widget: firefox
-[2025-09-19 10:20:11] [PLAYERS_LIST] Player widget added successfully: firefox
-[2025-09-19 10:20:12] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:20:12] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:20:12] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:20:13] [PLAYERS_LIST] Metadata signal for player: firefox
-[2025-09-19 10:20:13] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:20:16] [PLAYERS_LIST] Playback status signal for player: firefox, playing: false
-[2025-09-19 10:20:16] [PLAYERS_LIST] Playback status signal for player: firefox, playing: true
-[2025-09-19 10:20:16] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:20:16] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:20:16] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:20:17] [PLAYERS_LIST] Metadata signal for player: firefox
-[2025-09-19 10:20:18] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:20:19] [PLAYERS_LIST] Playback status signal for player: firefox, playing: false
-[2025-09-19 10:20:19] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:20:19] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:20:20] [PLAYERS_LIST] Attempting to remove player widget: firefox
-[2025-09-19 10:20:20] [PLAYERS_LIST] Player widget removed successfully: firefox
-[2025-09-19 10:20:20] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:20:20] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:20:20] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:20:21] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:20:22] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:20:22] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:20:22] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:20:23] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
-[2025-09-19 10:20:40] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:21:14] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:21:14] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:21:14] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:21:15] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:21:15] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:22:46] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:22:46] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:22:46] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:22:48] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:22:49] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:22:49] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:22:49] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:22:54] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:22:56] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:22:56] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:22:56] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:22:56] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:22:56] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:22:56] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:22:56] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:22:56] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:22:56] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:22:58] [PLAYERS_LIST] Attempting to remove player widget: spotify
-[2025-09-19 10:22:58] [PLAYERS_LIST] Player widget removed successfully: spotify
-[2025-09-19 10:22:58] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:22:58] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:22:58] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:23:00] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:23:01] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:23:01] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:23:01] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:23:02] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:23:03] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:23:03] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:23:03] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:23:04] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:23:04] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:04] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:23:04] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:23:05] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:23:05] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:05] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:23:05] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:23:06] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:23:25] [PLAYERS_LIST] Creating PlayersList widget
-[2025-09-19 10:23:25] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:23:25] [NOTIFICATION_LIST] notification_center is nil
-[2025-09-19 10:23:25] [WEATHER] Creating weather widget
-[2025-09-19 10:23:25] [WEATHER] Existing data: not found
-[2025-09-19 10:23:25] [WEATHER] Starting API fetch
-[2025-09-19 10:23:25] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:23:25] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:23:25] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:23:25] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:23:25] [PLAYERS_LIST] Starting initial render
-[2025-09-19 10:23:25] [PLAYERS_LIST] Initial render found 0 players
-[2025-09-19 10:23:25] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:23:25] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:23:25] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:23:25] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:23:25] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:23:25] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:23:25] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:23:25] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:23:25] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:23:25] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:23:25] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:23:25] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:23:25] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:23:25] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:23:25] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:23:25] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:23:25] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:23:25] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:23:25] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:23:25] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:23:25] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:23:25] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:23:26] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:23:26] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:23:26] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:23:26] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:23:26] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:26] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:23:26] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:23:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:26] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
-[2025-09-19 10:23:26] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:23:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:26] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:23:26] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:23:26] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:23:27] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:27] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:27] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:27] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:23:27] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:23:27] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:27] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:27] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:27] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:23:27] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:23:28] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:28] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:28] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:23:28] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:23:28] [NOTIFICATION_LIST] Subscribe callback called with 2 notifications
-[2025-09-19 10:23:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:28] [DESKTOP_NOTIFICATIONS] Received 2 notifications
-[2025-09-19 10:23:28] [DESKTOP_NOTIFICATIONS] Latest notification ID: 2, last_id: 1
-[2025-09-19 10:23:28] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:23:28] [NOTIFICATION_LIST] Subscribe callback called with 3 notifications
-[2025-09-19 10:23:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:28] [DESKTOP_NOTIFICATIONS] Received 3 notifications
-[2025-09-19 10:23:28] [DESKTOP_NOTIFICATIONS] Latest notification ID: 3, last_id: 2
-[2025-09-19 10:23:28] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:23:31] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:31] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:31] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:31] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 3
-[2025-09-19 10:23:31] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:23:32] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:32] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:32] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:32] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 3
-[2025-09-19 10:23:32] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:23:33] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:33] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:33] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:33] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 3
-[2025-09-19 10:23:33] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:23:36] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:36] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:36] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:36] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 3
-[2025-09-19 10:23:36] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:23:37] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:37] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:37] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:37] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 3
-[2025-09-19 10:23:37] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:23:38] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:38] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:38] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:38] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 3
-[2025-09-19 10:23:38] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:23:43] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:23:43] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:23:43] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:23:43] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 3
-[2025-09-19 10:23:43] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:24:22] [PLAYERS_LIST] Creating PlayersList widget
-[2025-09-19 10:24:22] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:24:22] [NOTIFICATION_LIST] notification_center is nil
-[2025-09-19 10:24:22] [WEATHER] Creating weather widget
-[2025-09-19 10:24:22] [WEATHER] Existing data: not found
-[2025-09-19 10:24:22] [WEATHER] Starting API fetch
-[2025-09-19 10:24:22] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:24:22] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:24:22] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:24:22] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:24:22] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:24:22] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:22] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:24:22] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:24:23] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:24:23] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:24:23] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:24:23] [PLAYERS_LIST] Starting initial render
-[2025-09-19 10:24:23] [PLAYERS_LIST] Initial render found 1 players
-[2025-09-19 10:24:23] [PLAYERS_LIST] Initial render adding: spotify
-[2025-09-19 10:24:23] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:24:23] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:24:23] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:24:23] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:24:23] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:24:23] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:24:23] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:24:23] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:24:23] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:24:23] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:24:23] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:24:23] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:24:23] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:24:23] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:24:23] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:24:23] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:24:23] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:24:23] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:24:23] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:24:23] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:24:23] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:24:23] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:24:23] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:24:23] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:24:23] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:24:23] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:24:23] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:24:23] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:24:23] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:24:23] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:24:23] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:24:23] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:24:25] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:24:25] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:25] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:24:25] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:24:26] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:24:26] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:26] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:24:26] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:24:28] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:24:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:28] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:24:28] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:24:28] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:24:28] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:28] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:24:28] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:24:29] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:24:29] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:29] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:24:29] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:24:30] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:24:30] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:30] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:24:30] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:24:30] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:24:30] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:24:30] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:24:30] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:24:59] [PLAYERS_LIST] Creating PlayersList widget
-[2025-09-19 10:24:59] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:24:59] [NOTIFICATION_LIST] notification_center is nil
-[2025-09-19 10:24:59] [WEATHER] Creating weather widget
-[2025-09-19 10:24:59] [WEATHER] Existing data: not found
-[2025-09-19 10:24:59] [WEATHER] Starting API fetch
-[2025-09-19 10:24:59] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:00] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:25:00] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:00] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:00] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:25:00] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:25:00] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:25:00] [PLAYERS_LIST] Starting initial render
-[2025-09-19 10:25:00] [PLAYERS_LIST] Initial render found 1 players
-[2025-09-19 10:25:00] [PLAYERS_LIST] Initial render adding: spotify
-[2025-09-19 10:25:00] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:00] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:25:00] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:00] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:25:00] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:00] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:25:00] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:25:00] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:25:00] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:25:00] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:25:00] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:25:00] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:25:00] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:25:00] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:25:00] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:25:00] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:25:00] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:25:00] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:25:00] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:25:00] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:25:00] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:25:00] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:25:00] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:25:00] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:25:00] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:25:00] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:25:00] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:25:00] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:25:00] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:25:00] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:25:02] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:02] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:02] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:02] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:25:02] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:25:02] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:02] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:02] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:02] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:02] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:02] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:02] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:02] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:04] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:04] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:04] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:04] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:05] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:05] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:05] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:05] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:16] [PLAYERS_LIST] Creating PlayersList widget
-[2025-09-19 10:25:16] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:16] [NOTIFICATION_LIST] notification_center is nil
-[2025-09-19 10:25:16] [WEATHER] Creating weather widget
-[2025-09-19 10:25:16] [WEATHER] Existing data: not found
-[2025-09-19 10:25:16] [WEATHER] Starting API fetch
-[2025-09-19 10:25:16] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:25:16] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:16] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:16] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:25:16] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:16] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:16] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:16] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:16] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:25:16] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:25:16] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:25:16] [PLAYERS_LIST] Starting initial render
-[2025-09-19 10:25:16] [PLAYERS_LIST] Initial render found 1 players
-[2025-09-19 10:25:16] [PLAYERS_LIST] Initial render adding: spotify
-[2025-09-19 10:25:16] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:16] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:16] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:16] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
-[2025-09-19 10:25:16] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:25:16] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:25:16] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:25:16] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:25:16] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:25:16] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:25:16] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:25:16] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:25:16] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:25:16] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:25:16] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:25:16] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:25:16] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:25:16] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:25:16] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:25:16] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:25:16] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:25:16] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:25:16] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:25:16] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:25:16] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:25:16] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:25:16] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:25:16] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:25:17] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:17] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:17] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:17] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:18] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:18] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:18] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:18] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:19] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:19] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:19] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:19] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:19] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:19] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:19] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:19] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:21] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:21] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:21] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:21] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:22] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:22] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:22] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:22] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:25] [PLAYERS_LIST] Creating PlayersList widget
-[2025-09-19 10:25:25] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:25] [NOTIFICATION_LIST] notification_center is nil
-[2025-09-19 10:25:25] [WEATHER] Creating weather widget
-[2025-09-19 10:25:25] [WEATHER] Existing data: not found
-[2025-09-19 10:25:25] [WEATHER] Starting API fetch
-[2025-09-19 10:25:25] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:25:25] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:25] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:25] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:25:25] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:25] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:25] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:25] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:25] [PLAYERS_LIST] Playback status signal for player: spotify, playing: false
-[2025-09-19 10:25:25] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:25:25] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:25:25] [PLAYERS_LIST] Starting initial render
-[2025-09-19 10:25:25] [PLAYERS_LIST] Initial render found 1 players
-[2025-09-19 10:25:25] [PLAYERS_LIST] Initial render adding: spotify
-[2025-09-19 10:25:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:26] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:25:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:26] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:25:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:26] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:25:26] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:25:26] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:25:26] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:25:26] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:25:26] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:25:26] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:25:26] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:25:26] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:25:26] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:25:26] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:25:26] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:25:26] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:25:26] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:25:26] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:25:26] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:25:26] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:25:26] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:25:26] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:25:26] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:25:26] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:25:26] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:25:26] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:25:26] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:25:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:26] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:25:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:26] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:25:26] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:25:27] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:27] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:27] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:27] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:25:27] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:25:38] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:38] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:38] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:38] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:39] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:39] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:39] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:39] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:41] [PLAYERS_LIST] Creating PlayersList widget
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] notification_center is nil
-[2025-09-19 10:25:41] [WEATHER] Creating weather widget
-[2025-09-19 10:25:41] [WEATHER] Existing data: not found
-[2025-09-19 10:25:41] [WEATHER] Starting API fetch
-[2025-09-19 10:25:41] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:41] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:41] [PLAYERS_LIST] Starting initial render
-[2025-09-19 10:25:41] [PLAYERS_LIST] Initial render found 0 players
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:41] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
-[2025-09-19 10:25:41] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
-[2025-09-19 10:25:42] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
-[2025-09-19 10:25:42] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:42] [DESKTOP_NOTIFICATIONS] Received 1 notifications
-[2025-09-19 10:25:42] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
-[2025-09-19 10:25:42] [DESKTOP_NOTIFICATIONS] Notification is not new
-[2025-09-19 10:25:42] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:25:42] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:25:42] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:25:42] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:25:42] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:25:42] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:25:42] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:25:42] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:25:42] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:25:42] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:25:42] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:25:42] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:25:42] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:25:42] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:25:42] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:25:42] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:25:42] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:25:42] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:25:42] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:25:42] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:25:42] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:25:42] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:25:42] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:42] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:42] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:42] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:44] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:44] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:44] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:44] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:25:47] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:25:47] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:25:47] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:25:47] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:26:14] [PLAYERS_LIST] Adding player widget: spotify
-[2025-09-19 10:26:14] [PLAYERS_LIST] Player widget added successfully: spotify
-[2025-09-19 10:26:15] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:26:15] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:26:15] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:26:15] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
-[2025-09-19 10:26:16] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:26:18] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:26:18] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:26:18] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:26:18] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:26:18] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:26:20] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:26:20] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:26:20] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:26:21] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:26:21] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:26:21] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:26:21] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:26:25] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:26:25] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:26:25] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:26:25] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:26:54] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:26:59] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:26:59] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:26:59] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:27:05] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:27:05] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:27:05] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:27:05] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:27:06] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:27:13] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:27:13] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:27:13] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:27:14] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:27:14] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:27:14] [NOTIFICATION_LIST] notification_center_open event: true
-[2025-09-19 10:27:14] [NOTIFICATION_LIST] Updating times for 0 items
-[2025-09-19 10:27:16] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:27:18] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:27:19] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:27:19] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:27:19] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:27:19] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:27:20] [NOTIFICATION_LIST] notification_center_open event: false
-[2025-09-19 10:30:16] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:32:48] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:35:41] [WEATHER_API] Fetching weather data...
-[2025-09-19 10:35:41] [WEATHER_API] Request completed with exit code: 0
-[2025-09-19 10:35:41] [WEATHER_API] Parsing weather data...
-[2025-09-19 10:35:41] [WEATHER_API] Got first timeseries entry
-[2025-09-19 10:35:41] [WEATHER_API] Weather data updated: temp=16,3, humidity=71,3
-[2025-09-19 10:35:41] [WEATHER] Weather code: clearsky_day, hour: current
-[2025-09-19 10:35:41] [WEATHER] Weather code: clearsky_night, hour: 0
-[2025-09-19 10:35:41] [WEATHER] Weather code: partlycloudy_day, hour: 4
-[2025-09-19 10:35:41] [WEATHER] Weather code: clearsky_day, hour: 8
-[2025-09-19 10:35:41] [WEATHER] Weather code: clearsky_day, hour: 12
-[2025-09-19 10:35:41] [WEATHER] Weather code: partlycloudy_night, hour: 16
-[2025-09-19 10:35:41] [WEATHER] Weather code: cloudy, hour: 20
-[2025-09-19 10:37:08] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:40:48] [PLAYERS_LIST] Metadata signal for player: spotify
-[2025-09-19 10:41:02] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:41:02] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:41:02] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:41:02] [DESKTOP_NOTIFICATIONS] No notifications to display
-[2025-09-19 10:41:04] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
-[2025-09-19 10:41:04] [NOTIFICATION_LIST] Updating notification_center
-[2025-09-19 10:41:04] [DESKTOP_NOTIFICATIONS] Received 0 notifications
-[2025-09-19 10:41:04] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:24:11] taglist_mover
+[2025-09-20 07:24:11] taglist_sizer
+[2025-09-20 07:24:11] taglist_init
+[2025-09-20 07:24:11] taglist_init
+[2025-09-20 07:24:11] [PLAYERS_LIST] Creating PlayersList widget
+[2025-09-20 07:24:11] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:24:11] [NOTIFICATION_LIST] notification_center is nil
+[2025-09-20 07:24:11] [WEATHER] Creating weather widget
+[2025-09-20 07:24:11] [WEATHER] Existing data: not found
+[2025-09-20 07:24:11] [WEATHER] Starting API fetch
+[2025-09-20 07:24:11] [WEATHER_API] Fetching weather data...
+[2025-09-20 07:24:11] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:24:11] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:24:11] [WEATHER_API] Fetching weather data...
+[2025-09-20 07:24:12] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:24:12] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:24:12] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
+[2025-09-20 07:24:12] [PLAYERS_LIST] Adding player widget: spotify
+[2025-09-20 07:24:12] [PLAYERS_LIST] Player widget added successfully: spotify
+[2025-09-20 07:24:12] [PLAYERS_LIST] Starting initial render
+[2025-09-20 07:24:12] [PLAYERS_LIST] Initial render found 1 players
+[2025-09-20 07:24:12] [PLAYERS_LIST] Initial render adding: spotify
+[2025-09-20 07:24:12] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:24:12] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
+[2025-09-20 07:24:12] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:24:12] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:24:12] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:24:12] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:24:12] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:24:12] [PLAYERS_LIST] Metadata signal for player: spotify
+[2025-09-20 07:24:12] [WEATHER_API] Request completed with exit code: 0
+[2025-09-20 07:24:12] [WEATHER_API] Parsing weather data...
+[2025-09-20 07:24:12] [WEATHER_API] Got first timeseries entry
+[2025-09-20 07:24:12] [WEATHER_API] Weather data updated: temp=14,0, humidity=86,4
+[2025-09-20 07:24:12] [WEATHER] Weather code: lightrainshowers_night, hour: current
+[2025-09-20 07:24:12] [WEATHER] Weather code: clearsky_night, hour: 0
+[2025-09-20 07:24:12] [WEATHER] Weather code: fair_day, hour: 4
+[2025-09-20 07:24:12] [WEATHER] Weather code: fair_day, hour: 8
+[2025-09-20 07:24:12] [WEATHER] Weather code: partlycloudy_day, hour: 12
+[2025-09-20 07:24:12] [WEATHER] Weather code: partlycloudy_night, hour: 16
+[2025-09-20 07:24:12] [WEATHER] Weather code: clearsky_night, hour: 20
+[2025-09-20 07:24:12] [WEATHER_API] Request completed with exit code: 0
+[2025-09-20 07:24:12] [WEATHER_API] Parsing weather data...
+[2025-09-20 07:24:12] [WEATHER_API] Got first timeseries entry
+[2025-09-20 07:24:12] [WEATHER_API] Weather data updated: temp=14,0, humidity=86,4
+[2025-09-20 07:24:12] [WEATHER] Weather code: lightrainshowers_night, hour: current
+[2025-09-20 07:24:12] [WEATHER] Weather code: clearsky_night, hour: 0
+[2025-09-20 07:24:12] [WEATHER] Weather code: fair_day, hour: 4
+[2025-09-20 07:24:12] [WEATHER] Weather code: fair_day, hour: 8
+[2025-09-20 07:24:12] [WEATHER] Weather code: partlycloudy_day, hour: 12
+[2025-09-20 07:24:12] [WEATHER] Weather code: partlycloudy_night, hour: 16
+[2025-09-20 07:24:12] [WEATHER] Weather code: clearsky_night, hour: 20
+[2025-09-20 07:24:14] taglist_mover
+[2025-09-20 07:24:14] taglist_sizer
+[2025-09-20 07:24:14] taglist_mover
+[2025-09-20 07:24:14] taglist_sizer
+[2025-09-20 07:24:14] taglist_mover
+[2025-09-20 07:24:14] taglist_sizer
+[2025-09-20 07:24:14] taglist_mover
+[2025-09-20 07:24:14] taglist_sizer
+[2025-09-20 07:24:14] taglist_mover
+[2025-09-20 07:24:14] taglist_sizer
+[2025-09-20 07:24:14] taglist_mover
+[2025-09-20 07:24:16] taglist_signal
+[2025-09-20 07:24:16] taglist_signal
+[2025-09-20 07:24:16] taglist_move
+[2025-09-20 07:24:16] taglist_move
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:16] taglist_sizer
+[2025-09-20 07:24:16] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:24:16] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:24:16] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:24:16] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:24:16] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:16] taglist_sizer
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:16] taglist_sizer
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:16] taglist_sizer
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:16] taglist_sizer
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:16] taglist_sizer
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:16] taglist_sizer
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:16] taglist_mover
+[2025-09-20 07:24:59] taglist_mover
+[2025-09-20 07:24:59] taglist_sizer
+[2025-09-20 07:24:59] taglist_init
+[2025-09-20 07:24:59] taglist_init
+[2025-09-20 07:24:59] [PLAYERS_LIST] Creating PlayersList widget
+[2025-09-20 07:24:59] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:24:59] [NOTIFICATION_LIST] notification_center is nil
+[2025-09-20 07:24:59] [WEATHER] Creating weather widget
+[2025-09-20 07:24:59] [WEATHER] Existing data: not found
+[2025-09-20 07:24:59] [WEATHER] Starting API fetch
+[2025-09-20 07:24:59] [WEATHER_API] Fetching weather data...
+[2025-09-20 07:25:00] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:25:00] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:25:00] [WEATHER_API] Fetching weather data...
+[2025-09-20 07:25:00] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:25:00] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:25:00] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:25:00] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:25:00] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
+[2025-09-20 07:25:00] [PLAYERS_LIST] Adding player widget: spotify
+[2025-09-20 07:25:00] [PLAYERS_LIST] Player widget added successfully: spotify
+[2025-09-20 07:25:00] [PLAYERS_LIST] Starting initial render
+[2025-09-20 07:25:00] [PLAYERS_LIST] Initial render found 1 players
+[2025-09-20 07:25:00] [PLAYERS_LIST] Initial render adding: spotify
+[2025-09-20 07:25:00] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:25:00] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:25:00] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:25:00] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
+[2025-09-20 07:25:00] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
+[2025-09-20 07:25:01] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:25:01] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:25:01] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:25:01] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:25:01] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:25:01] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:25:01] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:25:01] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:25:01] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:25:01] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:25:01] [PLAYERS_LIST] Metadata signal for player: spotify
+[2025-09-20 07:25:01] [WEATHER_API] Request completed with exit code: 0
+[2025-09-20 07:25:01] [WEATHER_API] Parsing weather data...
+[2025-09-20 07:25:01] [WEATHER_API] Got first timeseries entry
+[2025-09-20 07:25:01] [WEATHER_API] Weather data updated: temp=14,0, humidity=86,4
+[2025-09-20 07:25:01] [WEATHER] Weather code: lightrainshowers_night, hour: current
+[2025-09-20 07:25:01] [WEATHER] Weather code: clearsky_night, hour: 0
+[2025-09-20 07:25:01] [WEATHER] Weather code: fair_day, hour: 4
+[2025-09-20 07:25:01] [WEATHER] Weather code: fair_day, hour: 8
+[2025-09-20 07:25:01] [WEATHER] Weather code: partlycloudy_day, hour: 12
+[2025-09-20 07:25:01] [WEATHER] Weather code: partlycloudy_night, hour: 16
+[2025-09-20 07:25:01] [WEATHER] Weather code: clearsky_night, hour: 20
+[2025-09-20 07:25:01] [WEATHER_API] Request completed with exit code: 0
+[2025-09-20 07:25:01] [WEATHER_API] Parsing weather data...
+[2025-09-20 07:25:01] [WEATHER_API] Got first timeseries entry
+[2025-09-20 07:25:01] [WEATHER_API] Weather data updated: temp=14,0, humidity=86,4
+[2025-09-20 07:25:01] [WEATHER] Weather code: lightrainshowers_night, hour: current
+[2025-09-20 07:25:01] [WEATHER] Weather code: clearsky_night, hour: 0
+[2025-09-20 07:25:01] [WEATHER] Weather code: fair_day, hour: 4
+[2025-09-20 07:25:01] [WEATHER] Weather code: fair_day, hour: 8
+[2025-09-20 07:25:01] [WEATHER] Weather code: partlycloudy_day, hour: 12
+[2025-09-20 07:25:01] [WEATHER] Weather code: partlycloudy_night, hour: 16
+[2025-09-20 07:25:01] [WEATHER] Weather code: clearsky_night, hour: 20
+[2025-09-20 07:25:01] taglist_mover
+[2025-09-20 07:25:01] taglist_sizer
+[2025-09-20 07:25:01] taglist_mover
+[2025-09-20 07:25:01] taglist_sizer
+[2025-09-20 07:25:01] taglist_mover
+[2025-09-20 07:25:01] taglist_sizer
+[2025-09-20 07:25:01] taglist_mover
+[2025-09-20 07:25:01] taglist_sizer
+[2025-09-20 07:25:01] taglist_mover
+[2025-09-20 07:25:01] taglist_sizer
+[2025-09-20 07:25:01] taglist_mover
+[2025-09-20 07:25:03] taglist_signal
+[2025-09-20 07:25:03] taglist_signal
+[2025-09-20 07:25:03] taglist_move
+[2025-09-20 07:25:03] taglist_move
+[2025-09-20 07:25:03] taglist_mover
+[2025-09-20 07:25:03] taglist_sizer
+[2025-09-20 07:25:03] taglist_mover
+[2025-09-20 07:25:03] taglist_sizer
+[2025-09-20 07:25:03] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:25:03] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:25:03] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:25:03] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:25:03] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:25:03] taglist_mover
+[2025-09-20 07:25:03] taglist_sizer
+[2025-09-20 07:25:03] taglist_mover
+[2025-09-20 07:25:03] taglist_sizer
+[2025-09-20 07:25:04] taglist_mover
+[2025-09-20 07:25:04] taglist_sizer
+[2025-09-20 07:25:04] taglist_mover
+[2025-09-20 07:25:04] taglist_sizer
+[2025-09-20 07:25:04] taglist_mover
+[2025-09-20 07:25:04] taglist_mover
+[2025-09-20 07:25:33] [NOTIFICATION_LIST] Updating times for 1 items
+[2025-09-20 07:25:33] [NotificationItem] Updating time from сейчас to сейчас
+[2025-09-20 07:25:33] [NOTIFICATION_LIST] notification_center_open event: true
+[2025-09-20 07:25:33] [NOTIFICATION_LIST] Updating times for 1 items
+[2025-09-20 07:25:33] [NotificationItem] Updating time from сейчас to сейчас
+[2025-09-20 07:25:34] [PLAYERS_LIST] Metadata signal for player: spotify
+[2025-09-20 07:25:35] [NOTIFICATION_LIST] notification_center_open event: false
+[2025-09-20 07:27:21] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:27:21] taglist_sizer width: 16 (type: number) - caller: 
+[2025-09-20 07:27:21] taglist_init setting initial position
+[2025-09-20 07:27:21] taglist_init initial tag: 1, pos: 0, width: 27,0
+[2025-09-20 07:27:21] [PLAYERS_LIST] Creating PlayersList widget
+[2025-09-20 07:27:21] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:27:21] [NOTIFICATION_LIST] notification_center is nil
+[2025-09-20 07:27:21] [WEATHER] Creating weather widget
+[2025-09-20 07:27:21] [WEATHER] Existing data: not found
+[2025-09-20 07:27:21] [WEATHER] Starting API fetch
+[2025-09-20 07:27:21] [WEATHER_API] Fetching weather data...
+[2025-09-20 07:27:21] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:27:21] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:27:21] [WEATHER_API] Fetching weather data...
+[2025-09-20 07:27:21] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:27:21] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:27:21] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:27:21] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:27:21] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
+[2025-09-20 07:27:21] [PLAYERS_LIST] Adding player widget: spotify
+[2025-09-20 07:27:21] [PLAYERS_LIST] Player widget added successfully: spotify
+[2025-09-20 07:27:21] [PLAYERS_LIST] Starting initial render
+[2025-09-20 07:27:21] [PLAYERS_LIST] Initial render found 1 players
+[2025-09-20 07:27:21] [PLAYERS_LIST] Initial render adding: spotify
+[2025-09-20 07:27:22] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:27:22] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:27:22] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:27:22] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
+[2025-09-20 07:27:22] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
+[2025-09-20 07:27:22] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:27:22] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:27:22] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:27:22] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:27:22] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:27:22] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:27:22] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:27:22] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:27:22] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:27:22] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:27:22] [PLAYERS_LIST] Metadata signal for player: spotify
+[2025-09-20 07:27:22] [WEATHER_API] Request completed with exit code: 0
+[2025-09-20 07:27:22] [WEATHER_API] Parsing weather data...
+[2025-09-20 07:27:22] [WEATHER_API] Got first timeseries entry
+[2025-09-20 07:27:22] [WEATHER_API] Weather data updated: temp=14,0, humidity=86,4
+[2025-09-20 07:27:22] [WEATHER] Weather code: lightrainshowers_night, hour: current
+[2025-09-20 07:27:22] [WEATHER] Weather code: clearsky_night, hour: 0
+[2025-09-20 07:27:22] [WEATHER] Weather code: fair_day, hour: 4
+[2025-09-20 07:27:22] [WEATHER] Weather code: fair_day, hour: 8
+[2025-09-20 07:27:22] [WEATHER] Weather code: partlycloudy_day, hour: 12
+[2025-09-20 07:27:22] [WEATHER] Weather code: partlycloudy_night, hour: 16
+[2025-09-20 07:27:22] [WEATHER] Weather code: clearsky_night, hour: 20
+[2025-09-20 07:27:22] [WEATHER_API] Request completed with exit code: 0
+[2025-09-20 07:27:22] [WEATHER_API] Parsing weather data...
+[2025-09-20 07:27:22] [WEATHER_API] Got first timeseries entry
+[2025-09-20 07:27:22] [WEATHER_API] Weather data updated: temp=14,0, humidity=86,4
+[2025-09-20 07:27:22] [WEATHER] Weather code: lightrainshowers_night, hour: current
+[2025-09-20 07:27:22] [WEATHER] Weather code: clearsky_night, hour: 0
+[2025-09-20 07:27:22] [WEATHER] Weather code: fair_day, hour: 4
+[2025-09-20 07:27:22] [WEATHER] Weather code: fair_day, hour: 8
+[2025-09-20 07:27:22] [WEATHER] Weather code: partlycloudy_day, hour: 12
+[2025-09-20 07:27:22] [WEATHER] Weather code: partlycloudy_night, hour: 16
+[2025-09-20 07:27:22] [WEATHER] Weather code: clearsky_night, hour: 20
+[2025-09-20 07:27:23] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:27:23] taglist_sizer width: 27,0 (type: number) - caller: 
+[2025-09-20 07:27:23] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:27:23] taglist_sizer width: 27,0 (type: number) - caller: 
+[2025-09-20 07:27:23] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:27:23] taglist_sizer width: 27,0 (type: number) - caller: 
+[2025-09-20 07:27:23] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:27:23] taglist_sizer width: 16 (type: number) - caller: 
+[2025-09-20 07:27:23] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:27:23] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:27:24] taglist_signal tag 1 selected: false
+[2025-09-20 07:27:24] taglist_signal tag 4 selected: true
+[2025-09-20 07:27:24] taglist_move moving to index: 4
+[2025-09-20 07:27:24] taglist_move target_x: 93,0, target_width: 25,0
+[2025-09-20 07:27:24] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:27:24] taglist_sizer width: 16 (type: number) - caller: 
+[2025-09-20 07:27:24] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:27:24] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:27:24] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:27:24] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:27:24] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:27:24] taglist_mover pos: 8,6934577637647 (type: number)
+[2025-09-20 07:27:24] taglist_sizer width: 17,4302140192 (type: number) - caller: 
+[2025-09-20 07:27:24] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:27:24] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:27:24] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:27:24] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:27:24] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:27:24] taglist_mover pos: 27,508451881412 (type: number)
+[2025-09-20 07:27:24] taglist_sizer width: 20,5255840192 (type: number) - caller: 
+[2025-09-20 07:27:24] taglist_mover pos: 41,799816587294 (type: number)
+[2025-09-20 07:27:24] taglist_sizer width: 22,8767440192 (type: number) - caller: 
+[2025-09-20 07:27:24] taglist_mover pos: 59,938098940235 (type: number)
+[2025-09-20 07:27:24] taglist_sizer width: 24,5561020504 (type: number) - caller: 
+[2025-09-20 07:27:24] taglist_mover pos: 69,055745999059 (type: number)
+[2025-09-20 07:27:24] taglist_sizer width: 24,9002720504 (type: number) - caller: 
+[2025-09-20 07:27:24] taglist_mover pos: 78,173393057882 (type: number)
+[2025-09-20 07:27:24] taglist_sizer width: 25,0 (type: number) - caller: 
+[2025-09-20 07:27:24] taglist_mover pos: 86,951681293176 (type: number)
+[2025-09-20 07:27:24] taglist_mover pos: 92,690753842196 (type: number)
+[2025-09-20 07:27:24] taglist_mover pos: 95,390610704941 (type: number)
+[2025-09-20 07:27:24] taglist_mover pos: 93,0 (type: number)
+[2025-09-20 07:28:11] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:28:11] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:11] taglist_init setting initial position
+[2025-09-20 07:28:11] taglist_init initial tag: 1, pos: 0, width: 27,0
+[2025-09-20 07:28:11] [PLAYERS_LIST] Creating PlayersList widget
+[2025-09-20 07:28:11] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:28:11] [NOTIFICATION_LIST] notification_center is nil
+[2025-09-20 07:28:11] [WEATHER] Creating weather widget
+[2025-09-20 07:28:11] [WEATHER] Existing data: not found
+[2025-09-20 07:28:11] [WEATHER] Starting API fetch
+[2025-09-20 07:28:11] [WEATHER_API] Fetching weather data...
+[2025-09-20 07:28:11] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:28:11] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:28:11] [WEATHER_API] Fetching weather data...
+[2025-09-20 07:28:11] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:28:11] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:11] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:28:11] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:28:12] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
+[2025-09-20 07:28:12] [PLAYERS_LIST] Adding player widget: spotify
+[2025-09-20 07:28:12] [PLAYERS_LIST] Player widget added successfully: spotify
+[2025-09-20 07:28:12] [PLAYERS_LIST] Starting initial render
+[2025-09-20 07:28:12] [PLAYERS_LIST] Initial render found 1 players
+[2025-09-20 07:28:12] [PLAYERS_LIST] Initial render adding: spotify
+[2025-09-20 07:28:12] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:12] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:12] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:12] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
+[2025-09-20 07:28:12] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
+[2025-09-20 07:28:12] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:12] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:12] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:12] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:12] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:12] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:12] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:12] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:12] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:12] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:12] [PLAYERS_LIST] Metadata signal for player: spotify
+[2025-09-20 07:28:12] [WEATHER_API] Request completed with exit code: 0
+[2025-09-20 07:28:12] [WEATHER_API] Parsing weather data...
+[2025-09-20 07:28:12] [WEATHER_API] Got first timeseries entry
+[2025-09-20 07:28:12] [WEATHER_API] Weather data updated: temp=14,0, humidity=86,4
+[2025-09-20 07:28:12] [WEATHER] Weather code: lightrainshowers_night, hour: current
+[2025-09-20 07:28:12] [WEATHER] Weather code: clearsky_night, hour: 0
+[2025-09-20 07:28:12] [WEATHER] Weather code: fair_day, hour: 4
+[2025-09-20 07:28:12] [WEATHER] Weather code: fair_day, hour: 8
+[2025-09-20 07:28:12] [WEATHER] Weather code: partlycloudy_day, hour: 12
+[2025-09-20 07:28:12] [WEATHER] Weather code: partlycloudy_night, hour: 16
+[2025-09-20 07:28:12] [WEATHER] Weather code: clearsky_night, hour: 20
+[2025-09-20 07:28:12] [WEATHER_API] Request completed with exit code: 0
+[2025-09-20 07:28:12] [WEATHER_API] Parsing weather data...
+[2025-09-20 07:28:12] [WEATHER_API] Got first timeseries entry
+[2025-09-20 07:28:12] [WEATHER_API] Weather data updated: temp=14,0, humidity=86,4
+[2025-09-20 07:28:12] [WEATHER] Weather code: lightrainshowers_night, hour: current
+[2025-09-20 07:28:12] [WEATHER] Weather code: clearsky_night, hour: 0
+[2025-09-20 07:28:12] [WEATHER] Weather code: fair_day, hour: 4
+[2025-09-20 07:28:12] [WEATHER] Weather code: fair_day, hour: 8
+[2025-09-20 07:28:12] [WEATHER] Weather code: partlycloudy_day, hour: 12
+[2025-09-20 07:28:12] [WEATHER] Weather code: partlycloudy_night, hour: 16
+[2025-09-20 07:28:12] [WEATHER] Weather code: clearsky_night, hour: 20
+[2025-09-20 07:28:13] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:28:13] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:13] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:28:13] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:13] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:28:13] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:13] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:28:13] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:13] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:28:13] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:28:17] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:28:17] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:17] taglist_init setting initial position
+[2025-09-20 07:28:17] taglist_init initial tag: 1, pos: 0, width: 27,0
+[2025-09-20 07:28:17] [PLAYERS_LIST] Creating PlayersList widget
+[2025-09-20 07:28:17] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:28:17] [NOTIFICATION_LIST] notification_center is nil
+[2025-09-20 07:28:17] [WEATHER] Creating weather widget
+[2025-09-20 07:28:17] [WEATHER] Existing data: not found
+[2025-09-20 07:28:17] [WEATHER] Starting API fetch
+[2025-09-20 07:28:17] [WEATHER_API] Fetching weather data...
+[2025-09-20 07:28:17] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:28:17] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:28:17] [WEATHER_API] Fetching weather data...
+[2025-09-20 07:28:17] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:17] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:17] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:17] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 0
+[2025-09-20 07:28:17] [DESKTOP_NOTIFICATIONS] Creating wibox for notification: Urgent Window
+[2025-09-20 07:28:17] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:17] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:17] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:17] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:17] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:17] [PLAYERS_LIST] Playback status signal for player: spotify, playing: true
+[2025-09-20 07:28:17] [PLAYERS_LIST] Adding player widget: spotify
+[2025-09-20 07:28:17] [PLAYERS_LIST] Player widget added successfully: spotify
+[2025-09-20 07:28:17] [PLAYERS_LIST] Starting initial render
+[2025-09-20 07:28:17] [PLAYERS_LIST] Initial render found 1 players
+[2025-09-20 07:28:17] [PLAYERS_LIST] Initial render adding: spotify
+[2025-09-20 07:28:18] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:18] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:18] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:18] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:18] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:18] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:18] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:18] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:18] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:18] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:18] [PLAYERS_LIST] Metadata signal for player: spotify
+[2025-09-20 07:28:18] [WEATHER_API] Request completed with exit code: 0
+[2025-09-20 07:28:18] [WEATHER_API] Parsing weather data...
+[2025-09-20 07:28:18] [WEATHER_API] Got first timeseries entry
+[2025-09-20 07:28:18] [WEATHER_API] Weather data updated: temp=14,0, humidity=86,4
+[2025-09-20 07:28:18] [WEATHER] Weather code: lightrainshowers_night, hour: current
+[2025-09-20 07:28:18] [WEATHER] Weather code: clearsky_night, hour: 0
+[2025-09-20 07:28:18] [WEATHER] Weather code: fair_day, hour: 4
+[2025-09-20 07:28:18] [WEATHER] Weather code: fair_day, hour: 8
+[2025-09-20 07:28:18] [WEATHER] Weather code: partlycloudy_day, hour: 12
+[2025-09-20 07:28:18] [WEATHER] Weather code: partlycloudy_night, hour: 16
+[2025-09-20 07:28:18] [WEATHER] Weather code: clearsky_night, hour: 20
+[2025-09-20 07:28:18] [WEATHER_API] Request completed with exit code: 0
+[2025-09-20 07:28:18] [WEATHER_API] Parsing weather data...
+[2025-09-20 07:28:18] [WEATHER_API] Got first timeseries entry
+[2025-09-20 07:28:18] [WEATHER_API] Weather data updated: temp=14,0, humidity=86,4
+[2025-09-20 07:28:18] [WEATHER] Weather code: lightrainshowers_night, hour: current
+[2025-09-20 07:28:18] [WEATHER] Weather code: clearsky_night, hour: 0
+[2025-09-20 07:28:18] [WEATHER] Weather code: fair_day, hour: 4
+[2025-09-20 07:28:18] [WEATHER] Weather code: fair_day, hour: 8
+[2025-09-20 07:28:18] [WEATHER] Weather code: partlycloudy_day, hour: 12
+[2025-09-20 07:28:18] [WEATHER] Weather code: partlycloudy_night, hour: 16
+[2025-09-20 07:28:18] [WEATHER] Weather code: clearsky_night, hour: 20
+[2025-09-20 07:28:19] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:28:19] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:19] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:28:19] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:19] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:28:19] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:19] taglist_mover pos: 0,0 (type: number)
+[2025-09-20 07:28:19] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:19] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:28:22] [NOTIFICATION_LIST] Updating times for 1 items
+[2025-09-20 07:28:22] [NotificationItem] Updating time from сейчас to сейчас
+[2025-09-20 07:28:22] [NOTIFICATION_LIST] notification_center_open event: true
+[2025-09-20 07:28:22] [NOTIFICATION_LIST] Updating times for 1 items
+[2025-09-20 07:28:22] [NotificationItem] Updating time from сейчас to сейчас
+[2025-09-20 07:28:23] [NOTIFICATION_LIST] notification_center_open event: false
+[2025-09-20 07:28:23] [NOTIFICATION_LIST] Updating times for 1 items
+[2025-09-20 07:28:23] [NotificationItem] Updating time from сейчас to сейчас
+[2025-09-20 07:28:23] [NOTIFICATION_LIST] notification_center_open event: true
+[2025-09-20 07:28:23] [NOTIFICATION_LIST] Updating times for 1 items
+[2025-09-20 07:28:23] [NotificationItem] Updating time from сейчас to сейчас
+[2025-09-20 07:28:24] [NOTIFICATION_LIST] notification_center_open event: false
+[2025-09-20 07:28:25] [NOTIFICATION_LIST] Updating times for 1 items
+[2025-09-20 07:28:25] [NotificationItem] Updating time from сейчас to сейчас
+[2025-09-20 07:28:25] [NOTIFICATION_LIST] notification_center_open event: true
+[2025-09-20 07:28:25] [NOTIFICATION_LIST] Updating times for 1 items
+[2025-09-20 07:28:25] [NotificationItem] Updating time from сейчас to сейчас
+[2025-09-20 07:28:26] [NOTIFICATION_LIST] notification_center_open event: false
+[2025-09-20 07:28:26] taglist_signal tag 1 selected: false
+[2025-09-20 07:28:26] taglist_signal tag 4 selected: true
+[2025-09-20 07:28:26] taglist_move moving to index: 4
+[2025-09-20 07:28:26] taglist_move target_x: 93,0, target_width: 25,0
+[2025-09-20 07:28:26] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:28:26] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:26] taglist_mover pos: 3,3845188461176 (type: number)
+[2025-09-20 07:28:26] taglist_sizer width: 26,8762649024 (type: number)
+[2025-09-20 07:28:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:26] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:26] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:26] taglist_mover pos: 13,843214599059 (type: number)
+[2025-09-20 07:28:26] taglist_sizer width: 26,4939039824 (type: number)
+[2025-09-20 07:28:26] taglist_signal tag 4 selected: false
+[2025-09-20 07:28:26] taglist_signal tag 3 selected: true
+[2025-09-20 07:28:26] taglist_move moving to index: 3
+[2025-09-20 07:28:26] taglist_move target_x: 62,0, target_width: 27,0
+[2025-09-20 07:28:26] taglist_mover pos: 13,843214599059 (type: number)
+[2025-09-20 07:28:26] taglist_sizer width: 26,4939039824 (type: number)
+[2025-09-20 07:28:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:26] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:26] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:26] taglist_mover pos: 31,816612350939 (type: number)
+[2025-09-20 07:28:26] taglist_sizer width: 27,090015263483 (type: number)
+[2025-09-20 07:28:26] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:26] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:26] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:26] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:26] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:27] taglist_mover pos: 50,104299033714 (type: number)
+[2025-09-20 07:28:27] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 62,0 (type: number)
+[2025-09-20 07:28:27] taglist_signal tag 3 selected: false
+[2025-09-20 07:28:27] taglist_signal tag 5 selected: true
+[2025-09-20 07:28:27] taglist_move moving to index: 5
+[2025-09-20 07:28:27] taglist_move target_x: 122,0, target_width: 25,0
+[2025-09-20 07:28:27] taglist_mover pos: 62,0 (type: number)
+[2025-09-20 07:28:27] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 65,333739934118 (type: number)
+[2025-09-20 07:28:27] taglist_sizer width: 26,8110880704 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 81,438092875294 (type: number)
+[2025-09-20 07:28:27] taglist_sizer width: 25,8985080704 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 87,320445816471 (type: number)
+[2025-09-20 07:28:27] taglist_sizer width: 25,565174737067 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 93,202798757647 (type: number)
+[2025-09-20 07:28:27] taglist_sizer width: 25,236470292622 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 99,085151698824 (type: number)
+[2025-09-20 07:28:27] taglist_sizer width: 25,018876959289 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 104,96750464 (type: number)
+[2025-09-20 07:28:27] taglist_sizer width: 24,912394737067 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 114,32362228706 (type: number)
+[2025-09-20 07:28:27] taglist_sizer width: 25,0 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 119,35852424784 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 122,57619108784 (type: number)
+[2025-09-20 07:28:27] taglist_mover pos: 122,0 (type: number)
+[2025-09-20 07:28:28] taglist_signal tag 5 selected: false
+[2025-09-20 07:28:28] taglist_signal tag 3 selected: true
+[2025-09-20 07:28:28] taglist_move moving to index: 3
+[2025-09-20 07:28:28] taglist_move target_x: 62,0, target_width: 27,0
+[2025-09-20 07:28:28] taglist_mover pos: 122,0 (type: number)
+[2025-09-20 07:28:28] taglist_sizer width: 25,0 (type: number)
+[2025-09-20 07:28:28] taglist_mover pos: 105,46633217176 (type: number)
+[2025-09-20 07:28:28] taglist_sizer width: 25,9369078436 (type: number)
+[2025-09-20 07:28:28] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:28] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:28] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:28] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:28] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:28] taglist_mover pos: 62,0 (type: number)
+[2025-09-20 07:28:28] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:30] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:30] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:30] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:30] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:30] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:30] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:30] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:30] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:30] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:30] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:31] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:31] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:31] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:31] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:31] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:32] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:32] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:32] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:32] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:32] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:32] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:32] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:32] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:32] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:32] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:33] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:33] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:33] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:33] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:33] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:34] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:34] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:34] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:34] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:34] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:34] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:34] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:34] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:34] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:34] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:35] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:35] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:35] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:35] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:35] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:36] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:36] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:36] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:36] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:36] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:36] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:36] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:36] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:36] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:36] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:37] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:37] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:37] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:37] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:37] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:38] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:38] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:38] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:38] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:38] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:39] taglist_signal tag 3 selected: false
+[2025-09-20 07:28:39] taglist_signal tag 5 selected: true
+[2025-09-20 07:28:39] taglist_move moving to index: 5
+[2025-09-20 07:28:39] taglist_move target_x: 122,0, target_width: 25,0
+[2025-09-20 07:28:39] taglist_mover pos: 62,0 (type: number)
+[2025-09-20 07:28:39] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 68,431109571765 (type: number)
+[2025-09-20 07:28:39] taglist_sizer width: 26,6355704576 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 75,99958016 (type: number)
+[2025-09-20 07:28:39] taglist_sizer width: 26,2066904576 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 81,881933101176 (type: number)
+[2025-09-20 07:28:39] taglist_sizer width: 25,873357124267 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 87,764286042353 (type: number)
+[2025-09-20 07:28:39] taglist_sizer width: 25,540023790933 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 93,646638983529 (type: number)
+[2025-09-20 07:28:39] taglist_sizer width: 25,217543790933 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 99,528991924706 (type: number)
+[2025-09-20 07:28:39] taglist_sizer width: 25,006174902044 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 105,41134486588 (type: number)
+[2025-09-20 07:28:39] taglist_sizer width: 24,905917124267 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 111,29369780706 (type: number)
+[2025-09-20 07:28:39] taglist_sizer width: 25,0 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 117,17605074824 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 121,29824682667 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 123,45965859137 (type: number)
+[2025-09-20 07:28:39] taglist_mover pos: 122,0 (type: number)
+[2025-09-20 07:28:40] taglist_signal tag 5 selected: false
+[2025-09-20 07:28:40] taglist_signal tag 9 selected: true
+[2025-09-20 07:28:40] taglist_move moving to index: 9
+[2025-09-20 07:28:40] taglist_move target_x: 238,0, target_width: 25,0
+[2025-09-20 07:28:40] taglist_mover pos: 122,0 (type: number)
+[2025-09-20 07:28:40] taglist_mover pos: 126,92918151765 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 142,41787689365 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 153,79042591325 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 165,16297493286 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 176,53552395247 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 187,90807297208 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 199,28062199169 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 210,65317101129 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 222,0257200309 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 231,61520499822 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 237,41384029234 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 239,42162591325 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 238,0 (type: number)
+[2025-09-20 07:28:41] taglist_signal tag 9 selected: false
+[2025-09-20 07:28:41] taglist_signal tag 1 selected: true
+[2025-09-20 07:28:41] taglist_move moving to index: 1
+[2025-09-20 07:28:41] taglist_move target_x: 0, target_width: 27,0
+[2025-09-20 07:28:41] taglist_mover pos: 238,0 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 25,0 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 230,22222222222 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 25,111111111111 (type: number)
+[2025-09-20 07:28:41] [NOTIFICATION_LIST] Subscribe callback called with 1 notifications
+[2025-09-20 07:28:41] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:41] [DESKTOP_NOTIFICATIONS] Received 1 notifications
+[2025-09-20 07:28:41] [DESKTOP_NOTIFICATIONS] Latest notification ID: 1, last_id: 1
+[2025-09-20 07:28:41] [DESKTOP_NOTIFICATIONS] Notification is not new
+[2025-09-20 07:28:41] taglist_mover pos: 195,64982702222 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 25,605002471111 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 151,04022702222 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 26,242282471111 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 127,70689368889 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 26,575615804444 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 104,37356035556 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 26,844655804444 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 81,040227022222 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 27,002584693333 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 57,706893688889 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 34,373560355556 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 13,9852048 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 1,3746270222221 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: -3,4581729777779 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:28:41] taglist_signal tag 1 selected: false
+[2025-09-20 07:28:41] taglist_signal tag 8 selected: true
+[2025-09-20 07:28:41] taglist_move moving to index: 8
+[2025-09-20 07:28:41] taglist_move target_x: 209,0, target_width: 25,0
+[2025-09-20 07:28:41] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 14,358231767647 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 26,76642111 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 31,09120889183 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 26,494209998889 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 51,581404970261 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 26,160876665556 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 72,071601048693 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 25,827543332222 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 92,561797127124 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 25,494209998889 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 113,05199320556 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 25,210865554444 (type: number)
+[2025-09-20 07:28:41] taglist_mover pos: 133,54218928399 (type: number)
+[2025-09-20 07:28:41] taglist_sizer width: 25,038632221111 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 154,03238536242 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 24,977509998889 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 174,52258144085 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 25,0 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 193,30594418595 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 205,25924157157 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 210,38247359771 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 209,0 (type: number)
+[2025-09-20 07:28:42] taglist_signal tag 8 selected: false
+[2025-09-20 07:28:42] taglist_signal tag 2 selected: true
+[2025-09-20 07:28:42] taglist_move moving to index: 2
+[2025-09-20 07:28:42] taglist_move target_x: 31,0, target_width: 27,0
+[2025-09-20 07:28:42] taglist_mover pos: 209,0 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 25,0 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 200,31158627553 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 25,1659584644 (type: number)
+[2025-09-20 07:28:42] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:28:42] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:42] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:28:42] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:28:42] taglist_mover pos: 164,857127452 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 25,8431784644 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 132,03811568729 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 26,4700584644 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 114,58713529514 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 26,788454019956 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 97,13615490298 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 26,9957384644 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 79,685174510824 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 27,091911797733 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 62,234194118667 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 44,78321372651 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 32,767864706902 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 26,569509151346 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 31,0 (type: number)
+[2025-09-20 07:28:42] taglist_signal tag 2 selected: false
+[2025-09-20 07:28:42] taglist_signal tag 1 selected: true
+[2025-09-20 07:28:42] taglist_move moving to index: 1
+[2025-09-20 07:28:42] taglist_move target_x: 0, target_width: 27,0
+[2025-09-20 07:28:42] taglist_mover pos: 31,0 (type: number)
+[2025-09-20 07:28:42] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:28:42] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:42] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:28:42] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:28:42] taglist_mover pos: 28,025607025412 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 20,605848201882 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 17,566632515608 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 14,527416829333 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 11,488201143059 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 8,4489854567843 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 5,4097697705098 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 2,3705540842353 (type: number)
+[2025-09-20 07:28:42] taglist_signal tag 1 selected: false
+[2025-09-20 07:28:42] taglist_signal tag 8 selected: true
+[2025-09-20 07:28:42] taglist_move moving to index: 8
+[2025-09-20 07:28:42] taglist_move target_x: 209,0, target_width: 25,0
+[2025-09-20 07:28:42] taglist_mover pos: 2,3705540842353 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 12,272379116606 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 26,8031835504 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 27,569081826791 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 26,544192439289 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 48,122657667872 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 26,210859105956 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 68,676233508954 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 25,877525772622 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 89,229809350035 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 25,544192439289 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 109,78338519112 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 25,247627994844 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 130,3369610322 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 25,062174661511 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 158,15704807614 (type: number)
+[2025-09-20 07:28:42] taglist_sizer width: 25,0 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 178,71062391722 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 195,94507130764 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 206,32832675104 (type: number)
+[2025-09-20 07:28:42] taglist_mover pos: 209,86039024741 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 209,0 (type: number)
+[2025-09-20 07:28:43] taglist_signal tag 8 selected: false
+[2025-09-20 07:28:43] taglist_signal tag 2 selected: true
+[2025-09-20 07:28:43] taglist_move moving to index: 2
+[2025-09-20 07:28:43] taglist_move target_x: 31,0, target_width: 27,0
+[2025-09-20 07:28:43] taglist_mover pos: 209,0 (type: number)
+[2025-09-20 07:28:43] taglist_sizer width: 25,0 (type: number)
+[2025-09-20 07:28:43] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:28:43] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:43] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:28:43] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:28:43] taglist_mover pos: 168,09403341153 (type: number)
+[2025-09-20 07:28:43] taglist_sizer width: 25,7813499236 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 128,46495105859 (type: number)
+[2025-09-20 07:28:43] taglist_sizer width: 26,5383099236 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 111,01397066643 (type: number)
+[2025-09-20 07:28:43] taglist_sizer width: 26,871643256933 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 93,562990274274 (type: number)
+[2025-09-20 07:28:43] taglist_sizer width: 27,102454368044 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 76,112009882118 (type: number)
+[2025-09-20 07:28:43] taglist_sizer width: 27,222154368044 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 50,027680470353 (type: number)
+[2025-09-20 07:28:43] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 33,84143079715 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 23,472174588 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 18,919911842902 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 31,0 (type: number)
+[2025-09-20 07:28:43] taglist_signal tag 2 selected: false
+[2025-09-20 07:28:43] taglist_signal tag 1 selected: true
+[2025-09-20 07:28:43] taglist_move moving to index: 1
+[2025-09-20 07:28:43] taglist_move target_x: 0, target_width: 27,0
+[2025-09-20 07:28:43] taglist_mover pos: 31,0 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 29,077745566588 (type: number)
+[2025-09-20 07:28:43] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:28:43] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:43] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:28:43] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:28:43] taglist_mover pos: 25,575581928353 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 22,536366242078 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 19,497150555804 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 16,457934869529 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 13,418719183255 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 10,37950349698 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 7,3402878107059 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 4,3010721244314 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 1,7395198368497 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 0,19103944469281 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: -0,34436905203922 (type: number)
+[2025-09-20 07:28:43] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:28:44] taglist_signal tag 1 selected: false
+[2025-09-20 07:28:44] taglist_signal tag 4 selected: true
+[2025-09-20 07:28:44] taglist_move moving to index: 4
+[2025-09-20 07:28:44] taglist_move target_x: 93,0, target_width: 25,0
+[2025-09-20 07:28:44] taglist_mover pos: 0 (type: number)
+[2025-09-20 07:28:44] taglist_sizer width: 27,0 (type: number)
+[2025-09-20 07:28:44] [NOTIFICATION_LIST] Subscribe callback called with 0 notifications
+[2025-09-20 07:28:44] [NOTIFICATION_LIST] Updating notification_center
+[2025-09-20 07:28:44] [DESKTOP_NOTIFICATIONS] Received 0 notifications
+[2025-09-20 07:28:44] [DESKTOP_NOTIFICATIONS] No notifications to display
+[2025-09-20 07:28:44] taglist_mover pos: 14,152993353882 (type: number)
+[2025-09-20 07:28:44] taglist_sizer width: 26,4825787376 (type: number)
+[2025-09-20 07:28:44] taglist_mover pos: 31,497493353882 (type: number)
+[2025-09-20 07:28:44] taglist_sizer width: 25,8484787376 (type: number)
+[2025-09-20 07:28:44] taglist_mover pos: 40,615140412706 (type: number)
+[2025-09-20 07:28:44] taglist_sizer width: 25,515145404267 (type: number)
+[2025-09-20 07:28:44] taglist_mover pos: 49,732787471529 (type: number)
+[2025-09-20 07:28:44] taglist_sizer width: 25,188507626489 (type: number)
+[2025-09-20 07:28:44] taglist_mover pos: 70,372769824471 (type: number)
+[2025-09-20 07:28:44] taglist_sizer width: 25,0 (type: number)
+[2025-09-20 07:28:44] taglist_mover pos: 79,490416883294 (type: number)
+[2025-09-20 07:28:44] taglist_mover pos: 88,23120119702 (type: number)
+[2025-09-20 07:28:44] taglist_mover pos: 93,932769824471 (type: number)
+[2025-09-20 07:28:44] taglist_mover pos: 96,595122765647 (type: number)
+[2025-09-20 07:28:44] taglist_mover pos: 93,0 (type: number)
+[2025-09-20 07:28:50] [PLAYERS_LIST] Metadata signal for player: spotify
+[2025-09-20 07:29:12] [NOTIFICATION_LIST] Updating times for 0 items
+[2025-09-20 07:29:12] [NOTIFICATION_LIST] notification_center_open event: true
+[2025-09-20 07:29:12] [NOTIFICATION_LIST] Updating times for 0 items
+[2025-09-20 07:29:12] [NOTIFICATION_LIST] notification_center_open event: false
+[2025-09-20 07:29:13] [NOTIFICATION_LIST] Updating times for 0 items
+[2025-09-20 07:29:13] [NOTIFICATION_LIST] notification_center_open event: true
+[2025-09-20 07:29:13] [NOTIFICATION_LIST] Updating times for 0 items
+[2025-09-20 07:29:15] [NOTIFICATION_LIST] notification_center_open event: false

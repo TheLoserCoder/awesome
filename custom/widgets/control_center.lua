@@ -55,95 +55,80 @@ function ControlCenter:_create_widgets()
     -- Создаем виджет poweroff
     self.poweroff = Poweroff.new()
     
-    -- Кнопка terminal
-    local terminal_icon = wibox.widget {
-        text = settings.icons.system.terminal,
-        font = settings.fonts.icon .. " 12",
-        align = "center",
-        valign = "center",
-        fg = colors.text,
-        widget = wibox.widget.textbox
-    }
+    -- Создаем кнопки из настроек
+    local button_widgets = {}
     
-    local terminal_button = Button.new({
-        content = terminal_icon,
-        width = 40,
-        height = 40,
-        shape = gears.shape.circle,
-        on_click = function()
-            awful.spawn("alacritty")
+    for i, button_config in ipairs(settings.widgets.control_center.buttons) do
+        local button_widget
+        
+        if button_config.id == "layout" then
+            -- Специальная обработка для layoutbox
+            local Layoutbox = require("custom.widgets.layoutbox")
+            local layoutbox_widget = Layoutbox.new(self.screen)
+            
+            button_widget = Button.new({
+                content = layoutbox_widget.widget,
+                width = 40,
+                height = 40,
+                shape = gears.shape.circle
+            })
+        else
+            -- Обычные кнопки
+            local icon_widget = wibox.widget {
+                text = button_config.icon,
+                font = settings.fonts.icon .. " 12",
+                align = "center",
+                valign = "center",
+                fg = colors.text,
+                widget = wibox.widget.textbox
+            }
+            
+            button_widget = Button.new({
+                content = icon_widget,
+                width = 40,
+                height = 40,
+                shape = gears.shape.circle,
+                on_click = function()
+                    if button_config.command:match("^awesome%..*") then
+                        -- Выполняем Lua код
+                        local func = load(button_config.command)
+                        if func then func() end
+                    else
+                        -- Запускаем команду
+                        awful.spawn(button_config.command)
+                    end
+                end
+            })
         end
-    })
+        
+        table.insert(button_widgets, button_widget.widget)
+    end
     
-    -- Кнопка reset
-    local reset_icon = wibox.widget {
-        text = "󰜉",
-        font = settings.fonts.icon .. " 12",
-        align = "center",
-        valign = "center",
-        fg = colors.text,
-        widget = wibox.widget.textbox
-    }
+    -- Создаем ряд кнопок с отступами
+    local buttons_row_widgets = {}
     
-    local reset_button = Button.new({
-        content = reset_icon,
-        width = 40,
-        height = 40,
-        shape = gears.shape.circle,
-        on_click = function()
-            awesome.restart()
+    for i, widget in ipairs(button_widgets) do
+        if i == 1 or i == #button_widgets then
+            -- Крайние кнопки без отступов
+            table.insert(buttons_row_widgets, widget)
+        else
+            -- Средние кнопки с отступами
+            table.insert(buttons_row_widgets, {
+                widget,
+                left = 8,
+                right = 8,
+                widget = wibox.container.margin
+            })
         end
-    })
-    
-    -- Кнопка screenshot
-    local screenshot_icon = wibox.widget {
-        text = settings.icons.system.screenshot,
-        font = settings.fonts.icon .. " 12",
-        align = "center",
-        valign = "center",
-        fg = colors.text,
-        widget = wibox.widget.textbox
-    }
-    
-    local screenshot_button = Button.new({
-        content = screenshot_icon,
-        width = 40,
-        height = 40,
-        shape = gears.shape.circle,
-        on_click = function()
-            awful.spawn(settings.commands.screenshot)
-        end
-    })
-    
-    -- Кнопка layoutbox
-    local Layoutbox = require("custom.widgets.layoutbox")
-    local layoutbox_widget = Layoutbox.new(self.screen)
-    
-    -- Оборачиваем в круглую кнопку
-    local layoutbox_button = Button.new({
-        content = layoutbox_widget.widget,
-        width = 40,
-        height = 40,
-        shape = gears.shape.circle
-    })
+    end
     
     local buttons_row = wibox.widget {
-        terminal_button.widget,
-        {
-            screenshot_button.widget,
-            left = 8,
-            right = 8,
-            widget = wibox.container.margin
-        },
-        {
-            layoutbox_button.widget,
-            left = 8,
-            right = 8,
-            widget = wibox.container.margin
-        },
-        reset_button.widget,
         layout = wibox.layout.flex.horizontal
     }
+    
+    for _, widget in ipairs(buttons_row_widgets) do
+        buttons_row:add(widget)
+    end
     
     -- Контент popup
     local content = wibox.widget {
