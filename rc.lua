@@ -92,10 +92,11 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-     awful.layout.suit.spiral,
+     --awful.layout.suit.spiral,
+    awful.layout.suit.tile.right,
     awful.layout.suit.floating,
     --awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
+
 
     --awful.layout.suit.tile.bottom,
    -- awful.layout.suit.tile.top,
@@ -449,9 +450,14 @@ end)
 -- }}}
 
 -- {{{ Mouse bindings
+-- >>> Пользовательский код: начало
+-- Оригинальное меню при клике на рабочем столе удалено
+--[[
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end)
 ))
+--]]
+-- >>> Пользовательский код: конец
 -- }}}
 
 -- {{{ Key bindings
@@ -487,8 +493,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+    -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    --           {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -683,7 +689,7 @@ clientbuttons = gears.table.join(
 globalkeys = customScripts.apply_keys(globalkeys)
 customScripts.autostart()
 customScripts.windowsSettings(client)
-customScripts.setWallpaper()
+-- customScripts.setWallpaper()
 -- >>> Пользовательский код: конец
 
 

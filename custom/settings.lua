@@ -50,7 +50,7 @@ settings.bar = {
 -- Иконки
 settings.icons = {
     player = {
-        play = "",
+        play = "󰐊",
         pause = "󰏤",
         stop = "󰏤",
         next = "󰒭",
@@ -71,32 +71,32 @@ settings.icons = {
     },
     
     weather = {
-        clear_day = "",
-        clear_night = "",
+        clear_day = "",
+        clear_night = "",
         cloudy = "󰖐",
-        fog = "",
-        heavy_rain = "",
+        fog = "",
+        heavy_rain = "",
         heavy_snow = "",
-        light_rain = "",
-        light_snow = "",
-        partly_cloudy_day = "",
-        partly_cloudy_night = "",
-        rain = "",
-        snow = "",
-        thunderstorm = "",
-        wind = "",
-        default = "",
+        light_rain = "",
+        light_snow = "",
+        partly_cloudy_day = "",
+        partly_cloudy_night = "",
+        rain = "",
+        snow = "",
+        thunderstorm = "",
+        wind = "󰖝",
+        default = "",
         -- Параметры погоды
-        humidity = "",
+        humidity = "",
         wind_speed = "󰖝",
-        pressure = ""
+        pressure = ""
     },
     
     system = {
-        cpu = "",
+        cpu = "",
         gpu = "󰢮",
         ram = "󰍛",
-        awesome = "",
+        awesome = "",
         power = "󰐥",
         poweroff = "󰐥",
         sleep = "󰤄",
@@ -106,7 +106,7 @@ settings.icons = {
         execute = "󰐄",
         terminal = "󰆍",
         launcher = "󰀻",
-        screenshot = "",
+        screenshot = "",
         window_open = "",
         window_closed = ""
     }
@@ -114,7 +114,8 @@ settings.icons = {
 
 -- Пути
 settings.paths = {
-    wallpaper = "/home/panic-attack/wallpapers/wallpaper.jpg"
+    wallpaper = "/home/panic-attack/wallpapers/wallpaper.jpg",
+    wallpaper_dir = "/home/panic-attack/wallpapers/"
 }
 
 -- Команды
@@ -131,6 +132,13 @@ settings.autostart = {
     "playerctld daemon",
     "copyq",
     "pgrep -x picom || picom --config ~/.config/picom/picom.conf --vsync &"
+}
+
+-- Цвета для системных иконок
+settings.system_colors = {
+    cpu = "#FF6B6B",
+    gpu = "#4CAF50",
+    ram = "#45B7D1"
 }
 
 -- Настройки виджетов
@@ -185,17 +193,24 @@ settings.widgets = {
             {
                 id = "terminal",
                 icon = "󰆍",
-                command = "alacritty"
+                command = "alacritty",
+                close_control = true
             },
             {
                 id = "screenshot",
-                icon = "",
-                command = "flameshot gui"
+                icon = "",
+                command = "flameshot gui",
+                close_control = true
             },
             {
                 id = "layout",
                 icon = "layout", -- специальное значение для layoutbox
                 command = "layout" -- специальная команда для переключения layout
+            },
+            {
+                id = "wallpaper",
+                icon = "󰀻",
+                command = "wallpaper_selector"
             },
             {
                 id = "restart",
@@ -216,16 +231,24 @@ settings.widgets = {
             hover_button = settings.colors.surface .. "40"
         },
         tags = {
-            { name = "", color = "#7AA2F7", autostart = {"/home/panic-attack/Telegram/Telegram"}, app_classes = {"telegram"} },
-            { name = "󰓇", color = "#9ECE6A", autostart = {"spotify"}, app_classes = {"spotify"} },
-            { name = "", color = "#ffb86c", autostart = {"/home/panic-attack/firefox/firefox"}, app_classes = {"firefox"} },
-            { name = "4", autostart = {}, app_classes = {} },
-            { name = "5", autostart = {}, app_classes = {} },
-            { name = "6", autostart = {}, app_classes = {} },
-            { name = "7", autostart = {}, app_classes = {} },
+            { name = "", color = "#03A9F4", autostart = {"/home/panic-attack/Telegram/Telegram"}, app_classes = {"telegram"} }, -- голубой
+            { name = "󰓇", color = "#66BB6A", autostart = {"spotify"}, app_classes = {"spotify"} }, -- зелёный
+            { name = "", color = "#FF7043", autostart = {"/home/panic-attack/firefox/firefox"}, app_classes = {"firefox"} }, -- оранжево-пламенный
+            { name = "󱃖", color = "#1E88E5", autostart = {}, app_classes = {} }, -- синий
+            { name = "", color = "#E53935", autostart = {}, app_classes = {} }, -- красный
+            { name = "󰎚", color = "#8E6FF0", autostart = {}, app_classes = {} }, -- фиолетовый
+            { name = "", color = "#FBC02D", autostart = {}, app_classes = {} }, -- жёлтый
             { name = "8", autostart = {}, app_classes = {} },
             { name = "9", autostart = {}, app_classes = {} }
         }
+    }
+}
+
+-- Горячие клавиши
+settings.keybindings = {
+    wallpaper_selector = {
+        modkey = "Mod4",
+        key = "w"
     }
 }
 

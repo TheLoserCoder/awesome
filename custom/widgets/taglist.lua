@@ -66,7 +66,6 @@ function Taglist.new(screen, config)
         duration = 0.22,
         initial_pos = 0,
         subscribed = function(pos)
-            debug_logger.log("taglist_mover pos: " .. tostring(pos) .. " (type: " .. type(pos) .. ")")
             if pos and self.indicator_margin then
                 self.indicator_margin.left = math.floor(pos + 0.5)
             end
@@ -142,7 +141,7 @@ function Taglist.new(screen, config)
             
             -- Обновляем стиль при изменении тега
             tag:connect_signal("property::selected", function()
-                debug_logger.log("taglist_signal tag " .. tostring(i) .. " selected: " .. tostring(tag.selected))
+
                 if tag.selected then
                     self:_move_indicator_to(i)
                 else
@@ -196,7 +195,7 @@ function Taglist.new(screen, config)
         duration = 0.15,
         initial_pos = initial_width,
         subscribed = function(pos)
-            debug_logger.log("taglist_sizer width: " .. tostring(pos) .. " (type: " .. type(pos) .. ")")
+
             if pos and self.indicator then
                 self.indicator.forced_width = math.floor(pos + 0.5)
             end
@@ -225,10 +224,9 @@ function Taglist:_x_for_index(idx)
 end
 
 function Taglist:_move_indicator_to(index)
-    debug_logger.log("taglist_move moving to index: " .. tostring(index))
+
     local target_x = self:_x_for_index(index)
     local target_width = self.buttons[index] and self.buttons[index].widget.forced_width or (self.config.indicator_size or 16)
-    debug_logger.log("taglist_move target_x: " .. tostring(target_x) .. ", target_width: " .. tostring(target_width))
     
     if self.mover then
         self.mover.target = target_x
@@ -241,13 +239,11 @@ function Taglist:_move_indicator_to(index)
 end
 
 function Taglist:_set_initial_indicator_position()
-    debug_logger.log("taglist_init setting initial position")
     for i = 1, 9 do
         local button = self.buttons[i]
         if button and button.tag.selected then
             local pos = self:_x_for_index(i)
             local width = button.widget.forced_width or (self.config.indicator_size or 16)
-            debug_logger.log("taglist_init initial tag: " .. tostring(i) .. ", pos: " .. tostring(pos) .. ", width: " .. tostring(width))
             
             -- Применяем сразу без анимации
             self.mover.pos = pos

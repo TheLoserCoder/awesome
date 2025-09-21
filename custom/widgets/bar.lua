@@ -68,24 +68,7 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
     local control_center_widget = ControlCenter.new(s)
     local app_list_widget = AppList.new()
     
-    -- Кнопка лаунчера
-    local colors = Provider.get_colors()
-    local launcher_button = Button.new({
-        content = wibox.widget {
-            text = settings.icons.system.launcher,
-            font = settings.fonts.icon .. " 12",
-            align = "center",
-            valign = "center",
-            fg = colors.text,
-            widget = wibox.widget.textbox
-        },
-        width = 28,
-        height = 28,
-        shape = gears.shape.circle,
-        on_click = function()
-            awful.spawn(settings.commands.launcher)
-        end
-    })
+
     -- >>> Пользовательские виджеты: конец
 
     s.mywibox:setup {
@@ -94,12 +77,7 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
             {
                 { -- Left widgets
                     layout = wibox.layout.fixed.horizontal,
-                    launcher_button.widget,
-                    {
-                        s.mytaglist,
-                        left = 8,
-                        widget = wibox.container.margin
-                    },
+                    s.mytaglist,
                     {
                         app_list_widget.widget,
                         left = 8,
@@ -107,7 +85,7 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
                     },
                     s.mypromptbox,
                 },
-                forced_width = 700,
+                forced_width = 800,
                
                 widget = wibox.container.constraint
             },
@@ -119,6 +97,7 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
                 {
                     { -- Right widgets
                         layout = wibox.layout.fixed.horizontal,
+                        spacing = 8,
                         system_monitor_widget.widget,
                         keyboard_widget.widget,
                         control_center_widget.widget,
@@ -130,9 +109,10 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
                 widget = wibox.container.constraint
             },
         },
-        left = 8,
-        right = 8,
-    
+        left = 2,
+        right = 2,
+        top = 2,
+        bottom = 2,
         widget = wibox.container.margin
     }
 

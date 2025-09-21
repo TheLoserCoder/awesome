@@ -1,4 +1,5 @@
 local gears = require("gears")
+local debug_logger = require("custom.utils.debug_logger")
 
 local popup_stack = {}
 local grabber_running = false
@@ -84,7 +85,7 @@ local function handle_mouse_outside(mouse)
     
     -- Отладка
     if coords and geo then
-        print(string.format("[DEBUG] Mouse: %d,%d | Widget: %d,%d %dx%d | Inside: %s", 
+        debug_logger.log(string.format("[DEBUG] Mouse: %d,%d | Widget: %d,%d %dx%d | Inside: %s", 
             coords.x, coords.y, geo.x, geo.y, geo.width, geo.height, tostring(inside)))
     end
     
@@ -107,8 +108,14 @@ local function handle_mouse_outside(mouse)
                 -- Проверяем, находится ли мышь вне предыдущего popup
                 local coords = get_mouse_coords(mouse)
                 if coords and not click_inside_widget(prev.widget, mouse) then
-                    -- Мышь вне предыдущего popup - продолжаем grabber
+                    -- Мышь вне предыдущего popup - продолжаем grabber для предыдущего
+                    debug_logger.log("[DEBUG] Continuing grabber for previous popup")
                     return true
+                else
+                    -- Мышь внутри предыдущего popup - возвращаем управление
+                    debug_logger.log("[DEBUG] Mouse inside previous popup, returning control")
+                    grabber_running = false
+                    return false
                 end
             end
         end
@@ -121,12 +128,31 @@ local function handle_mouse_outside(mouse)
 end
 
 local function start_grabber_if_outside(widget, is_shown_func)
+    debug_logger.log(string.format("[CLICK_TO_HIDE] start_grabber_if_outside: grabber_running=%s, is_shown=%s", 
+        tostring(grabber_running), tostring(is_shown_func())))
+    
     if not grabber_running and is_shown_func() then
         local coords = get_mouse_coords()
-        if coords and not click_inside_widget(widget, { coords = function() return coords end }) then
-            grabber_running = true
-            mousegrabber.run(handle_mouse_outside, "left_ptr")
+        debug_logger.log(string.format("[CLICK_TO_HIDE] Mouse coords: %s", coords and (coords.x .. "," .. coords.y) or "nil"))
+        
+        if coords then
+            local inside = click_inside_widget(widget, { coords = function() return coords end })
+            debug_logger.log(string.format("[CLICK_TO_HIDE] Mouse inside widget: %s", tostring(inside)))
+            
+            if not inside then
+                debug_logger.log("[CLICK_TO_HIDE] Starting mousegrabber")
+                -- Принудительно останавливаем предыдущий grabber
+                mousegrabber.stop()
+                grabber_running = true
+                mousegrabber.run(handle_mouse_outside, "left_ptr")
+            else
+                debug_logger.log("[CLICK_TO_HIDE] Mouse inside widget, not starting grabber")
+            end
+        else
+            debug_logger.log("[CLICK_TO_HIDE] No mouse coords, not starting grabber")
         end
+    else
+        debug_logger.log("[CLICK_TO_HIDE] Conditions not met for starting grabber")
     end
 end
 
@@ -139,6 +165,8 @@ local function add_popup_to_stack(widget, callback, is_shown_func)
         callback = callback,
         is_shown_func = is_shown_func
     })
+    
+    debug_logger.log(string.format("[CLICK_TO_HIDE] Added popup to stack, total: %d", #popup_stack))
     
     -- Запускаем grabber сразу, если мышь вне popup
     gears.timer.delayed_call(function()
@@ -155,6 +183,24 @@ local function remove_popup_from_stack(widget)
     for i = #popup_stack, 1, -1 do
         if popup_stack[i].widget == widget then
             table.remove(popup_stack, i)
+            debug_logger.log(string.format("[CLICK_TO_HIDE] Removed popup from stack, remaining: %d", #popup_stack))
+            
+            -- Если остались другие popup'ы, принудительно запускаем grabber
+            if #popup_stack > 0 then
+                local top = popup_stack[#popup_stack]
+                if top and top.is_shown_func and top.is_shown_func() then
+                    debug_logger.log("[CLICK_TO_HIDE] Restarting grabber for previous popup")
+                    grabber_running = false -- сбрасываем флаг
+                    -- Останавливаем текущий grabber и запускаем новый с задержкой
+                    mousegrabber.stop()
+                    gears.timer.start_new(0.1, function()
+                        start_grabber_if_outside(top.widget, top.is_shown_func)
+                        return false
+                    end)
+                end
+            else
+                debug_logger.log("[CLICK_TO_HIDE] No more popups in stack")
+            end
             break
         end
     end

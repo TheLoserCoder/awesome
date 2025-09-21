@@ -107,6 +107,27 @@ function CustomScroll:reset()
     self.scroll_animation.target = 0
 end
 
+function CustomScroll:scroll_to_element(element_index, element_height, element_spacing)
+    if not element_index or element_index < 1 then return end
+    
+    -- Вычисляем позицию элемента
+    local element_top = (element_index - 1) * (element_height + element_spacing)
+    local element_bottom = element_top + element_height
+    
+    -- Текущие границы видимости
+    local viewport_top = self.scroll_offset_y
+    local viewport_bottom = self.scroll_offset_y + self.viewport_height
+    
+    -- Проверяем, нужна ли прокрутка
+    if element_top < viewport_top then
+        -- Элемент выше видимой области - прокручиваем вверх
+        self:scroll_to(element_top)
+    elseif element_bottom > viewport_bottom then
+        -- Элемент ниже видимой области - прокручиваем вниз
+        self:scroll_to(element_bottom - self.viewport_height)
+    end
+end
+
 function CustomScroll:update_inner_height(new_height)
     self.inner_height = new_height
     self.inner_container.forced_height = new_height

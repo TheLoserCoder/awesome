@@ -21,6 +21,7 @@ function Button.new(config)
     self.width = config.width 
     self.height = config.height 
     self.on_click = config.on_click or function() end
+    self.close_control = config.close_control or false
     self.selected = false
     self.halign = config.halign or "center"
     self.valign = config.valign or "center"
@@ -108,6 +109,11 @@ function Button:_setup_events()
             -- Сбрасываем hover эффект
             if not self.selected then
                 self.color_animator:animate_to(self.bg_default)
+            end
+            -- Закрываем control center если нужно
+            if self.close_control then
+                local GlobalStorage = require("custom.utils.global_storage")
+                GlobalStorage.set("control_center_open", false)
             end
             -- Вызываем callback
             self.on_click()

@@ -50,11 +50,14 @@ function NotificationCenter:_create_widgets()
         end
     })
     
-    -- Обновляем список плееров при наведении
+    -- Обновляем список плееров при наведении и проверяем смену дня
     clock_button.widget:connect_signal("mouse::enter", function()
         if self.players_list and self.players_list.refresh then
             self.players_list:refresh()
         end
+        
+        -- Проверяем смену дня и обновляем виджеты
+        self:_check_and_update_day()
     end)
     self.widget = clock_button.widget
     
@@ -172,22 +175,14 @@ function NotificationCenter:_create_widgets()
         },
         -- Правая ячейка: календарь и погода
         {
+            self.calendar.widget,
             {
-                {
-                    self.calendar.widget,
-                    {
-                        self.weather.widget,
-                        top = 12,
-                        widget = wibox.container.margin,
-                    },
-                    spacing = 0,
-                    layout = wibox.layout.fixed.vertical,
-                },
+                self.weather.widget,
+                top = 12,
                 widget = wibox.container.margin,
             },
-            halign = "right",
-            valign = "top",
-            widget = wibox.container.place,
+            spacing = 0,
+            layout = wibox.layout.fixed.vertical,
         },
         layout = wibox.layout.align.horizontal,
     }
@@ -322,6 +317,25 @@ function NotificationCenter:_update_clear_button_visibility()
         self.clear_button.widget.visible = true
     else
         self.clear_button.widget.visible = false
+    end
+end
+
+-- Проверка смены дня и обновление виджетов
+function NotificationCenter:_check_and_update_day()
+    local current_date = os.date("%Y-%m-%d")
+    
+    if not self.last_date or self.last_date ~= current_date then
+        self.last_date = current_date
+        
+        -- Обновляем календарь
+        if self.calendar and self.calendar.update then
+            self.calendar:update()
+        end
+        
+        -- Обновляем погоду
+        if self.weather and self.weather.update then
+            self.weather:update()
+        end
     end
 end
 

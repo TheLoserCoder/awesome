@@ -54,6 +54,14 @@ Keys = {
             awful.client.focus.byidx(1)
 end, {description = "focus previous client", group = "client"}),
 
+    -- Открытие выбора обоев
+    awful.key({ modkey }, "w",
+        function ()
+            local WallpaperSelector = require("custom.widgets.wallpaper_selector")
+            WallpaperSelector.toggle()
+        end,
+        {description = "toggle wallpaper selector", group = "custom"}),
+
 }
 return Keys
 

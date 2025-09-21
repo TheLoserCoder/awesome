@@ -28,7 +28,7 @@ function ControlCenter:_create_widgets()
     -- Кнопка с иконкой awesome
     local awesome_icon = wibox.widget {
         text = settings.icons.system.awesome,
-        font = settings.fonts.icon .. " 12",
+        font = settings.fonts.icon .. " 10",
         align = "center",
         valign = "center",
         fg = colors.text,
@@ -37,8 +37,8 @@ function ControlCenter:_create_widgets()
     
     local control_button = Button.new({
         content = awesome_icon,
-        width = 24,
-        height = 24,
+        width = 26,
+        height = 26,
         on_click = function()
             self:_toggle_popup()
         end
@@ -89,7 +89,10 @@ function ControlCenter:_create_widgets()
                 height = 40,
                 shape = gears.shape.circle,
                 on_click = function()
-                    if button_config.command:match("^awesome%..*") then
+                    if button_config.command == "wallpaper_selector" then
+                        local WallpaperSelector = require("custom.widgets.wallpaper_selector")
+                        WallpaperSelector.toggle()
+                    elseif button_config.command:match("^awesome%..*") then
                         -- Выполняем Lua код
                         local func = load(button_config.command)
                         if func then func() end

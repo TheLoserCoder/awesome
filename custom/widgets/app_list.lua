@@ -155,6 +155,9 @@ function AppList:_update_display()
     -- Скрываем виджет если нет приложений
     if total_clients == 0 then
         self.widget.visible = false
+        if self.popup:get_visible() then
+            self.popup:hide()
+        end
         return
     else
         self.widget.visible = true
@@ -181,6 +184,10 @@ function AppList:_update_display()
         end
     else
         self.app_count.visible = false
+        -- Скрываем popup если осталось только одно приложение
+        if self.popup:get_visible() then
+            self.popup:hide()
+        end
     end
     
     -- Обновляем список

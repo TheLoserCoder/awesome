@@ -52,6 +52,10 @@ function M.windowsSettings(client)
     M[window_rules].setup()
     DesktopNotifications.setup()
     WeatherAPI.setup()
+    
+    -- Инициализация виджета выбора обоев
+    local WallpaperSelector = require("custom.widgets.wallpaper_selector")
+    WallpaperSelector.new()
 end
 
 function M.createBar()

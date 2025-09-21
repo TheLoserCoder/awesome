@@ -8,6 +8,7 @@ SystemMonitor.__index = SystemMonitor
 
 local settings = require("custom.settings")
 local Button = require("custom.widgets.button")
+local Provider = require("custom.widgets.provider")
 
 function SystemMonitor.new()
     local self = setmetatable({}, SystemMonitor)
@@ -25,9 +26,11 @@ function SystemMonitor.new()
 end
 
 function SystemMonitor:_create_widgets()
+    local colors = Provider.get_colors()
+    
     -- CPU иконка и текст
     self.cpu_icon = wibox.widget {
-        text = settings.icons.system.cpu,
+        markup = "<span color='" .. settings.system_colors.cpu .. "'>" .. settings.icons.system.cpu .. "</span>",
         font = settings.fonts.icon,
         align = "center",
         valign = "center",
@@ -39,12 +42,13 @@ function SystemMonitor:_create_widgets()
         font = "Ubuntu " .. settings.fonts.widget_size,
         align = "center",
         valign = "center",
+        fg = colors.text,
         widget = wibox.widget.textbox
     }
     
     -- RAM иконка и текст
     self.ram_icon = wibox.widget {
-        text = settings.icons.system.ram,
+        markup = "<span color='" .. settings.system_colors.ram .. "'>" .. settings.icons.system.ram .. "</span>",
         font = settings.fonts.icon,
         align = "center",
         valign = "center",
@@ -56,12 +60,13 @@ function SystemMonitor:_create_widgets()
         font = "Ubuntu " .. settings.fonts.widget_size,
         align = "center",
         valign = "center",
+        fg = colors.text,
         widget = wibox.widget.textbox
     }
     
     -- GPU иконка и текст
     self.gpu_icon = wibox.widget {
-        text = settings.icons.system.gpu,
+        markup = "<span color='" .. settings.system_colors.gpu .. "'>" .. settings.icons.system.gpu .. "</span>",
         font = settings.fonts.icon,
         align = "center",
         valign = "center",
@@ -73,6 +78,7 @@ function SystemMonitor:_create_widgets()
         font = "Ubuntu " .. settings.fonts.widget_size,
         align = "center",
         valign = "center",
+        fg = colors.text,
         widget = wibox.widget.textbox
     }
     
