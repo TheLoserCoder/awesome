@@ -2,6 +2,10 @@
 local gears = require("gears")
 local awful = require("awful")
 
+-- Загружаем тему в самом начале
+local WalColors = require("custom.utils.wal_colors")
+WalColors.reload_settings_colors()
+
 local M = {}
 
 local function loadModule(moduleName)
@@ -56,6 +60,10 @@ function M.windowsSettings(client)
     -- Инициализация виджета выбора обоев
     local WallpaperSelector = require("custom.widgets.wallpaper_selector")
     WallpaperSelector.new()
+    
+    -- Генерируем цветовые файлы
+    local ColorGenerators = require("custom.utils.color_generators")
+    ColorGenerators.generate_all()
 end
 
 function M.createBar()

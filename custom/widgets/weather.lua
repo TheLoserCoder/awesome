@@ -2,10 +2,10 @@
 local wibox = require("wibox")
 local gears = require("gears")
 local awful = require("awful")
-local Provider = require("custom.widgets.provider")
+
 local settings = require("custom.settings")
 local GlobalStorage = require("custom.utils.global_storage")
-local DebugLogger = require("custom.utils.debug_logger")
+
 
 local Weather = {}
 Weather.__index = Weather
@@ -13,72 +13,71 @@ Weather.__index = Weather
 function Weather.new()
     local self = setmetatable({}, Weather)
     
-    DebugLogger.log("[WEATHER] Creating weather widget")
+
     
-    local colors = Provider.get_colors()
+    local colors = settings.colors
     
     -- Виджеты для первой строки
-    self.location_widget = wibox.widget {
-        markup = '<span color="' .. colors.text_muted .. '">Кривой Рог</span>',
-        font = settings.fonts.main .. " Bold 14",
-        widget = wibox.widget.textbox,
-    }
+    local Text = require("custom.widgets.base_widgets.text")
     
-    self.current_icon = wibox.widget {
+    self.location_widget = Text.new({
+        text = "Кривой Рог",
+        theme_color = "text_muted",
+        font = settings.fonts.main .. " Bold 14"
+    })
+    
+    self.current_icon = Text.new({
         text = "🌤️",
-        font = settings.fonts.main .. " 18",
-        widget = wibox.widget.textbox,
-    }
+        theme_color = "text",
+        font = settings.fonts.main .. " 18"
+    })
     
-    self.current_temp = wibox.widget {
-        markup = '<span color="' .. colors.text .. '">--°C</span>',
-        font = settings.fonts.main .. " Bold 18",
-        widget = wibox.widget.textbox,
-    }
+    self.current_temp = Text.new({
+        text = "--°C",
+        theme_color = "text",
+        font = settings.fonts.main .. " Bold 18"
+    })
     
     -- Временные промежутки (6 штук)
     self.forecast_widgets = {}
     for i = 1, 6 do
         self.forecast_widgets[i] = {
-            icon = wibox.widget {
+            icon = Text.new({
                 text = "🌤️",
-                font = settings.fonts.main .. " 12",
-                align = "center",
-                widget = wibox.widget.textbox,
-            },
-            temp = wibox.widget {
-                markup = '<span color="' .. colors.text .. '">--°</span>',
-                font = settings.fonts.main .. " 9",
-                align = "center",
-                widget = wibox.widget.textbox,
-            },
-            time = wibox.widget {
-                markup = '<span color="' .. colors.text_muted .. '">--:--</span>',
-                font = settings.fonts.main .. " 8",
-                align = "center",
-                widget = wibox.widget.textbox,
-            }
+                theme_color = "text_muted",
+                font = settings.fonts.main .. " 12"
+            }),
+            temp = Text.new({
+                text = "--°",
+                theme_color = "text",
+                font = settings.fonts.main .. " 9"
+            }),
+            time = Text.new({
+                text = "--:--",
+                theme_color = "text_muted",
+                font = settings.fonts.main .. " 8"
+            })
         }
     end
     
     -- Параметры внизу
-    self.humidity_widget = wibox.widget {
-        markup = '<span color="' .. colors.text_secondary .. '">' .. settings.icons.weather.humidity .. ' --%</span>',
-        font = settings.fonts.main .. " 9",
-        widget = wibox.widget.textbox,
-    }
+    self.humidity_widget = Text.new({
+        text = settings.icons.weather.humidity .. " --%",
+        theme_color = "text_secondary",
+        font = settings.fonts.main .. " 9"
+    })
     
-    self.wind_widget = wibox.widget {
-        markup = '<span color="' .. colors.text_secondary .. '">' .. settings.icons.weather.wind_speed .. ' -- м/с</span>',
-        font = settings.fonts.main .. " 9",
-        widget = wibox.widget.textbox,
-    }
+    self.wind_widget = Text.new({
+        text = settings.icons.weather.wind_speed .. " -- м/с",
+        theme_color = "text_secondary",
+        font = settings.fonts.main .. " 9"
+    })
     
-    self.pressure_widget = wibox.widget {
-        markup = '<span color="' .. colors.text_secondary .. '">' .. settings.icons.weather.pressure .. ' -- гПа</span>',
-        font = settings.fonts.main .. " 9",
-        widget = wibox.widget.textbox,
-    }
+    self.pressure_widget = Text.new({
+        text = settings.icons.weather.pressure .. " -- гПа",
+        theme_color = "text_secondary",
+        font = settings.fonts.main .. " 9"
+    })
     
     -- Создаем layout для временных промежутков
     local forecast_layout = wibox.widget {
@@ -89,9 +88,21 @@ function Weather.new()
     for i = 1, 6 do
         local forecast_item = wibox.widget {
             {
-                self.forecast_widgets[i].icon,
-                self.forecast_widgets[i].temp,
-                self.forecast_widgets[i].time,
+                {
+                    self.forecast_widgets[i].icon,
+                    halign = "center",
+                    widget = wibox.container.place
+                },
+                {
+                    self.forecast_widgets[i].temp,
+                    halign = "center",
+                    widget = wibox.container.place
+                },
+                {
+                    self.forecast_widgets[i].time,
+                    halign = "center",
+                    widget = wibox.container.place
+                },
                 spacing = 2,
                 layout = wibox.layout.fixed.vertical,
             },
@@ -102,63 +113,72 @@ function Weather.new()
     end
     
     -- Основной виджет
-    self.widget = wibox.widget {
+    local Container = require("custom.widgets.base_widgets.container")
+    local content = wibox.widget {
+        -- Первая строка: город слева, иконка+температура справа
+        {
+            self.location_widget,
+            nil,
+            {
+                self.current_icon,
+                self.current_temp,
+                spacing = 6,
+                layout = wibox.layout.fixed.horizontal,
+            },
+            layout = wibox.layout.align.horizontal,
+        },
+        -- Вторая строка: прогноз на 6 временных промежутков
+        {
+            forecast_layout,
+            top = 8,
+            widget = wibox.container.margin,
+        },
+        -- Третья строка: параметры по центру
         {
             {
                 {
-                    -- Первая строка: город слева, иконка+температура справа
                     {
-                        self.location_widget,
-                        nil,
-                        {
-                            self.current_icon,
-                            self.current_temp,
-                            spacing = 6,
-                            layout = wibox.layout.fixed.horizontal,
-                        },
-                        layout = wibox.layout.align.horizontal,
+                        self.humidity_widget,
+                        valign = "center",
+                        widget = wibox.container.place
                     },
-                    -- Вторая строка: прогноз на 6 временных промежутков
                     {
-                        forecast_layout,
-                        top = 8,
-                        widget = wibox.container.margin,
+                        self.wind_widget,
+                        valign = "center",
+                        widget = wibox.container.place
                     },
-                    -- Третья строка: параметры по центру
                     {
-                        {
-                            {
-                                self.humidity_widget,
-                                self.wind_widget,
-                                self.pressure_widget,
-                                spacing = 12,
-                                layout = wibox.layout.fixed.horizontal,
-                            },
-                            halign = "center",
-                            widget = wibox.container.place,
-                        },
-                        top = 8,
-                        widget = wibox.container.margin,
+                        self.pressure_widget,
+                        valign = "center",
+                        widget = wibox.container.place
                     },
-                    layout = wibox.layout.fixed.vertical,
+                    spacing = 12,
+                    layout = wibox.layout.fixed.horizontal,
                 },
-                margins = 12,
-                widget = wibox.container.margin,
+                halign = "center",
+                widget = wibox.container.place,
             },
-            valign = "center",
-            widget = wibox.container.place,
+            top = 8,
+            widget = wibox.container.margin,
         },
-        bg = colors.surface,
-        shape = gears.shape.rounded_rect,
-        forced_width = 250,
-        forced_height = 140,
-        widget = wibox.container.background,
-        buttons = awful.util.table.join(
-            awful.button({}, 1, function()
-                awful.spawn(settings.commands.weather_app)
-            end)
-        )
+        layout = wibox.layout.fixed.vertical,
     }
+    
+    self.widget = Container.new({
+        theme_color = "surface",
+        content = content,
+        margins = 12,
+        width = 250,
+        height = 140,
+        valign = "center",
+        shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, settings.dimensions.corner_radius) end
+    })
+    
+    self.widget:connect_signal("button::press", function(_, _, _, button)
+        if button == 1 then
+            awful.spawn(settings.commands.weather_app)
+        end
+    end)
     
     -- Слушаем обновления погоды
     GlobalStorage.listen("weather_data", function(data)
@@ -167,16 +187,22 @@ function Weather.new()
     
     -- Проверяем есть ли уже данные
     local existing_data = GlobalStorage.get("weather_data")
-    DebugLogger.log("[WEATHER] Existing data: " .. (existing_data and "found" or "not found"))
     
     if existing_data then
-        DebugLogger.log("[WEATHER] Using existing data")
         self:update_weather(existing_data)
     else
         -- Запускаем API если данных нет
-        DebugLogger.log("[WEATHER] Starting API fetch")
         local WeatherAPI = require("custom.utils.weather_api")
         WeatherAPI.fetch_weather()
+        
+        -- Принудительно обновляем через некоторое время
+        gears.timer.start_new(2, function()
+            local data = GlobalStorage.get("weather_data")
+            if data then
+                self:update_weather(data)
+            end
+            return false
+        end)
     end
     
     return self
@@ -190,13 +216,12 @@ function Weather:update_weather(data)
     
     -- Обновляем текущую температуру и иконку
     if data.temperature then
-        local colors = Provider.get_colors()
-        self.current_temp.markup = '<span color="' .. colors.text .. '">' .. string.format("%.0f°C", data.temperature) .. '</span>'
+        self.current_temp:update_text(string.format("%.0f°C", data.temperature))
     end
     
     if data.weather_code then
         local icon = self:get_weather_icon(data.weather_code)
-        self.current_icon.text = icon
+        self.current_icon:update_text(icon)
     end
     
     -- Обновляем прогноз (пока используем текущие данные для всех промежутков)
@@ -204,59 +229,57 @@ function Weather:update_weather(data)
         for i = 1, math.min(6, #data.forecast) do
             local forecast_item = data.forecast[i]
             if forecast_item then
-                self.forecast_widgets[i].time.text = forecast_item.time or "--:--"
+                self.forecast_widgets[i].time:update_text(forecast_item.time or "--:--")
                 local hour = tonumber(forecast_item.time:match("(%d+):")) or 0
-                self.forecast_widgets[i].icon.text = self:get_weather_icon(forecast_item.weather_code or "clearsky", hour)
-                local colors = Provider.get_colors()
-                self.forecast_widgets[i].temp.markup = '<span color="' .. colors.text .. '">' .. (forecast_item.temperature and string.format("%.0f°", forecast_item.temperature) or "--°") .. '</span>'
+                local icon = self:get_weather_icon(forecast_item.weather_code or "clearsky", hour)
+                self.forecast_widgets[i].icon:update_text(icon)
+                self.forecast_widgets[i].temp:update_text(forecast_item.temperature and string.format("%.0f°", forecast_item.temperature) or "--°")
             end
         end
     else
         -- Заполняем тестовыми данными если нет прогноза
         for i = 1, 6 do
             local hour = (i - 1) * 4
-            self.forecast_widgets[i].time.text = string.format("%02d:00", hour)
-            self.forecast_widgets[i].icon.text = self:get_weather_icon(data.weather_code or "clearsky", hour)
-            local colors = Provider.get_colors()
-            self.forecast_widgets[i].temp.markup = '<span color="' .. colors.text .. '">' .. (data.temperature and string.format("%.0f°", data.temperature + math.random(-3, 3)) or "--°") .. '</span>'
+            self.forecast_widgets[i].time:update_text(string.format("%02d:00", hour))
+            local icon = self:get_weather_icon(data.weather_code or "clearsky", hour)
+            self.forecast_widgets[i].icon:update_text(icon)
+            self.forecast_widgets[i].temp:update_text(data.temperature and string.format("%.0f°", data.temperature + math.random(-3, 3)) or "--°")
         end
     end
     
     -- Обновляем параметры внизу
-    local colors = Provider.get_colors()
     if data.humidity then
-        self.humidity_widget.markup = '<span color="' .. colors.text_secondary .. '">' .. settings.icons.weather.humidity .. ' ' .. string.format("%.0f%%", data.humidity) .. '</span>'
+        self.humidity_widget:update_text(settings.icons.weather.humidity .. ' ' .. string.format("%.0f%%", data.humidity))
     end
     
     if data.wind_speed then
-        self.wind_widget.markup = '<span color="' .. colors.text_secondary .. '">' .. settings.icons.weather.wind_speed .. ' ' .. string.format("%.0f м/с", data.wind_speed) .. '</span>'
+        self.wind_widget:update_text(settings.icons.weather.wind_speed .. ' ' .. string.format("%.0f м/с", data.wind_speed))
     end
     
     if data.pressure then
-        self.pressure_widget.markup = '<span color="' .. colors.text_secondary .. '">' .. settings.icons.weather.pressure .. ' ' .. string.format("%.0f гПа", data.pressure) .. '</span>'
+        self.pressure_widget:update_text(settings.icons.weather.pressure .. ' ' .. string.format("%.0f гПа", data.pressure))
     end
 end
 
 function Weather:show_no_data()
-    local colors = Provider.get_colors()
-    self.current_temp.markup = '<span color="' .. colors.text .. '">Нет данных</span>'
-    self.current_icon.text = "❓"
+    self.current_temp:update_text("Нет данных")
+    self.current_icon:update_text("❓")
     
     for i = 1, 6 do
-        self.forecast_widgets[i].time.markup = '<span color="' .. colors.text_muted .. '">--:--</span>'
-        self.forecast_widgets[i].icon.text = "❓"
-        self.forecast_widgets[i].temp.markup = '<span color="' .. colors.text .. '">--°</span>'
+        self.forecast_widgets[i].time:update_text("--:--")
+        self.forecast_widgets[i].icon:update_text("❓")
+        self.forecast_widgets[i].temp:update_text("--°")
     end
     
-    self.humidity_widget.markup = '<span color="' .. colors.text_secondary .. '">' .. settings.icons.weather.humidity .. ' --</span>'
-    self.wind_widget.markup = '<span color="' .. colors.text_secondary .. '">' .. settings.icons.weather.wind_speed .. ' --</span>'
-    self.pressure_widget.markup = '<span color="' .. colors.text_secondary .. '">' .. settings.icons.weather.pressure .. ' --</span>'
+    self.humidity_widget:update_text(settings.icons.weather.humidity .. ' --')
+    self.wind_widget:update_text(settings.icons.weather.wind_speed .. ' --')
+    self.pressure_widget:update_text(settings.icons.weather.pressure .. ' --')
 end
 
 function Weather:get_weather_icon(weather_code, hour)
     local icons = settings.icons.weather
     
-    DebugLogger.log("[WEATHER] Weather code: " .. (weather_code or "nil") .. ", hour: " .. (hour or "current"))
+
     
     -- Определяем день/ночь по времени
     local is_night = false
@@ -291,7 +314,7 @@ function Weather:get_weather_icon(weather_code, hour)
     elseif base_code == "sleet" then
         return icons.rain
     else
-        DebugLogger.log("[WEATHER] Unknown weather code: " .. weather_code)
+
         return icons.default
     end
 end

@@ -2,14 +2,14 @@
 local gears = require("gears")
 local wibox = require("wibox")
 local awful = require("awful")
-
+local settings = require("custom.settings")
 local Volume = {}
 Volume.__index = Volume
 
 -- Получаем зависимости
-local Provider = require("custom.widgets.provider")
 local Slider = require("custom.widgets.slider")
-local Button = require("custom.widgets.button")
+local Button2 = require("custom.widgets.button_2")
+local Text = require("custom.widgets.base_widgets.text")
 
 -- Функция для выполнения команд
 local function run_cmd(cmd)
@@ -52,6 +52,7 @@ function Volume.new(config)
     self:_create_widgets()
     self:_setup_volume_control()
     self:_setup_sync_timer()
+    self:_setup_theme_listener()
     
     return self
 end
@@ -59,18 +60,17 @@ end
 -- Создание виджетов
 function Volume:_create_widgets()
     -- Получаем цвета
-    local colors = Provider.get_colors()
+    local colors = settings.colors
     
-    -- Создаем кнопку mute
-    local mute_icon = wibox.widget {
-        text = "",
-        align = "center",
-        valign = "center",
-        widget = wibox.widget.textbox
-    }
+    -- Создаем текст для иконки
+    self.mute_icon = Text.new({
+        text = settings.icons.audio.medium,
+        theme_color = "text",
+        font = settings.fonts.icon .. " 12"
+    })
     
-    self.mute_button = Button.new({
-        content = mute_icon,
+    self.mute_button = Button2.new({
+        content = self.mute_icon,
         width = 24,
         height = 24,
         on_click = function()
@@ -93,11 +93,6 @@ function Volume:_create_widgets()
         bar_active_color = colors.accent,
         handle_color = colors.accent
     })
-    
-    -- Сохраняем ссылку на иконку для обновления
-    self.mute_icon = mute_icon
-    
-
     
     -- Создаем основной виджет
     if self.show_icon then
@@ -218,13 +213,23 @@ function Volume:disconnect_signal(signal, callback)
     end
 end
 
+-- Настройка слушателя темы
+function Volume:_setup_theme_listener()
+    local ThemeProvider = require("custom.theme.theme_provider")
+    ThemeProvider.get():subscribe(function()
+        local colors = settings.colors
+        self.slider.widget.bar_active_color = colors.accent
+        self.slider.widget.handle_color = colors.accent
+    end)
+end
+
 -- Обновление иконки
 function Volume:_update_icon()
     if self.show_icon then
         if is_muted() then
-            self.mute_icon.text = ""
+            self.mute_icon:update_text(settings.icons.audio.muted)
         else
-            self.mute_icon.text = ""
+            self.mute_icon:update_text(settings.icons.audio.unmuted)
         end
     end
 end

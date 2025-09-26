@@ -2,13 +2,13 @@
 local gears = require("gears")
 local wibox = require("wibox")
 local awful = require("awful")
-
+local Container = require("custom.widgets.base_widgets.container")
 local AppList = {}
 AppList.__index = AppList
 
-local Button = require("custom.widgets.button")
+local Button2 = require("custom.widgets.button_2")
+local Text = require("custom.widgets.base_widgets.text")
 local Popup = require("custom.widgets.popup")
-local Provider = require("custom.widgets.provider")
 local settings = require("custom.settings")
 
 function AppList.new()
@@ -43,7 +43,7 @@ function AppList.new()
 end
 
 function AppList:_create_widgets()
-    local colors = Provider.get_colors()
+    local colors = settings.colors
     
     -- Иконка приложения
     self.app_icon = wibox.widget {
@@ -54,36 +54,43 @@ function AppList:_create_widgets()
     }
     
     -- Название приложения
+    self.app_text_widget = Text.new({
+        text = "Рабочий стол",
+        font = settings.fonts.main .. " 10"
+    })
+    
     self.app_text = wibox.widget {
         {
-            text = "Рабочий стол",
-            font = settings.fonts.main .. " 10",
-            align = "left",
-            valign = "center",
-            fg = colors.text,
-            ellipsize = "end",
-            widget = wibox.widget.textbox
+            self.app_text_widget,
+            widget = wibox.container.constraint
         },
         forced_width = 200,
         widget = wibox.container.constraint
     }
     
     -- Счетчик приложений
-    self.app_count = wibox.widget {
-        {
-            markup = "<span color='" .. colors.surface .. "'>1</span>",
-            font = settings.fonts.main .. " 8",
-            align = "center",
-            valign = "center",
-            widget = wibox.widget.textbox
-        },
-        bg = colors.accent,
+    self.app_count_widget = Text.new({
+        text = "1",
+        theme_color = "background",
+        font = settings.fonts.main .. " 8",
+        themed = false
+    })
+    
+  
+    local app_count_container = Container.new({
+        content = self.app_count_widget,
+        theme_color = "accent",
         shape = gears.shape.circle,
-        forced_width = 16,
-        forced_height = 16,
-        visible = false,
+        width = 16,
+        height = 16
+    })
+    
+    self.app_count = wibox.widget {
+        app_count_container,
         widget = wibox.container.background
     }
+    
+    self.app_count.visible = false
     
     -- Контент кнопки
     local button_content = wibox.widget {
@@ -94,7 +101,7 @@ function AppList:_create_widgets()
         layout = wibox.layout.fixed.horizontal
     }
     
-    local app_button = Button.new({
+    local app_button = Button2.new({
         content = button_content,
         width = 250,
         halign = "left",
@@ -103,15 +110,7 @@ function AppList:_create_widgets()
         end
     })
     
-    -- Добавляем обработку колеса мыши
-    app_button.widget:buttons(gears.table.join(
-        app_button.widget:buttons(),
-        awful.button({}, 2, function() -- средняя кнопка мыши
-            if client.focus then
-                client.focus:kill()
-            end
-        end)
-    ))
+
     
     self.widget = app_button.widget
     self.popup_content = wibox.widget {
@@ -127,6 +126,7 @@ function AppList:_create_widgets()
         offset = { y = 5 }
     })
     
+    -- Не привязываем popup автоматически, показываем только по клику
     self.popup:bind_to_widget(self.widget)
     
     -- Начальное обновление
@@ -147,54 +147,50 @@ function AppList:_get_clients_on_current_tag()
 end
 
 function AppList:_update_display()
-    local colors = Provider.get_colors()
+
+    local colors = settings.colors
     local focused = client.focus
     local clients = self:_get_clients_on_current_tag()
     local total_clients = #clients + (focused and 1 or 0)
     
-    -- Скрываем виджет если нет приложений
-    if total_clients == 0 then
-        self.widget.visible = false
-        if self.popup:get_visible() then
-            self.popup:hide()
-        end
-        return
-    else
-        self.widget.visible = true
-    end
+
+    
+
     
     -- Обновляем главную кнопку
-    local text_widget = self.app_text:get_children()[1]
     if focused then
         self.app_icon.image = focused.icon
-        text_widget.align = "left"
-        text_widget.text = focused.name or focused.class or "Неизвестно"
+        self.app_text_widget:update_text(focused.name or focused.class or "Неизвестно")
     else
         self.app_icon.image = nil
-        text_widget.align = "left"
-        text_widget.text = "Рабочий стол"
-    end
-    
-    -- Обновляем счетчик
-    if total_clients > 1 then
-        self.app_count.visible = true
-        local count_widget = self.app_count:get_children()[1]
-        if count_widget then
-            count_widget.markup = "<span color='" .. colors.surface .. "'>" .. tostring(total_clients) .. "</span>"
-        end
-    else
-        self.app_count.visible = false
-        -- Скрываем popup если осталось только одно приложение
+        self.app_text_widget:update_text("Рабочий стол")
+        -- Принудительно скрываем popup когда нет активного клиента
         if self.popup:get_visible() then
             self.popup:hide()
         end
     end
+    
+    -- Обновляем счетчик (скрываем если на теге <= 1 окна)
+    if total_clients <= 1 then
+        self.app_count.visible = false
+    else
+        self.app_count.visible = true
+        self.app_count_widget:update_text(tostring(total_clients))
+    end
+    
+    -- Скрываем popup только если нет клиентов в списке
+    if #clients == 0 and self.popup:get_visible() then
+
+        self.popup:hide()
+    end
+    
+
     
     -- Обновляем список
     self.popup_content:reset()
     
     for _, c in ipairs(clients) do
-        local client_button = Button.new({
+        local client_button = Button2.new({
             content = wibox.widget {
                 {
                     image = c.icon,
@@ -204,24 +200,22 @@ function AppList:_update_display()
                 },
                 {
                     {
-                        text = c.name or c.class or "Неизвестно",
-                        font = settings.fonts.main .. " 10",
-                        align = "left",
-                        valign = "center",
-                        fg = colors.text,
-                        ellipsize = "end",
-                        widget = wibox.widget.textbox
+                        Text.new({
+                            text = c.name or c.class or "Неизвестно",
+                            font = settings.fonts.main .. " 10"
+                        }),
+                        widget = wibox.container.constraint
                     },
                     forced_width = 200,
                     widget = wibox.container.constraint
                 },
                 {
-                    text = c.minimized and settings.icons.system.window_closed or settings.icons.system.window_open,
-                    font = settings.fonts.icon,
-                    align = "center",
-                    valign = "center",
-                    fg = c.minimized and colors.text_muted or colors.primary,
-                    widget = wibox.widget.textbox
+                    Text.new({
+                        text = c.minimized and settings.icons.system.window_closed or settings.icons.system.window_open,
+                        text_type = c.minimized and "text_muted" or "text",
+                        font = settings.fonts.icon
+                    }),
+                    widget = wibox.container.constraint
                 },
                 spacing = 6,
                 layout = wibox.layout.fixed.horizontal
@@ -235,22 +229,26 @@ function AppList:_update_display()
             end
         })
         
-        -- Добавляем обработку колеса мыши для закрытия окна
-        client_button.widget:buttons(gears.table.join(
-            client_button.widget:buttons(),
-            awful.button({}, 2, function()
-                c:kill()
-            end)
-        ))
+
         
         self.popup_content:add(client_button.widget)
     end
 end
 
 function AppList:_toggle_popup()
+
     local clients = self:_get_clients_on_current_tag()
-    if #clients > 0 then
+    local focused = client.focus
+    local total_clients = #clients + (focused and 1 or 0)
+    
+
+    
+    -- Показываем popup только если есть больше одного приложения
+    if total_clients > 1 and #clients > 0 then
+
         self.popup:toggle()
+    else
+
     end
 end
 

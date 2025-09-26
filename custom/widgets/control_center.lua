@@ -2,15 +2,16 @@
 local gears = require("gears")
 local wibox = require("wibox")
 local awful = require("awful")
+local beautiful = require("beautiful")
 
 local ControlCenter = {}
 ControlCenter.__index = ControlCenter
 
-local Button = require("custom.widgets.button")
+local Button2 = require("custom.widgets.button_2")
+local Text = require("custom.widgets.base_widgets.text")
 local Popup = require("custom.widgets.popup")
 local Volume = require("custom.widgets.volume")
 local Poweroff = require("custom.widgets.poweroff")
-local Provider = require("custom.widgets.provider")
 local settings = require("custom.settings")
 
 function ControlCenter.new(s)
@@ -23,20 +24,14 @@ function ControlCenter.new(s)
 end
 
 function ControlCenter:_create_widgets()
-    local colors = Provider.get_colors()
+    -- Получаем цвета из beautiful
     
     -- Кнопка с иконкой awesome
-    local awesome_icon = wibox.widget {
-        text = settings.icons.system.awesome,
-        font = settings.fonts.icon .. " 10",
-        align = "center",
-        valign = "center",
-        fg = colors.text,
-        widget = wibox.widget.textbox
-    }
-    
-    local control_button = Button.new({
-        content = awesome_icon,
+    local control_button = Button2.new({
+        content = Text.new({
+            text = settings.icons.system.awesome,
+            font = settings.fonts.icon .. " 10"
+        }),
         width = 26,
         height = 26,
         on_click = function()
@@ -66,7 +61,7 @@ function ControlCenter:_create_widgets()
             local Layoutbox = require("custom.widgets.layoutbox")
             local layoutbox_widget = Layoutbox.new(self.screen)
             
-            button_widget = Button.new({
+            button_widget = Button2.new({
                 content = layoutbox_widget.widget,
                 width = 40,
                 height = 40,
@@ -74,17 +69,11 @@ function ControlCenter:_create_widgets()
             })
         else
             -- Обычные кнопки
-            local icon_widget = wibox.widget {
-                text = button_config.icon,
-                font = settings.fonts.icon .. " 12",
-                align = "center",
-                valign = "center",
-                fg = colors.text,
-                widget = wibox.widget.textbox
-            }
-            
-            button_widget = Button.new({
-                content = icon_widget,
+            button_widget = Button2.new({
+                content = Text.new({
+                    text = button_config.icon,
+                    font = settings.fonts.icon .. " 12"
+                }),
                 width = 40,
                 height = 40,
                 shape = gears.shape.circle,
@@ -107,30 +96,38 @@ function ControlCenter:_create_widgets()
         table.insert(button_widgets, button_widget.widget)
     end
     
-    -- Создаем ряд кнопок с отступами
-    local buttons_row_widgets = {}
+    -- Создаем ряды кнопок по 4 в ряд
+    local buttons_rows = {}
+    local current_row = {}
     
     for i, widget in ipairs(button_widgets) do
-        if i == 1 or i == #button_widgets then
-            -- Крайние кнопки без отступов
-            table.insert(buttons_row_widgets, widget)
-        else
-            -- Средние кнопки с отступами
-            table.insert(buttons_row_widgets, {
-                widget,
-                left = 8,
-                right = 8,
-                widget = wibox.container.margin
-            })
+        table.insert(current_row, widget)
+        
+        -- Когда набралось 4 кнопки или это последняя кнопка
+        if #current_row == 4 or i == #button_widgets then
+            -- Создаем ряд с равномерным распределением
+            local row_widget = wibox.widget {
+                layout = wibox.layout.flex.horizontal,
+                spacing = 8
+            }
+            
+            for _, btn in ipairs(current_row) do
+                row_widget:add(btn)
+            end
+            
+            table.insert(buttons_rows, row_widget)
+            current_row = {}
         end
     end
     
-    local buttons_row = wibox.widget {
-        layout = wibox.layout.flex.horizontal
+    -- Объединяем все ряды
+    local buttons_container = wibox.widget {
+        layout = wibox.layout.fixed.vertical,
+        spacing = 8
     }
     
-    for _, widget in ipairs(buttons_row_widgets) do
-        buttons_row:add(widget)
+    for _, row in ipairs(buttons_rows) do
+        buttons_container:add(row)
     end
     
     -- Контент popup
@@ -141,7 +138,7 @@ function ControlCenter:_create_widgets()
             widget = wibox.container.margin
         },
         {
-            buttons_row,
+            buttons_container,
             
             widget = wibox.container.margin
         },

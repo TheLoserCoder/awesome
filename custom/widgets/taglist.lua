@@ -6,26 +6,28 @@ local wibox = require("wibox")
 local Taglist = {}
 Taglist.__index = Taglist
 
-local Provider = require("custom.widgets.provider")
+local Container = require("custom.widgets.base_widgets.container")
+local Text = require("custom.widgets.base_widgets.text")
+local Button2 = require("custom.widgets.button_2")
 local Animate = require("custom.utils.animate")
 local settings = require("custom.settings")
-local debug_logger = require("custom.utils.debug_logger")
+
  
 function Taglist.new(screen, config)
     local self = setmetatable({}, Taglist)
     config = config or {}
     
-    local colors = Provider.get_colors()
+
     self.screen = screen
     self.config = config
     
     -- Параметры
-    local spacing = config.spacing or 4
+    local spacing = config.spacing or 2
     local indicator_size = config.indicator_size or 16
     local max_button_width = config.max_button_width or 100
    
     local tag_colors = config.colors or {
-        background = settings.colors.surface .. "80",
+        background = settings.colors.surface,
         indicator = settings.colors.accent .. "40",
         active_tag = settings.colors.surface,
         normal_tag = settings.colors.text,
@@ -86,66 +88,54 @@ function Taglist.new(screen, config)
     for i, tag_config in ipairs(tags) do
         local tag = screen.tags[i]
         if tag then
-            local text_widget = wibox.widget {
+            local text_args = {
                 text = tag_config.name,
+                theme_color = "text",
+                font = "Ubuntu Bold 10"
+            }
+            
+            -- Если есть явный цвет, устанавливаем его и отключаем тему
+            if tag_config.color then
+                text_args.color = tag_config.color
+                text_args.themed = false
+            end
+            
+            local text_widget = wibox.widget {
+                Text.new(text_args),
                 align = "center",
                 valign = "center",
-                font = "Ubuntu Bold 10",
-                widget = wibox.widget.textbox
+                widget = wibox.container.place
             }
             
             -- Вычисляем ширину кнопки на основе текста
-            local text_width = text_widget:get_preferred_size() or 20
+            local text_width = 10 -- базовая ширина
             local button_width = math.min(text_width + 16, max_button_width)
             
-            local button_bg = wibox.widget {
-                {
-                    text_widget,
-                    margins = 2,
-                    widget = wibox.container.margin
-                },
-                forced_width = button_width,
-                forced_height = 18,
-                shape = gears.shape.rounded_rect,
-                bg = "#00000000", -- прозрачный фон
-                widget = wibox.container.background
-            }
-            
-            -- Обработка наведения
-            button_bg:connect_signal("mouse::enter", function()
-                if not tag.selected then
-                    button_bg.bg = tag_colors.hover_button
-                end
-            end)
-            
-            button_bg:connect_signal("mouse::leave", function()
-                if not tag.selected then
-                    button_bg.bg = "#00000000"
-                end
-            end)
-            
-            -- Обработка клика
-            button_bg:buttons(gears.table.join(
-                awful.button({}, 1, function()
+            local button_bg = Button2.new({
+                content = text_widget,
+                width = button_width,
+                height = 18,
+                bg_default = "#00000000", -- прозрачный фон
+                bg_hover = tag_colors.hover_button,
+                margins = 2,
+                on_click = function()
                     tag:view_only()
-                end)
-            ))
+                end
+            })
             
             self.buttons[i] = {
-                widget = button_bg,
+                widget = button_bg.widget,
                 text_widget = text_widget,
-                tag = tag
+                tag = tag,
+                button2 = button_bg
             }
             
-            buttons_layout:add(button_bg)
+            buttons_layout:add(button_bg.widget)
             
             -- Обновляем стиль при изменении тега
             tag:connect_signal("property::selected", function()
-
                 if tag.selected then
                     self:_move_indicator_to(i)
-                else
-                    self:_update_all_buttons()
                 end
             end)
             
@@ -163,19 +153,17 @@ function Taglist.new(screen, config)
     }
     
     -- Добавляем фон с ограничением высоты
+    local background_container = Container.new({
+        theme_color = "surface",
+        content = taglist_content,
+        margins = 4,
+        shape = function(cr, width, height)
+            gears.shape.rounded_rect(cr, width, height, 12)
+        end
+    })
+    
     self.widget = wibox.widget {
-        {
-            {
-                taglist_content,
-                margins = 4,
-                widget = wibox.container.margin
-            },
-            bg = tag_colors.background,
-            shape = function(cr, width, height)
-                gears.shape.rounded_rect(cr, width, height, 12)
-            end,
-            widget = wibox.container.background
-        },
+        background_container,
         forced_height = 28,
         valign = "center",
         widget = wibox.container.place
@@ -186,7 +174,7 @@ function Taglist.new(screen, config)
     for i = 1, 9 do
         local button = self.buttons[i]
         if button and button.tag.selected then
-            initial_width = button.widget.forced_width or indicator_size
+            initial_width = button.button2.width or indicator_size
             break
         end
     end
@@ -195,7 +183,6 @@ function Taglist.new(screen, config)
         duration = 0.15,
         initial_pos = initial_width,
         subscribed = function(pos)
-
             if pos and self.indicator then
                 self.indicator.forced_width = math.floor(pos + 0.5)
             end
@@ -210,13 +197,14 @@ function Taglist.new(screen, config)
 end
 
 function Taglist:_x_for_index(idx)
-    local spacing = self.config.spacing or 4
+    local spacing = self.config.spacing or 2
     
     -- Вычисляем позицию левого края кнопки
     local left = 0
     for i = 1, idx - 1 do
         if self.buttons[i] then
-            left = left + (self.buttons[i].widget.forced_width or 24) + spacing
+            local button_width = self.buttons[i].button2.width or 24
+            left = left + button_width + spacing
         end
     end
     
@@ -224,9 +212,8 @@ function Taglist:_x_for_index(idx)
 end
 
 function Taglist:_move_indicator_to(index)
-
     local target_x = self:_x_for_index(index)
-    local target_width = self.buttons[index] and self.buttons[index].widget.forced_width or (self.config.indicator_size or 16)
+    local target_width = self.buttons[index] and self.buttons[index].button2.width or (self.config.indicator_size or 16)
     
     if self.mover then
         self.mover.target = target_x
@@ -243,13 +230,22 @@ function Taglist:_set_initial_indicator_position()
         local button = self.buttons[i]
         if button and button.tag.selected then
             local pos = self:_x_for_index(i)
-            local width = button.widget.forced_width or (self.config.indicator_size or 16)
+            local width = button.button2.width or (self.config.indicator_size or 16)
             
             -- Применяем сразу без анимации
-            self.mover.pos = pos
-            self.sizer.pos = width
-            self.indicator_margin.left = pos
-            self.indicator.forced_width = width
+            if self.mover then
+                self.mover.pos = pos
+                if self.indicator_margin then
+                    self.indicator_margin.left = pos
+                end
+            end
+            
+            if self.sizer then
+                self.sizer.pos = width
+                if self.indicator then
+                    self.indicator.forced_width = width
+                end
+            end
             break
         end
     end
@@ -259,13 +255,7 @@ function Taglist:_update_button_style(index)
     local button = self.buttons[index]
     if not button then return end
     
-    local tag = button.tag
-    local tag_config = self.config.tags[index]
-    local tag_name = tag_config and tag_config.name or tostring(index)
-    local tag_color = tag_config and tag_config.color or (tag.selected and self.config.colors.active_tag or self.config.colors.normal_tag)
-    
-    button.widget.bg = "#00000000"
-    button.text_widget.markup = '<span color="' .. tag_color .. '">' .. tag_name .. '</span>'
+    button.button2:set_bg("#00000000")
 end
 
 function Taglist:_update_all_buttons()
@@ -275,30 +265,13 @@ function Taglist:_update_all_buttons()
 end
 
 function Taglist:_recalculate_sizes()
-    -- Сохраняем текущие размеры кнопок
-    local current_widths = {}
-    for i, button in pairs(self.buttons) do
-        if button then
-            current_widths[i] = button.widget.forced_width
-        end
-    end
-    
-    -- Пересчитываем размеры кнопок только если они еще не установлены
-    for i, button in pairs(self.buttons) do
-        if button and button.text_widget and not current_widths[i] then
-            local text_width = button.text_widget:get_preferred_size() or 20
-            local button_width = math.min(text_width + 16, self.config.max_button_width or 100)
-            button.widget.forced_width = button_width
-        end
-    end
-    
-    -- Обновляем только позицию индикатора
+    -- Обновляем позицию индикатора для выбранного тега
     for i = 1, 9 do
         local button = self.buttons[i]
         if button and button.tag.selected then
             local pos = self:_x_for_index(i)
             
-            -- Обновляем только позицию
+            -- Обновляем позицию
             if self.mover.pos ~= pos then
                 self.mover.pos = pos
                 self.indicator_margin.left = pos
@@ -307,5 +280,6 @@ function Taglist:_recalculate_sizes()
         end
     end
 end
+
 
 return Taglist

@@ -7,8 +7,8 @@ local SystemMonitor = {}
 SystemMonitor.__index = SystemMonitor
 
 local settings = require("custom.settings")
-local Button = require("custom.widgets.button")
-local Provider = require("custom.widgets.provider")
+local Button2 = require("custom.widgets.button_2")
+local Text = require("custom.widgets.base_widgets.text")
 
 function SystemMonitor.new()
     local self = setmetatable({}, SystemMonitor)
@@ -26,61 +26,46 @@ function SystemMonitor.new()
 end
 
 function SystemMonitor:_create_widgets()
-    local colors = Provider.get_colors()
+    local colors = settings.colors
     
     -- CPU иконка и текст
-    self.cpu_icon = wibox.widget {
-        markup = "<span color='" .. settings.system_colors.cpu .. "'>" .. settings.icons.system.cpu .. "</span>",
+    self.cpu_icon = Text.new({
+        text = settings.icons.system.cpu,
+        color = settings.system_colors.cpu,
         font = settings.fonts.icon,
-        align = "center",
-        valign = "center",
-        widget = wibox.widget.textbox
-    }
+        themed = false
+    })
     
-    self.cpu_text = wibox.widget {
+    self.cpu_text = Text.new({
         text = "0%",
-        font = "Ubuntu " .. settings.fonts.widget_size,
-        align = "center",
-        valign = "center",
-        fg = colors.text,
-        widget = wibox.widget.textbox
-    }
+        font = "Ubuntu " .. settings.fonts.widget_size
+    })
     
     -- RAM иконка и текст
-    self.ram_icon = wibox.widget {
-        markup = "<span color='" .. settings.system_colors.ram .. "'>" .. settings.icons.system.ram .. "</span>",
+    self.ram_icon = Text.new({
+        text = settings.icons.system.ram,
+        color = settings.system_colors.ram,
         font = settings.fonts.icon,
-        align = "center",
-        valign = "center",
-        widget = wibox.widget.textbox
-    }
+        themed = false
+    })
     
-    self.ram_text = wibox.widget {
+    self.ram_text = Text.new({
         text = "0%",
-        font = "Ubuntu " .. settings.fonts.widget_size,
-        align = "center",
-        valign = "center",
-        fg = colors.text,
-        widget = wibox.widget.textbox
-    }
+        font = "Ubuntu " .. settings.fonts.widget_size
+    })
     
     -- GPU иконка и текст
-    self.gpu_icon = wibox.widget {
-        markup = "<span color='" .. settings.system_colors.gpu .. "'>" .. settings.icons.system.gpu .. "</span>",
+    self.gpu_icon = Text.new({
+        text = settings.icons.system.gpu,
+        color = settings.system_colors.gpu,
         font = settings.fonts.icon,
-        align = "center",
-        valign = "center",
-        widget = wibox.widget.textbox
-    }
+        themed = false
+    })
     
-    self.gpu_text = wibox.widget {
+    self.gpu_text = Text.new({
         text = "0%",
-        font = "Ubuntu " .. settings.fonts.widget_size,
-        align = "center",
-        valign = "center",
-        fg = colors.text,
-        widget = wibox.widget.textbox
-    }
+        font = "Ubuntu " .. settings.fonts.widget_size
+    })
     
     -- Содержимое кнопки
     local content = wibox.widget {
@@ -107,7 +92,7 @@ function SystemMonitor:_create_widgets()
     }
     
     -- Оборачиваем в кнопку
-    self.button = Button.new({
+    self.button = Button2.new({
         content = content,
         on_click = function()
             awful.spawn(settings.commands.system_monitor)
@@ -148,7 +133,7 @@ function SystemMonitor:_update_cpu()
 
         self.prev_total, self.prev_idle = total_time, idle_time
         self.cpu_percent = math.floor(usage)
-        self.cpu_text:set_text(self.cpu_percent .. "%")
+        self.cpu_text:update_text(self.cpu_percent .. '%')
     end)
 end
 
@@ -158,7 +143,7 @@ function SystemMonitor:_update_ram()
         if total and used then
             local usage = (tonumber(used) / tonumber(total)) * 100
             self.ram_percent = math.floor(usage)
-            self.ram_text:set_text(self.ram_percent .. "%")
+            self.ram_text:update_text(self.ram_percent .. '%')
         end
     end)
 end
@@ -170,7 +155,7 @@ function SystemMonitor:_update_gpu()
             local gpu_usage = tonumber(stdout:match("([%d%.]+)"))
             if gpu_usage then
                 self.gpu_percent = math.floor(gpu_usage)
-                self.gpu_text:set_text(self.gpu_percent .. "%")
+                self.gpu_text:update_text(self.gpu_percent .. '%')
             end
         end
     )

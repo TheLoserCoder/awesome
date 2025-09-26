@@ -6,9 +6,10 @@ local awful = require("awful")
 local Poweroff = {}
 Poweroff.__index = Poweroff
 
-local Button = require("custom.widgets.button")
+local Button2 = require("custom.widgets.button_2")
 local Popup = require("custom.widgets.popup")
-local Provider = require("custom.widgets.provider")
+local Text = require("custom.widgets.base_widgets.text")
+local Container = require("custom.widgets.base_widgets.container")
 local settings = require("custom.settings")
 
 function Poweroff.new()
@@ -20,43 +21,34 @@ function Poweroff.new()
 end
 
 function Poweroff:_create_widgets()
-    local colors = Provider.get_colors()
+    local colors = settings.colors
     
     -- Иконка power
-    local power_icon = wibox.widget {
+    local power_icon = Text.new({
         text = settings.icons.system.power,
-        font = settings.fonts.icon .. " 12",
-        align = "center",
-        valign = "center",
-        fg = colors.text,
-        widget = wibox.widget.textbox
-    }
+        theme_color = "text",
+        font = settings.fonts.icon .. " 12"
+    })
     
     -- Подпись
-    local power_label = wibox.widget {
+    local power_label = Text.new({
         text = "Выключить / Выйти",
-        font = settings.fonts.main .. " 9",
-        align = "center",
-        valign = "center",
-        fg = colors.text_secondary,
-        widget = wibox.widget.textbox
-    }
+        theme_color = "text_secondary",
+        font = settings.fonts.main .. " 9"
+    })
     
     -- Контент кнопки
     local button_content = wibox.widget {
-        {
-            power_icon,
-            power_label,
-            spacing = 4,
-            layout = wibox.layout.fixed.horizontal
-        },
-        margins = 4,
-        widget = wibox.container.margin
+        power_icon,
+        power_label,
+        spacing = 4,
+        layout = wibox.layout.fixed.horizontal
     }
     
-    local power_button = Button.new({
+    local power_button = Button2.new({
         content = button_content,
         width = settings.widgets.control_center.width,
+        margins = 4,
         on_click = function()
             self:_toggle_popup()
         end
@@ -74,7 +66,6 @@ function Poweroff:_create_widgets()
     
     local menu_layout = wibox.widget {
         layout = wibox.layout.fixed.vertical,
-        
     }
     
     -- Переменные для таймера
@@ -84,29 +75,28 @@ function Poweroff:_create_widgets()
     self.selected_text = ""
     
     for _, item in ipairs(menu_items) do
-        local menu_button = Button.new({
+        local icon_text = Text.new({
+            text = item.icon,
+            theme_color = "text",
+            font = settings.fonts.icon .. " 12"
+        })
+        
+        local label_text = Text.new({
+            text = item.text,
+            theme_color = "text",
+            font = settings.fonts.main .. " 11"
+        })
+        
+        local menu_button = Button2.new({
             content = wibox.widget {
-                {
-                    {
-                        text = item.icon,
-                        font = settings.fonts.icon .. " 12",
-                        align = "left",
-                        widget = wibox.widget.textbox
-                    },
-                    {
-                        text = item.text,
-                        font = settings.fonts.main .. " 10",
-                        align = "left",
-                        widget = wibox.widget.textbox
-                    },
-                    spacing = 8,
-                    layout = wibox.layout.fixed.horizontal
-                },
-                margins = 8,
-                widget = wibox.container.margin
+                icon_text,
+                label_text,
+                spacing = 8,
+                layout = wibox.layout.fixed.horizontal
             },
             width = settings.widgets.control_center.width,
             halign = "left",
+            margins = 8,
             on_click = function()
                 self:_start_countdown(item.text, item.command)
             end
@@ -115,11 +105,11 @@ function Poweroff:_create_widgets()
     end
     
     -- Контент popup без отступов
-    local content = wibox.widget {
-        menu_layout,
-        layout = wibox.layout.fixed.vertical,
-        forced_width = settings.widgets.control_center.width
-    }
+    local content = Container.new({
+        content = menu_layout,
+        width = settings.widgets.control_center.width,
+        theme_color = "surface"
+    })
     
     self.popup = Popup.new({
         content = content,
@@ -128,7 +118,6 @@ function Poweroff:_create_widgets()
         preferred_positions = "bottom",
         preferred_anchors = "front",
         offset = { y = 5 },
-
     })
     
     -- Проверяем что popup загрузился правильно
@@ -157,44 +146,35 @@ function Poweroff:_start_countdown(text, command)
     self.countdown_seconds = 10
     
     -- Создаем контейнер с таймером
-    local colors = Provider.get_colors()
+    local colors = settings.colors
     
-    local countdown_text = wibox.widget {
+    local countdown_text = Text.new({
         text = text .. " через " .. self.countdown_seconds .. " сек",
-        font = settings.fonts.main .. " 10",
-        align = "center",
-        widget = wibox.widget.textbox
-    }
+        theme_color = "text",
+        font = settings.fonts.main .. " 11"
+    })
     
-    local cancel_button = Button.new({
-        content = wibox.widget {
-            {
-                text = "Отмена",
-                font = settings.fonts.main .. " 10",
-                align = "center",
-                widget = wibox.widget.textbox
-            },
-            margins = 8,
-            widget = wibox.container.margin
-        },
+    local cancel_button = Button2.new({
+        content = Text.new({
+            text = "Отмена",
+            theme_color = "text",
+            font = settings.fonts.main .. " 11"
+        }),
         width = settings.widgets.control_center.width / 2 - 4,
+        margins = 8,
         on_click = function()
             self:_cancel_countdown()
         end
     })
     
-    local now_button = Button.new({
-        content = wibox.widget {
-            {
-                text = "Сейчас",
-                font = settings.fonts.main .. " 10",
-                align = "center",
-                widget = wibox.widget.textbox
-            },
-            margins = 8,
-            widget = wibox.container.margin
-        },
+    local now_button = Button2.new({
+        content = Text.new({
+            text = "Сейчас",
+            theme_color = "text",
+            font = settings.fonts.main .. " 11"
+        }),
         width = settings.widgets.control_center.width / 2 - 4,
+        margins = 8,
         on_click = function()
             self:_execute_command()
         end
@@ -228,7 +208,7 @@ function Poweroff:_start_countdown(text, command)
             if self.countdown_seconds <= 0 then
                 self:_execute_command()
             else
-                countdown_text.text = text .. " через " .. self.countdown_seconds .. " сек"
+                countdown_text:update_text(text .. " через " .. self.countdown_seconds .. " сек")
             end
         end
     }
@@ -241,7 +221,7 @@ function Poweroff:_cancel_countdown()
     end
     
     -- Возвращаем исходные кнопки
-    local colors = Provider.get_colors()
+    local colors = settings.colors
     local menu_items = {
         {text = "Выключить", command = "systemctl poweroff"},
         {text = "Сон", command = "systemctl sleep"},
@@ -254,19 +234,15 @@ function Poweroff:_cancel_countdown()
     }
     
     for _, item in ipairs(menu_items) do
-        local menu_button = Button.new({
-            content = wibox.widget {
-                {
-                    text = item.text,
-                    font = settings.fonts.main .. " 10",
-                    align = "left",
-                    widget = wibox.widget.textbox
-                },
-                margins = 8,
-                widget = wibox.container.margin
-            },
+        local menu_button = Button2.new({
+            content = Text.new({
+                text = item.text,
+                theme_color = "text",
+                font = settings.fonts.main .. " 11"
+            }),
             width = settings.widgets.control_center.width,
             halign = "left",
+            margins = 8,
             on_click = function()
                 self:_start_countdown(item.text, item.command)
             end
@@ -274,11 +250,11 @@ function Poweroff:_cancel_countdown()
         menu_layout:add(menu_button.widget)
     end
     
-    local content = wibox.widget {
-        menu_layout,
-        layout = wibox.layout.fixed.vertical,
-        forced_width = settings.widgets.control_center.width
-    }
+    local content = Container.new({
+        content = menu_layout,
+        width = settings.widgets.control_center.width,
+        theme_color = "surface"
+    })
     
     self.popup:set_content(content)
 end

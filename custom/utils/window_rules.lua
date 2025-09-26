@@ -1,5 +1,6 @@
 -- ~/.config/awesome/custom/utils/window_rules.lua
 local awful = require("awful")
+local beautiful = require("beautiful")
 local settings = require("custom.settings")
 
 local WindowRules = {}
@@ -9,23 +10,18 @@ local function update_borders_for_tag(tag)
     if not tag then return end
     
     local clients = tag:clients()
-    local colors = settings.colors
-    local border_width = 1
+    local border_width = 2
     
     for _, c in pairs(clients) do
         if #clients == 1 then
-            -- Одно окно - без рамки
             c.border_width = 0
         else
-            -- Все окна имеют одинаковую толщину рамки
             c.border_width = border_width
             
             if c == client.focus then
-                -- Активное окно - видимая рамка
-                c.border_color = colors.accent
+                c.border_color = beautiful.border_focus or beautiful.accent or "#F5F5F5"
             else
-                -- Неактивные окна - прозрачная рамка
-                c.border_color = "#00000000"
+                c.border_color = beautiful.border_normal or beautiful.transparent or "#00000000"
             end
         end
     end
@@ -68,17 +64,15 @@ local function setup_border_signals()
 end
 
 function WindowRules.setup()
-    local colors = settings.colors
-    
     -- Правила для всех окон
     awful.rules.rules = {
         -- Правило для всех окон
         {
             rule = { },
             properties = {
-                titlebars_enabled = false,           -- Убираем заголовки
-                border_width = settings.dimensions.border_width + 1,  -- Увеличиваем толщину рамки
-                border_color = colors.accent,        -- Цвет рамки из темы
+                titlebars_enabled = false,
+                border_width = settings.dimensions.border_width,
+                border_color = beautiful.border_normal or beautiful.transparent or "#00000000",
                 focus = awful.client.focus.filter,
                 raise = true,
                 keys = clientkeys,
@@ -119,7 +113,7 @@ function WindowRules.setup()
             },
             properties = { 
                 floating = true,
-                border_color = colors.accent_alt  -- Другой цвет для плавающих окон
+                border_color = beautiful.border_focus or beautiful.accent or "#F5F5F5"
             }
         },
         
@@ -132,6 +126,17 @@ function WindowRules.setup()
     
     -- Настраиваем динамическое управление рамками
     setup_border_signals()
+    
+    -- Подписываемся на изменения темы для обновления цветов границ
+    local ThemeProvider = require("custom.theme.theme_provider")
+    ThemeProvider.get():subscribe(function()
+        -- Обновляем границы всех окон на всех экранах
+        for s in screen do
+            for _, tag in ipairs(s.tags) do
+                update_borders_for_tag(tag)
+            end
+        end
+    end)
 end
 
 return WindowRules

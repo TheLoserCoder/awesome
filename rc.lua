@@ -12,19 +12,25 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
-local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- Load Debian menu entries
-local debian = require("debian.menu")
-local has_fdo, freedesktop = pcall(require, "freedesktop")
-
 -- >>> Пользовательский код: начало
+-- Подключение дебаггера после загрузки основных библиотек
+local debug_logger = require("custom.utils.debug_logger")
+debug_logger.clear()
+debug_logger.log("AwesomeWM запускается...")
+
 -- Подключение пользовательских скриптов
-local customScripts = require("custom.index")
+local ok, customScripts = pcall(require, "custom.index")
+if not ok then
+    debug_logger.log("ОШИБКА загрузки custom.index: " .. tostring(customScripts))
+    error("Не удалось загрузить custom.index: " .. tostring(customScripts))
+else
+    debug_logger.log("Пользовательские скрипты загружены")
+end
 -- >>> Пользовательский код: конец
 
 
@@ -39,8 +45,9 @@ if awesome.startup_errors then
     
     -- Логируем startup ошибки
     pcall(function()
-        local DebugLogger = require("custom.utils.debug_logger")
-        DebugLogger.log("STARTUP_ERROR: " .. tostring(awesome.startup_errors))
+        if debug_logger then
+            debug_logger.log("STARTUP ERROR: " .. tostring(awesome.startup_errors))
+        end
     end)
 end
 
@@ -58,8 +65,9 @@ do
         
         -- Логируем runtime ошибки
         pcall(function()
-            local DebugLogger = require("custom.utils.debug_logger")
-            DebugLogger.log("RUNTIME_ERROR: " .. tostring(err))
+            if debug_logger then
+                debug_logger.log("RUNTIME ERROR: " .. tostring(err))
+            end
         end)
         
         in_error = false
@@ -69,7 +77,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua") -- закомментировано, используем WalColors
 
 -- >>> Пользовательский код: начало
 -- Настройка уведомлений
@@ -114,40 +122,7 @@ awful.layout.layouts = {
 }
 -- }}}
 
--- {{{ Menu
--- Create a launcher widget and a main menu
-myawesomemenu = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
-}
-
-local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
-local menu_terminal = { "open terminal", terminal }
-
-if has_fdo then
-    mymainmenu = freedesktop.menu.build({
-        before = { menu_awesome },
-        after =  { menu_terminal }
-    })
-else
-    mymainmenu = awful.menu({
-        items = {
-                  menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian },
-                  menu_terminal,
-                }
-    })
-end
-
-
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+-- {{{ Menu - удалено, используется пользовательский виджет
 -- }}}
 
 -- Keyboard map indicator and switcher
@@ -435,17 +410,34 @@ end)
 --]]
 
 -- Используем пользовательский виджет Bar
+debug_logger.log("Настройка экранов...")
 awful.screen.connect_for_each_screen(function(s)
+    debug_logger.log("Настройка экрана " .. tostring(s.index))
+    
     -- Wallpaper
     set_wallpaper(s)
+    debug_logger.log("Обои установлены")
 
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    debug_logger.log("Теги созданы")
 
     -- Создаем Bar через пользовательский виджет
     local Bar = customScripts.createBar()
-    Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
+    debug_logger.log("Bar создан")
+    
+    local ok, err = pcall(function()
+        Bar.create_for_screen(s, nil, mykeyboardlayout, mytextclock)
+    end)
+    
+    if not ok then
+        debug_logger.log("ОШИБКА при создании Bar: " .. tostring(err))
+        error("Не удалось создать Bar: " .. tostring(err))
+    else
+        debug_logger.log("Bar настроен для экрана")
+    end
 end)
+debug_logger.log("Все экраны настроены")
 -- >>> Пользовательский код: конец
 -- }}}
 
@@ -566,10 +558,11 @@ globalkeys = gears.table.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"}),
+              {description = "lua execute prompt", group = "awesome"})
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+    --[[awful.key({ modkey }, "p", function() menubar.show() end,
+              {description = "show the menubar", group = "launcher"}),]]
+
 )
 
 
@@ -686,10 +679,16 @@ clientbuttons = gears.table.join(
 
 -- >>> Пользовательский код: начало
 -- Применение пользовательских настроек
+debug_logger.log("Применение пользовательских настроек...")
 globalkeys = customScripts.apply_keys(globalkeys)
+debug_logger.log("Клавиши применены")
 customScripts.autostart()
+debug_logger.log("Автозапуск выполнен")
 customScripts.windowsSettings(client)
--- customScripts.setWallpaper()
+debug_logger.log("Настройки окон применены")
+customScripts.setWallpaper()
+debug_logger.log("Обои установлены")
+
 -- >>> Пользовательский код: конец
 
 
@@ -822,8 +821,14 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+-- >>> Пользовательский код: начало
+-- Используем цвета из пользовательских настроек
+debug_logger.log("Настройка сигналов клиентов...")
+local settings = require("custom.settings")
+client.connect_signal("focus", function(c) c.border_color = settings.colors.accent end)
+client.connect_signal("unfocus", function(c) c.border_color = settings.colors.surface end)
+debug_logger.log("AwesomeWM полностью загружен!")
+-- >>> Пользовательский код: конец
 -- }}}
 
 

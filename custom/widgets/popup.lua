@@ -3,10 +3,10 @@ local gears = require("gears")
 local wibox = require("wibox")
 local awful = require("awful")
 local naughty = require("naughty")
+local beautiful = require("beautiful")
 local Popup = {}
 Popup.__index = Popup
 
-local Provider = require("custom.widgets.provider")
 local click_to_hide_positioned = require("custom.utils.click_to_hide_positioned")
 local EventEmitter = require("custom.utils.event_emitter")
 local GlobalStorage = require("custom.utils.global_storage")
@@ -18,7 +18,7 @@ function Popup.new(config)
     -- Добавляем EventEmitter как локальное свойство
     self._emitter = EventEmitter.new()
     
-    local colors = Provider.get_colors()
+    -- Получаем цвета из beautiful
     
     -- Сохраняем offset для последующего использования
     self.saved_offset = config.offset or { y = -2 }
@@ -30,12 +30,12 @@ function Popup.new(config)
                 margins = config.margins or 12,
                 widget = wibox.container.margin
             },
-            bg = config.bg or colors.surface .. "60",
+            bg = config.bg or (beautiful.surface and (beautiful.surface .. "60") or "#2A2A3C60"),
             shape = gears.shape.rounded_rect,
             widget = wibox.container.background
         },
         border_width = 0,
-        bg = "#00000000",
+        bg = beautiful.background or "#1E1E2E",
         shape = gears.shape.rounded_rect,
         preferred_positions = config.preferred_positions or "bottom",
         preferred_anchors = config.preferred_anchors or "middle",

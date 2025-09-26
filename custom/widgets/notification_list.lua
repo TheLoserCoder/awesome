@@ -2,12 +2,11 @@
 local wibox = require("wibox")
 local gears = require("gears")
 local awful = require("awful")
-local Provider = require("custom.widgets.provider")
 local settings = require("custom.settings")
 local NotificationManager = require("custom.utils.notification_manager")
 local NotificationItem = require("custom.widgets.notification_item")
 local WindowFocus = require("custom.utils.window_focus")
-local DebugLogger = require("custom.utils.debug_logger")
+
 local GlobalStorage = require("custom.utils.global_storage")
 
 local NotificationList = {}
@@ -31,17 +30,17 @@ function NotificationList.new()
     self.cached_items = {}
     
     NotificationManager:subscribe(function(notifications)
-        DebugLogger.log("[NOTIFICATION_LIST] Subscribe callback called with " .. #notifications .. " notifications")
+
         self:_update_list(notifications)
         -- Принудительная перерисовка
         self.widget:emit_signal("widget::layout_changed")
         -- Обновляем кнопку и скролл через notification_center
         if self.notification_center then
-            DebugLogger.log("[NOTIFICATION_LIST] Updating notification_center")
+
             self.notification_center:_update_clear_button_visibility()
             self.notification_center:_update_scroll_height()
         else
-            DebugLogger.log("[NOTIFICATION_LIST] notification_center is nil")
+
         end
     end)
     
@@ -52,7 +51,7 @@ function NotificationList.new()
     end)
     -- Обновляем время при открытии центра уведомлений
     GlobalStorage.listen("notification_center_open", function(is_open)
-        DebugLogger.log("[NOTIFICATION_LIST] notification_center_open event: " .. tostring(is_open))
+
         if is_open then
             self:update_times()
         end
@@ -78,27 +77,19 @@ function NotificationList:_update_list(notifications)
     
     if #notifications == 0 then
         if not self.empty_widget then
-            local colors = Provider.get_colors()
+            local colors = settings.colors
             
-            local empty_message = wibox.widget {
-                {
+            local Text = require("custom.widgets.base_widgets.text")
+            local Container = require("custom.widgets.base_widgets.container")
+            
+            local background_widget = Container.surface({
+                content = Text.new({
                     text = "Нет уведомлений",
-                    font = settings.fonts.main .. " 10",
-                    fg = colors.text_secondary,
-                    align = "center",
-                    valign = "center",
-                    widget = wibox.widget.textbox,
-                },
-                margins = 15,
-                widget = wibox.container.margin,
-            }
-            
-            local background_widget = wibox.widget {
-                empty_message,
-                bg = colors.surface,
-                shape = gears.shape.rounded_rect,
-                widget = wibox.container.background,
-            }
+                    text_type = "text_secondary",
+                    font = settings.fonts.main .. " 10"
+                }),
+                margins = 15
+            })
             
             self.empty_widget = wibox.widget {
                 {
@@ -157,7 +148,7 @@ end
 function NotificationList:update_times()
     local count = 0
     for _ in pairs(self.cached_items) do count = count + 1 end
-    DebugLogger.log("[NOTIFICATION_LIST] Updating times for " .. count .. " items")
+
     
     for _, item in pairs(self.cached_items) do
         if item.update_time then

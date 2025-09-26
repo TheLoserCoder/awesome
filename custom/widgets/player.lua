@@ -7,8 +7,8 @@ local Player = {}
 Player.__index = Player
 
 -- Получаем зависимости
-local Button = require("custom.widgets.button")
-local Provider = require("custom.widgets.provider")
+local Button2 = require("custom.widgets.button_2")
+local Text = require("custom.widgets.base_widgets.text")
 local Image = require("custom.widgets.image")
 local WindowFocus = require("custom.utils.window_focus")
 local settings = require("custom.settings")
@@ -41,17 +41,17 @@ end
 
 -- Создание виджетов
 function Player:_create_widgets()
-    local colors = Provider.get_colors()
+    local colors = settings.colors
     
     -- Источник плеера
     self.player_widget = wibox.widget {
         {
-            markup = "<span color='" .. colors.text_muted .. "'>" .. self.player_name .. "</span>",
-            align = "left",
-            valign = "center", 
-            font = "Ubuntu 7",
-            ellipsize = "end",
-            widget = wibox.widget.textbox
+            Text.new({
+                text = self.player_name,
+                theme_color = "text_muted",
+                font = "Ubuntu 7"
+            }),
+            widget = wibox.container.constraint
         },
         forced_height = 12,
         widget = wibox.container.constraint
@@ -73,12 +73,12 @@ function Player:_create_widgets()
     -- Информация о треке
     self.track_widget = wibox.widget {
         {
-            text = self.title,
-            align = "left",
-            valign = "center",
-            font = "Ubuntu Bold 10",
-            ellipsize = "end",
-            widget = wibox.widget.textbox
+            Text.new({
+                text = gears.string.xml_escape(self.title),
+                theme_color = "text",
+                font = "Ubuntu Bold 10"
+            }),
+            widget = wibox.container.constraint
         },
         forced_height = 16,
         widget = wibox.container.constraint
@@ -86,27 +86,24 @@ function Player:_create_widgets()
     
     self.artist_widget = wibox.widget {
         {
-            text = self.artist,
-            align = "left",
-            valign = "center",
-            font = "Ubuntu 9",
-            fg = colors.text_secondary,
-            ellipsize = "end",
-            widget = wibox.widget.textbox
+            Text.new({
+                text = gears.string.xml_escape(self.artist),
+                theme_color = "text_secondary",
+                font = "Ubuntu 9"
+            }),
+            widget = wibox.container.constraint
         },
         forced_height = 14,
         widget = wibox.container.constraint
     }
     
     -- Кнопки управления (уменьшенные)
-    self.prev_button = Button.new({
-        content = wibox.widget {
+    self.prev_button = Button2.new({
+        content = Text.new({
             text = settings.icons.player.prev,
-            align = "center",
-            valign = "center",
-            font = "Font Awesome 6 Free 12",
-            widget = wibox.widget.textbox
-        },
+            theme_color = "text",
+            font = "Font Awesome 6 Free 12"
+        }),
         width = 28,
         height = 28,
         on_click = function()
@@ -118,15 +115,13 @@ function Player:_create_widgets()
         end
     })
     
-    self.play_icon = wibox.widget {
+    self.play_icon = Text.new({
         text = self.is_playing and settings.icons.player.pause or settings.icons.player.play,
-        align = "center",
-        valign = "center",
-        font = "Font Awesome 6 Free 12",
-        widget = wibox.widget.textbox
-    }
+        theme_color = "text",
+        font = "Font Awesome 6 Free 12"
+    })
     
-    self.play_button = Button.new({
+    self.play_button = Button2.new({
         content = self.play_icon,
         width = 28,
         height = 28,
@@ -139,14 +134,12 @@ function Player:_create_widgets()
         end
     })
     
-    self.next_button = Button.new({
-        content = wibox.widget {
+    self.next_button = Button2.new({
+        content = Text.new({
             text = settings.icons.player.next,
-            align = "center",
-            valign = "center",
-            font = "Font Awesome 6 Free 12",
-            widget = wibox.widget.textbox
-        },
+            theme_color = "text",
+            font = "Font Awesome 6 Free 12"
+        }),
         width = 28,
         height = 28,
         on_click = function()
@@ -220,20 +213,20 @@ function Player:_create_widgets()
         end)
     ))
     
+    -- Сохраняем ссылки на Text виджеты для прямого обновления
+    self.track_text = self.track_widget:get_children()[1]:get_children()[1]
+    self.artist_text = self.artist_widget:get_children()[1]:get_children()[1]
+    self.player_text = self.player_widget:get_children()[1]:get_children()[1]
+    
     -- Основной виджет с фоном и скруглениями
-    self.widget = wibox.widget {
-        {
-            second_row,
-            margins = 8,
-            widget = wibox.container.margin
-        },
-        bg = colors.surface,
-        forced_height = height or settings.widgets.list_item.height,
-        shape = function(cr, w, h)
-            gears.shape.rounded_rect(cr, w, h, settings.dimensions.corner_radius)
-        end,
-        widget = wibox.container.background
-    }
+    local Container = require("custom.widgets.base_widgets.container")
+    self.widget = Container.new({
+        theme_color = "surface",
+        content = second_row,
+        margins = 8,
+        height = height or settings.widgets.list_item.height,
+        shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, settings.dimensions.corner_radius) end
+    })
 
 end
 
@@ -241,17 +234,17 @@ end
 function Player:update_data(data)
     if data.title and data.title ~= self.title then
         self.title = data.title
-        self.track_widget:get_children()[1].text = self.title
+        self.track_text:update_text(gears.string.xml_escape(self.title))
     end
     
     if data.artist and data.artist ~= self.artist then
         self.artist = data.artist
-        self.artist_widget:get_children()[1].text = self.artist
+        self.artist_text:update_text(gears.string.xml_escape(self.artist))
     end
     
     if data.is_playing ~= nil and data.is_playing ~= self.is_playing then
         self.is_playing = data.is_playing
-        self.play_icon.text = self.is_playing and settings.icons.player.pause or settings.icons.player.play
+        self.play_icon:update_text(self.is_playing and settings.icons.player.pause or settings.icons.player.play)
     end
     
     if data.album_art and data.album_art ~= self.album_art_url then

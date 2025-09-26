@@ -6,14 +6,15 @@ local awful = require("awful")
 local WallpaperSelector = {}
 WallpaperSelector.__index = WallpaperSelector
 
-local Button = require("custom.widgets.button")
-local Provider = require("custom.widgets.provider")
+local Button2 = require("custom.widgets.button_2")
+local beautiful = require("beautiful")
 local GlobalStorage = require("custom.utils.global_storage")
 local settings = require("custom.settings")
 local click_to_hide = require("custom.utils.click_to_hide_positioned")
-local debug_logger = require("custom.utils.debug_logger")
+
 local KeyboardList = require("custom.widgets.keyboard_list")
 local CustomScroll = require("custom.widgets.custom_scroll")
+local Text = require("custom.widgets.base_widgets.text")
 
 -- Функция для создания пропорционального imagebox
 local function proportional_imagebox(img, max_width)
@@ -61,6 +62,9 @@ end
 
 function WallpaperSelector:_scan_wallpapers()
     local wallpaper_dir = settings.paths.wallpaper_dir or "/home/panic-attack/wallpapers/"
+    local debug_logger = require("custom.utils.debug_logger")
+    
+    debug_logger.log("WALLPAPER_SELECTOR: сканируем папку: " .. wallpaper_dir)
     
     awful.spawn.easy_async_with_shell("find '" .. wallpaper_dir .. "' -type f \\( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' \\) | sort", function(stdout)
         self.wallpapers = {}
@@ -71,12 +75,12 @@ function WallpaperSelector:_scan_wallpapers()
                 name = filename
             })
         end
+        debug_logger.log("WALLPAPER_SELECTOR: найдено " .. #self.wallpapers .. " обоев")
         self:_update_list()
     end)
 end
 
 function WallpaperSelector:_create_widgets()
-    local colors = Provider.get_colors()
     local screen_geo = awful.screen.focused().geometry
     
     -- Константы размеров
@@ -132,14 +136,12 @@ function WallpaperSelector:_create_widgets()
     self.wallpaper_buttons = {}
     
     -- Кнопки
-    local apply_button = Button.new({
-        content = wibox.widget {
+    local apply_button = Button2.new({
+        content = Text.new({
             text = "Применить",
             font = settings.fonts.main .. " 12",
-            align = "center",
-            fg = colors.text,
-            widget = wibox.widget.textbox
-        },
+            theme_color = "text"
+        }),
         width = 120,
         height = 35,
         on_click = function()
@@ -147,14 +149,12 @@ function WallpaperSelector:_create_widgets()
         end
     })
     
-    local close_button = Button.new({
-        content = wibox.widget {
+    local close_button = Button2.new({
+        content = Text.new({
             text = "Закрыть",
             font = settings.fonts.main .. " 12",
-            align = "center",
-            fg = colors.text,
-            widget = wibox.widget.textbox
-        },
+            theme_color = "text"
+        }),
         width = 120,
         height = 35,
         on_click = function()
@@ -166,13 +166,11 @@ function WallpaperSelector:_create_widgets()
     })
     
     -- Основной контент
-    local title = wibox.widget {
+    local title = Text.new({
         text = "Выбор обоев",
         font = settings.fonts.main .. " Bold 16",
-        align = "center",
-        fg = colors.text,
-        widget = wibox.widget.textbox
-    }
+        theme_color = "text"
+    })
     
     -- Первый ряд: список и превью (фиксированная высота)
     local first_row = wibox.widget {
@@ -227,7 +225,7 @@ function WallpaperSelector:_create_widgets()
         y = (screen_geo.height - 470) / 2,
         width = 720,
         height = 470,
-        bg = colors.background,
+        bg = beautiful.background,
         shape = gears.shape.rounded_rect,
         visible = false,
         ontop = true
@@ -257,16 +255,16 @@ function WallpaperSelector:_create_widgets()
 end
 
 function WallpaperSelector:_update_list()
-    local colors = Provider.get_colors()
+    local debug_logger = require("custom.utils.debug_logger")
+    debug_logger.log("WALLPAPER_SELECTOR: обновляем список, обоев: " .. #self.wallpapers)
     
     self.keyboard_list:reset()
     
     for i, wallpaper in ipairs(self.wallpapers) do
         local text_widget = wibox.widget {
-            text = wallpaper.name,
+            markup = '<span color="' .. beautiful.text .. '">' .. wallpaper.name .. '</span>',
             font = settings.fonts.main .. " 10",
             align = "left",
-            fg = colors.text,
             ellipsize = "end",
             widget = wibox.widget.textbox
         }
@@ -279,17 +277,18 @@ function WallpaperSelector:_update_list()
     self.scroll_container:update_inner_height(total_height)
     self.scroll_container:set_content(self.keyboard_list.widget)
     
-    -- Автоматически выбираем первый элемент
-    self.keyboard_list:select_first()
+    -- Автоматически выбираем первый элемент с полным обновлением
+    if #self.wallpapers > 0 then
+        self.keyboard_list:select_item(1)
+    end
 end
 
 function WallpaperSelector:_select_wallpaper(wallpaper, index)
-    local colors = Provider.get_colors()
     
     -- Обновляем стили выделения через KeyboardList
     self.keyboard_list:update_selection_style(
-        { bg = colors.accent, fg = colors.background },
-        { bg = colors.surface, fg = colors.text }
+        { bg = beautiful.accent, fg = beautiful.background },
+        { bg = beautiful.surface, fg = beautiful.text }
     )
     
     self.selected_wallpaper = wallpaper
@@ -303,7 +302,28 @@ end
 
 function WallpaperSelector:_apply_wallpaper()
     if self.selected_wallpaper then
-        gears.wallpaper.maximized(self.selected_wallpaper.path, awful.screen.focused(), true)
+        
+        -- Проверяем существование файла
+        awful.spawn.easy_async_with_shell("ls -la '" .. self.selected_wallpaper.path .. "'", function(stdout, stderr)
+            if stderr and stderr ~= "" then
+
+            end
+        end)
+        
+        -- Выполняем wal с полным логированием
+        awful.spawn.easy_async_with_shell("~/.local/bin/wal -i '" .. self.selected_wallpaper.path .. "'", function(stdout, stderr)
+            if stderr and stderr ~= "" then
+
+            end
+            
+            -- Устанавливаем обои через AwesomeWM
+            gears.wallpaper.maximized(self.selected_wallpaper.path, awful.screen.focused(), true)
+            
+            -- Сразу обновляем цвета
+            local WalColors = require("custom.utils.wal_colors")
+            WalColors.reload_settings_colors()
+        end)
+        
         if self.stop_click_hide then
             self.stop_click_hide()
         end
@@ -318,15 +338,15 @@ function WallpaperSelector:_show()
     self.wibox.visible = true
     self.wibox.ontop = true
     self.keyboard_list:start_keygrabber()
-    debug_logger.log("[WALLPAPER_SELECTOR] Showing wallpaper selector")
+    
     if self.start_click_hide then
-        debug_logger.log("[WALLPAPER_SELECTOR] Starting click_to_hide")
+        
         self.start_click_hide()
     end
 end
 
 function WallpaperSelector:_hide()
-    debug_logger.log("[WALLPAPER_SELECTOR] Hiding wallpaper selector")
+    
     self.keyboard_list:stop_keygrabber()
     self.wibox.ontop = false
     self.wibox.visible = false
@@ -336,7 +356,7 @@ function WallpaperSelector:_hide()
         self.scroll_container:reset()
     end
     if self.keyboard_list then
-        self.keyboard_list:select_first()
+        self.keyboard_list:reset_selection()
     end
 end
 

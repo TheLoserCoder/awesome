@@ -41,7 +41,7 @@ function ColorAnimator.new(config)
     self.callback = config.callback or function() end
     
     -- Начальный цвет
-    self.from_color = config.from_color or "#000000"
+    self.from_color = config.from_color or require("custom.settings").colors.background
     local r1, g1, b1, a1 = hex_to_rgba(self.from_color)
     
     -- Создаем анимации для RGBA компонентов
@@ -68,6 +68,15 @@ function ColorAnimator.new(config)
     
     -- Подписываемся на обновления
     self.r_anim:subscribe(function()
+        self:_update_color()
+    end)
+    self.g_anim:subscribe(function()
+        self:_update_color()
+    end)
+    self.b_anim:subscribe(function()
+        self:_update_color()
+    end)
+    self.a_anim:subscribe(function()
         self:_update_color()
     end)
     

@@ -2,13 +2,14 @@
 local gears = require("gears")
 local wibox = require("wibox")
 local awful = require("awful")
+local settings = require("custom.settings")
 
 local Button = {}
 Button.__index = Button
 
 -- Получаем зависимости
 local rubato = require("custom.utils.rubato")
-local Container = require("custom.widgets.container")
+local Container = require("custom.widgets.base_widgets.container")
 local ColorAnimator = require("custom.utils.color_animator")
 
 -- Создание новой кнопки
@@ -28,15 +29,16 @@ function Button.new(config)
     self.margins = config.margins or 4
     
     -- Цвета (изолированные)
-    self.bg_default = config.bg_default or "#2A2A3A"
-    self.bg_hover = config.bg_hover or "#3A3A4C80"
-    self.bg_selected = config.bg_selected or "#5A5A6A40"
+    self.bg_default = config.bg_default or settings.colors.surface
+    self.bg_hover = config.bg_hover or settings.colors.accent_alt
+    self.bg_selected = config.bg_selected or settings.colors.accent
     self.shape = config.shape or gears.shape.rounded_rect
     
     -- Создаем виджеты
     self:_create_widgets()
     self:_setup_animations()
     self:_setup_events()
+    self:_setup_text_color()
     
     return self
 end
@@ -153,6 +155,32 @@ function Button:set_selected(selected, selected_color)
         self.inner_button.bg = self.bg_default
         self.color_animator:set_color(self.bg_default)
     end
+end
+
+-- Настройка цвета текста
+function Button:_setup_text_color()
+    local function set_text_color(widget, color)
+        if widget.set_markup and widget.get_text then
+            local text = widget:get_text() or ""
+            -- Проверяем, есть ли уже markup (например, для иконок)
+            local markup = widget.markup
+            if markup and markup:find("<span color") then
+                -- Не трогаем виджеты с уже установленным markup
+                return
+            elseif text ~= "" and not markup then
+                -- Устанавливаем markup только для обычного текста
+                widget:set_markup('<span color="' .. color .. '">' .. gears.string.xml_escape(text) .. '</span>')
+            end
+        end
+        
+        if widget.get_children then
+            for _, child in ipairs(widget:get_children()) do
+                set_text_color(child, color)
+            end
+        end
+    end
+    
+    set_text_color(self.content, settings.colors.text)
 end
 
 return Button

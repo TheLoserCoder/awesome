@@ -1,67 +1,48 @@
 local awful = require("awful")
-local modkey = "Mod4"
 
--- Функции для некруговой прокрутки тегов
-local function tag_view_nonempty_prev()
-    local screen = awful.screen.focused()
-    local current_tag = screen.selected_tag
-    if not current_tag then return end
-    
-    local current_index = current_tag.index
-    if current_index > 1 then
-        screen.tags[current_index - 1]:view_only()
-    end
+local Keys = {}
+
+-- Ленивая загрузка settings для избежания циклической зависимости
+local function get_settings()
+    return require("custom.settings")
 end
 
-local function tag_view_nonempty_next()
-    local screen = awful.screen.focused()
-    local current_tag = screen.selected_tag
-    if not current_tag then return end
-    
-    local current_index = current_tag.index
-    if current_index < #screen.tags then
-        screen.tags[current_index + 1]:view_only()
-    end
-end
-
-Keys = {
-    awful.key({}, "Print", function()
-        awful.spawn("flameshot gui")
-    end, {description = "screenshot with Flameshot", group = "custom"}),
-    awful.key({ modkey }, "q",
-        function ()
+-- Генерируем клавиши из settings.keybindings
+local settings = get_settings()
+for _, binding in pairs(settings.keybindings) do
+    if binding.key == "Print" then
+        table.insert(Keys, awful.key({}, binding.key, function()
+            awful.spawn(binding.command)
+        end, {description = binding.description, group = binding.group}))
+    elseif binding.key == "q" then
+        table.insert(Keys, awful.key({binding.modkey}, binding.key, function()
             if client.focus then
                 client.focus:kill()
             end
-        end,
-        {description = "close focused client", group = "client"}),
-    awful.key({ modkey }, "f",
-        function ()
-            awful.spawn("nautilus")
-        end,
-        {description = "open Nautilus file manager", group = "launcher"}),
-    -- Запуск Rofi при одиночном нажатии Mod4
-	awful.key({ modkey }, "r",
-    function ()
-        awful.spawn("rofi -show drun")
-    end,
-    {description = "launch Rofi", group = "launcher"}),
-    
-    -- Переключение между окнами
-   
-    awful.key({ "Mod1" }, "Tab" ,
-        function ()
+        end, {description = binding.description, group = binding.group}))
+    elseif binding.key == "t" and binding.command then
+        table.insert(Keys, awful.key({binding.modkey}, binding.key, function()
+            awful.spawn(binding.command)
+        end, {description = binding.description, group = binding.group}))
+    elseif binding.key == "f" and binding.command then
+        table.insert(Keys, awful.key({binding.modkey}, binding.key, function()
+            awful.spawn(binding.command)
+        end, {description = binding.description, group = binding.group}))
+    elseif binding.key == "r" and binding.command then
+        table.insert(Keys, awful.key({binding.modkey}, binding.key, function()
+            awful.spawn(binding.command)
+        end, {description = binding.description, group = binding.group}))
+    elseif binding.key == "Tab" and binding.modkey == "Mod1" then
+        table.insert(Keys, awful.key({binding.modkey}, binding.key, function()
             awful.client.focus.byidx(1)
-end, {description = "focus previous client", group = "client"}),
-
-    -- Открытие выбора обоев
-    awful.key({ modkey }, "w",
-        function ()
+        end, {description = binding.description, group = binding.group}))
+    elseif binding.key == "w" and binding.modkey == "Mod4" then
+        table.insert(Keys, awful.key({binding.modkey}, binding.key, function()
             local WallpaperSelector = require("custom.widgets.wallpaper_selector")
             WallpaperSelector.toggle()
-        end,
-        {description = "toggle wallpaper selector", group = "custom"}),
+        end, {description = binding.description, group = binding.group}))
+    end
+end
 
-}
 return Keys
 

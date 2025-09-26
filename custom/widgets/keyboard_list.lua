@@ -26,10 +26,10 @@ function KeyboardList.new(config)
 end
 
 function KeyboardList:add_item(data, content_widget)
-    local Button = require("custom.widgets.button")
+    local Button2 = require("custom.widgets.button_2")
     local index = #self.items + 1
     
-    local button = Button.new({
+    local button = Button2.new({
         content = content_widget,
         width = self.button_config.width or 240,
         height = self.button_config.height or 32,
@@ -58,12 +58,19 @@ function KeyboardList:reset()
     self.selected_index = 1
 end
 
-function KeyboardList:select_item(index)
+function KeyboardList:select_item(index, silent)
     if index < 1 or index > #self.items then return end
     
     self.selected_index = index
-    if self.on_select then
+    if self.on_select and not silent then
         self.on_select(self.items[index].data, index)
+    end
+end
+
+function KeyboardList:reset_selection()
+    -- Сброс без вызова событий
+    if #self.items > 0 then
+        self.selected_index = 1
     end
 end
 
@@ -74,14 +81,16 @@ function KeyboardList:update_selection_style(selected_style, normal_style)
                 item.button:set_bg(selected_style.bg)
             end
             if item.content and selected_style.fg then
-                item.content.fg = selected_style.fg
+                local text = item.content:get_text() or ""
+                item.content.markup = '<span color="' .. selected_style.fg .. '">' .. text .. '</span>'
             end
         else
             if item.button and item.button.set_bg then
                 item.button:set_bg(normal_style.bg)
             end
             if item.content and normal_style.fg then
-                item.content.fg = normal_style.fg
+                local text = item.content:get_text() or ""
+                item.content.markup = '<span color="' .. normal_style.fg .. '">' .. text .. '</span>'
             end
         end
     end
@@ -105,9 +114,9 @@ function KeyboardList:submit()
     end
 end
 
-function KeyboardList:select_first()
+function KeyboardList:select_first(silent)
     if #self.items > 0 then
-        self:select_item(1)
+        self:select_item(1, silent)
     end
 end
 

@@ -4,7 +4,7 @@ local gears = require("gears")
 local json = require("dkjson")
 local settings = require("custom.settings")
 local GlobalStorage = require("custom.utils.global_storage")
-local DebugLogger = require("custom.utils.debug_logger")
+
 
 local WeatherAPI = {}
 
@@ -27,16 +27,16 @@ function WeatherAPI.fetch_weather()
     local lon = settings.api.weather.longitude
     local user_agent = settings.api.weather.user_agent
     
-    DebugLogger.log("[WEATHER_API] Fetching weather data...")
+
     
     awful.spawn.easy_async_with_shell(
         string.format('timeout 10 curl -s -H "User-Agent: %s" "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=%s&lon=%s"', 
             user_agent, lat, lon),
         function(stdout, stderr, exitreason, exitcode)
-            DebugLogger.log("[WEATHER_API] Request completed with exit code: " .. exitcode)
+
             
             if exitcode ~= 0 then
-                DebugLogger.log("[WEATHER_API] Error: " .. (stderr or "Unknown error"))
+
                 -- Устанавливаем тестовые данные при ошибке
                 local test_data = {
                     temperature = 15,
@@ -51,14 +51,14 @@ function WeatherAPI.fetch_weather()
             
             -- Проверяем на ошибку API
             if stdout:match("400 Bad Request") or stdout:match("did not pass regex check") then
-                DebugLogger.log("[WEATHER_API] API Error: " .. stdout)
+
                 GlobalStorage.set("weather_data", nil)
                 return
             end
             
             local data, pos, err = json.decode(stdout)
             if not data then
-                DebugLogger.log("[WEATHER_API] JSON decode error: " .. (err or "Unknown error"))
+
                 GlobalStorage.set("weather_data", nil)
                 return
             end
@@ -66,10 +66,10 @@ function WeatherAPI.fetch_weather()
             -- Парсим данные
             local weather_data = WeatherAPI.parse_weather_data(data)
             if weather_data then
-                DebugLogger.log("[WEATHER_API] Weather data updated: temp=" .. (weather_data.temperature or "nil") .. ", humidity=" .. (weather_data.humidity or "nil"))
+
                 GlobalStorage.set("weather_data", weather_data)
             else
-                DebugLogger.log("[WEATHER_API] Failed to parse weather data")
+
                 GlobalStorage.set("weather_data", nil)
             end
         end
@@ -77,38 +77,38 @@ function WeatherAPI.fetch_weather()
 end
 
 function WeatherAPI.parse_weather_data(data)
-    DebugLogger.log("[WEATHER_API] Parsing weather data...")
+
     
     if not data.properties then
-        DebugLogger.log("[WEATHER_API] No properties in data")
+
         return nil
     end
     
     if not data.properties.timeseries then
-        DebugLogger.log("[WEATHER_API] No timeseries in properties")
+
         return nil
     end
     
     if #data.properties.timeseries == 0 then
-        DebugLogger.log("[WEATHER_API] Empty timeseries")
+
         return nil
     end
     
     local current = data.properties.timeseries[1]
-    DebugLogger.log("[WEATHER_API] Got first timeseries entry")
+
     
     if not current.data then
-        DebugLogger.log("[WEATHER_API] No data in current entry")
+
         return nil
     end
     
     if not current.data.instant then
-        DebugLogger.log("[WEATHER_API] No instant in current.data")
+
         return nil
     end
     
     if not current.data.instant.details then
-        DebugLogger.log("[WEATHER_API] No details in current.data.instant")
+
         return nil
     end
     

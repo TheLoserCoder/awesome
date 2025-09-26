@@ -2,7 +2,6 @@
 local wibox = require("wibox")
 local awful = require("awful")
 local gears = require("gears")
-local Provider = require("custom.widgets.provider")
 local settings = require("custom.settings")
 
 local Calendar = {}
@@ -10,7 +9,7 @@ Calendar.__index = Calendar
 
 function Calendar.new()
     local self = setmetatable({}, Calendar)
-    local colors = Provider.get_colors()
+    local colors = settings.colors
     
     -- Получаем текущую дату
     local current_date = os.date("*t")
@@ -18,24 +17,26 @@ function Calendar.new()
     local months = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", 
                    "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"}
     
+    -- Создаем текстовые виджеты хедера
+    local Text = require("custom.widgets.base_widgets.text")
+    
+    self.weekday_text = Text.new({
+        text = weekdays[current_date.wday],
+        theme_color = "text_muted",
+        font = settings.fonts.main .. " 16"
+    })
+    
+    self.date_text = Text.new({
+        text = months[current_date.month] .. " " .. current_date.day .. ", " .. current_date.year,
+        theme_color = "text",
+        font = settings.fonts.main .. " Bold 16"
+    })
+    
     -- Хедер с датой
     local header = wibox.widget {
         {
-            -- Название дня недели (еще меньше)
-            {
-                text = weekdays[current_date.wday],
-                font = settings.fonts.main .. " 12",
-                fg = colors.text_secondary,
-                align = "left",
-                widget = wibox.widget.textbox
-            },
-            -- Месяц, день и год (bold)
-            {
-                markup = "<b><span color='" .. colors.accent .. "'>" .. months[current_date.month] .. " " .. current_date.day .. ", " .. current_date.year .. "</span></b>",
-                font = settings.fonts.main .. " 12",
-                align = "left",
-                widget = wibox.widget.textbox
-            },
+            self.weekday_text,
+            self.date_text,
             spacing = 2,
             layout = wibox.layout.fixed.vertical
         },
@@ -47,30 +48,84 @@ function Calendar.new()
     self.calendar = wibox.widget {
         date = current_date,
         font = settings.fonts.main .. " 10", -- уменьшенные цифры
-        
+
         spacing = 8,
         week_numbers = false,
         start_sunday = false,
         long_weekdays = false,
         expand_horizontal = true, -- авторастяжение на всю ширину
+
         fn_embed = function(widget, flag, date)
+            local Container = require("custom.widgets.base_widgets.container")
+            local Text = require("custom.widgets.base_widgets.text")
+            
             if flag == "focus" then
                 -- Текущий день в кружке
-                return wibox.widget {
-                    {
-                        widget,
-                        margins = 3,
-                        widget = wibox.container.margin
-                    },
-                    bg = colors.accent,
-                    fg = colors.background,
+                local day_text = widget.get_text and widget:get_text() or ""
+                return Container.new({
+                    content = Text.new({
+                        text = day_text,
+                        theme_color = "background",
+                        font = settings.fonts.main .. " 10"
+                    }),
+                    theme_color = "accent",
+                    margins = 3,
                     shape = gears.shape.circle,
-                    widget = wibox.container.background
-                }
+                    halign = "center",
+                    valign = "center"
+                })
             elseif flag == "weekday" then
-                -- Дни недели - меньше и темнее
-                if widget.get_text and widget.set_markup then
-                    widget:set_markup('<span font="' .. settings.fonts.main .. ' 8" color="' .. colors.text_secondary .. '">' .. widget:get_text() .. '</span>')
+                -- Дни недели - оборачиваем в круглые контейнеры
+                if widget.get_text then
+                    local weekday_text = widget:get_text()
+                    return Container.new({
+                        content = Text.new({
+                            text = weekday_text,
+                            theme_color = "text_muted",
+                            font = settings.fonts.main .. " 8"
+                        }),
+                        theme_color = "transparent",
+                        margins = 3,
+                        shape = gears.shape.circle,
+                        halign = "center",
+                        valign = "center"
+                    })
+                end
+                return widget
+            elseif flag == "normal" then
+                -- Обычные дни месяца - оборачиваем в круглые контейнеры
+                if widget.get_text then
+                    local day_text = widget:get_text()
+                    return Container.new({
+                        content = Text.new({
+                            text = day_text,
+                            theme_color = "text",
+                            font = settings.fonts.main .. " 10"
+                        }),
+                        theme_color = "transparent",
+                        margins = 3,
+                        shape = gears.shape.circle,
+                        halign = "center",
+                        valign = "center"
+                    })
+                end
+                return widget
+            elseif flag == "monthheader" or flag == "header" or flag == "month" then
+                -- Месяц в шапке - увеличиваем и центрируем
+                if widget.get_text then
+                    local month_text = widget:get_text():match("^(%S+)")
+                    return wibox.widget {
+                        {
+                            Text.new({
+                                text = month_text,
+                                theme_color = "text",
+                                font = settings.fonts.main .. " Bold 12"
+                            }),
+                            halign = "center",
+                            widget = wibox.container.place
+                        },
+                        widget = wibox.container.margin
+                    }
                 end
                 return widget
             end
@@ -80,44 +135,27 @@ function Calendar.new()
     }
     
     -- Оборачиваем в стилизованный контейнер с padding
+    local Container = require("custom.widgets.base_widgets.container")
     local calendar_container = wibox.widget {
-        {
-            {
-                -- Хедер с датой
-                header,
-                -- Календарь с фоном, padding и центрированием
+        header,
+        Container.surface({
+            content = wibox.widget {
                 {
-                    {
-                        {
-                            self.calendar,
-                            halign = "center",
-                            widget = wibox.container.place
-                        },
-                        margins = {top = 15, bottom = 15, left = 15, right = 25}, -- дополнительный правый padding
-                        widget = wibox.container.margin
-                    },
-                    bg = colors.surface,
-                    shape = function(cr, w, h)
-                        gears.shape.rounded_rect(cr, w, h, settings.dimensions.corner_radius)
-                    end,
-                    widget = wibox.container.background
+                    self.calendar,
+                    halign = "center",
+                    widget = wibox.container.place
                 },
-                spacing = 0,
-                layout = wibox.layout.fixed.vertical
+                widget = wibox.container.margin
             },
-            widget = wibox.container.background -- убрал отступы
-        },
-       
-        bg = "transparent", -- убрал фон главного контейнера
-        widget = wibox.container.background
+            margins = {top = 15, bottom = 15, left = 15, right = 25},
+            halign = "center"
+        }),
+        spacing = 0,
+        layout = wibox.layout.fixed.vertical
     }
     
-    -- Оборачиваем в place чтобы не растягивался
-    self.widget = wibox.widget {
-        calendar_container,
-        valign = "top",
-        widget = wibox.container.place
-    }
+    -- Календарь растягивается во всю ширину
+    self.widget = calendar_container
     
     return self
 end
@@ -131,12 +169,10 @@ function Calendar:update()
     -- Обновляем календарь
     self.calendar.date = current_date
     
-    -- Обновляем заголовок (находим виджеты в структуре)
-    local colors = Provider.get_colors()
-    local header_widgets = self.widget.children[1].children[1].children[1].children
-    if header_widgets and #header_widgets >= 2 then
-        header_widgets[1].text = weekdays[current_date.wday]
-        header_widgets[2].markup = "<b><span color='" .. colors.accent .. "'>" .. months[current_date.month] .. " " .. current_date.day .. ", " .. current_date.year .. "</span></b>"
+    -- Обновляем заголовок
+    if self.weekday_text and self.date_text then
+        self.weekday_text:update_text(weekdays[current_date.wday])
+        self.date_text:update_text(months[current_date.month] .. " " .. current_date.day .. ", " .. current_date.year)
     end
 end
 

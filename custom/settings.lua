@@ -1,10 +1,19 @@
 -- ~/.config/awesome/custom/settings.lua
+
+local WalColors = require("custom.utils.wal_colors")
 local settings = {}
 
--- Цветовая схема
-settings.colors = {
+-- Загружаем цвета и обои из wal или используем дефолтные
+
+local wal_data = WalColors.load_colors()
+if wal_data then
+
+    settings.colors = wal_data.colors
+else
+
+    settings.colors = {
     background = "#1E1E2E",        -- основной тёмный фон
-    surface = "#2A2A3C",           -- фон элементов (панели, виджеты)
+    surface = "#2A2A3C80",          -- фон элементов (панели, виджеты) с прозрачностью
     text = "#ECEFF4",              -- основной текст
     text_secondary = "#A6ADC8",    -- вторичный текст
     text_muted = "#6C7086",        -- приглушенный текст (более темный)
@@ -18,7 +27,7 @@ settings.colors = {
     warning = "#ffb86c",
     error = "#ff5555"
 }
-
+end
 -- Шрифты
 settings.fonts = {
     main = "DejaVu Sans 10",
@@ -34,7 +43,13 @@ settings.dimensions = {
     corner_radius = 8,
     spacing = 8,
     margin = 4,
-    padding = 8
+    padding = 8,
+    useless_gap = 5
+}
+
+-- Тема
+settings.theme = {
+    shape = require("gears").shape.rounded_rect
 }
 
 -- Настройки панели
@@ -62,12 +77,9 @@ settings.icons = {
     },
     
     audio = {
-        high = "󰕾",
-        medium = "󰕽",
-        low = "󰕼",
-        muted = "󰕿",
-        mic_on = "󰕸",
-        mic_off = "󰕺"
+        unmuted = "󰕾",
+        muted = "",
+
     },
     
     weather = {
@@ -108,14 +120,15 @@ settings.icons = {
         launcher = "󰀻",
         screenshot = "",
         window_open = "",
-        window_closed = ""
+        window_closed = "",
+        tray = "󰁋"
     }
 }
 
 -- Пути
 settings.paths = {
-    wallpaper = "/home/panic-attack/wallpapers/wallpaper.jpg",
-    wallpaper_dir = "/home/panic-attack/wallpapers/"
+    wallpaper = wal_data and wal_data.wallpaper or "/home/panic-attack/wallpapers/wallpaper.jpg",
+    wallpaper_dir = "/home/panic-attack/wallpapers/",
 }
 
 -- Команды
@@ -131,7 +144,8 @@ settings.autostart = {
     "setxkbmap -layout us,ru,ua -option grp:alt_shift_toggle",
     "playerctld daemon",
     "copyq",
-    "pgrep -x picom || picom --config ~/.config/picom/picom.conf --vsync &"
+    "pgrep -x picom || picom --config ~/.config/picom/picom.conf --vsync &",
+    "pgrep -x lxpolkit >/dev/null || lxpolkit &"
 }
 
 -- Цвета для системных иконок
@@ -193,7 +207,7 @@ settings.widgets = {
             {
                 id = "terminal",
                 icon = "󰆍",
-                command = "alacritty",
+                command = "kitty",
                 close_control = true
             },
             {
@@ -244,11 +258,55 @@ settings.widgets = {
     }
 }
 
+-- Модификатор клавиш
+settings.modkey = "Mod4"
+
 -- Горячие клавиши
 settings.keybindings = {
+    screenshot = {
+        key = "Print",
+        command = "flameshot gui",
+        description = "screenshot with Flameshot",
+        group = "custom"
+    },
+    close_client = {
+        modkey = settings.modkey,
+        key = "q",
+        description = "close focused client",
+        group = "client"
+    },
+    terminal = {
+        modkey = settings.modkey,
+        key = "t",
+        command = "kitty",
+        description = "open terminal",
+        group = "launcher"
+    },
+    file_manager = {
+        modkey = settings.modkey,
+        key = "f",
+        command = "kitty ranger",
+        description = "open Ranger file manager",
+        group = "launcher"
+    },
+    launcher = {
+        modkey = settings.modkey,
+        key = "r",
+        command = "rofi -show drun",
+        description = "launch Rofi",
+        group = "launcher"
+    },
+    focus_next = {
+        modkey = "Mod1",
+        key = "Tab",
+        description = "focus next client",
+        group = "client"
+    },
     wallpaper_selector = {
-        modkey = "Mod4",
-        key = "w"
+        modkey = settings.modkey,
+        key = "w",
+        description = "toggle wallpaper selector",
+        group = "custom"
     }
 }
 
@@ -261,5 +319,18 @@ settings.api = {
         update_interval = 600  -- 10 минут
     }
 }
+
+-- Генерация цветовых файлов
+local ColorGenerators = require("custom.utils.color_generators")
+settings.color_generators = {
+    {
+        path = os.getenv("HOME") .. "/.config/rofi/colors.rasi",
+        name = "rofi",
+        generator = ColorGenerators.generate_rofi_colors
+    }
+}
+
+-- Дебаг финальных цветов
+
 
 return settings

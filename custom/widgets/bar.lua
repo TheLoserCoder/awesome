@@ -31,7 +31,7 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
         height = settings.bar.height,
         x = 10,
         y = 10,
-        bg = settings.bar.background,
+        bg = settings.colors.background,
         shape = gears.shape.rounded_rect,
         visible = true,
         type = "dock",
@@ -56,14 +56,15 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
     -- >>> Пользовательские виджеты: начало
     local NotificationCenter = require("custom.widgets.notification_center")
     local SystemMonitor = require("custom.widgets.system_monitor")
+    local Tray = require("custom.widgets.tray")
     local Keyboard = require("custom.widgets.keyboard")
     local ControlCenter = require("custom.widgets.control_center")
     local AppList = require("custom.widgets.app_list")
     local Button = require("custom.widgets.button")
-    local Provider = require("custom.widgets.provider")
     
     local notification_center_widget = NotificationCenter.new()
     local system_monitor_widget = SystemMonitor.new()
+    local tray_widget = Tray.new()
     local keyboard_widget = Keyboard.new()
     local control_center_widget = ControlCenter.new(s)
     local app_list_widget = AppList.new()
@@ -99,6 +100,7 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
                         layout = wibox.layout.fixed.horizontal,
                         spacing = 8,
                         system_monitor_widget.widget,
+                        tray_widget.widget,
                         keyboard_widget.widget,
                         control_center_widget.widget,
                     },

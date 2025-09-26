@@ -6,7 +6,7 @@ local Image = {}
 Image.__index = Image
 
 local ImageLoader = require("custom.utils.image_loader")
-local Provider = require("custom.widgets.provider")
+local Text = require("custom.widgets.base_widgets.text")
 
 function Image.new(config)
     local self = setmetatable({}, Image)
@@ -24,8 +24,6 @@ function Image.new(config)
 end
 
 function Image:_create_widgets()
-    local colors = Provider.get_colors()
-    
     -- Виджет изображения
     self.image_widget = wibox.widget {
         {
@@ -39,12 +37,17 @@ function Image:_create_widgets()
     
     -- Фолбек иконка
     self.fallback_widget = wibox.widget {
-        text = self.fallback_icon,
-        align = "center",
-        valign = "center",
-        font = "Font Awesome 6 Free 32",
-        fg = colors.text_secondary,
-        widget = wibox.widget.textbox
+        {
+            Text.new({
+                text = self.fallback_icon,
+                font = "Font Awesome 6 Free 32",
+                theme_color = "text_secondary"
+            }),
+            valign = "center",
+            halign = "center",
+            widget = wibox.container.place
+        },
+        widget = wibox.container.background
     }
     
     -- Стек виджетов

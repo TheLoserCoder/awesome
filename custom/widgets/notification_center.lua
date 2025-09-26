@@ -7,7 +7,7 @@ NotificationCenter.__index = NotificationCenter
 
 -- Безопасное подключение зависимостей
 local SafeRequire = require("custom.utils.safe_require")
-local Button = SafeRequire.require("custom.widgets.button")
+local Button2 = SafeRequire.require("custom.widgets.button_2")
 local Popup = SafeRequire.require("custom.widgets.popup")
 local PlayersList = SafeRequire.require("custom.widgets.players_list")
 local NotificationList = SafeRequire.require("custom.widgets.notification_list")
@@ -18,9 +18,8 @@ local Switcher = SafeRequire.require("custom.widgets.switcher")
 local NotificationManager = SafeRequire.require("custom.utils.notification_manager")
 local GlobalStorage = SafeRequire.require("custom.utils.global_storage")
 local CustomScroll = SafeRequire.require("custom.widgets.custom_scroll")
-local Provider = SafeRequire.require("custom.widgets.provider")
 local settings = SafeRequire.require("custom.settings")
-local DebugLogger = SafeRequire.require("custom.utils.debug_logger")
+local Text = require("custom.widgets.base_widgets.text")
 
 
 -- Создание виджета центра уведомлений
@@ -38,13 +37,12 @@ end
 -- Создание виджетов
 function NotificationCenter:_create_widgets()
 
-    -- Оборачиваем только виджет часов в Button
+    -- Оборачиваем только виджет часов в Button2
     self.clock = Clock.new()
-    local clock_button = Button.new({
+    local clock_button = Button2.new({
         content = self.clock.widget,
-        width = 80,  -- Указываем размеры как в players_center
+        width = 80,
         height = 24,
-    
         on_click = function()
             self:_toggle_popup()
         end
@@ -62,38 +60,72 @@ function NotificationCenter:_create_widgets()
     self.widget = clock_button.widget
     
     -- Создаем списки, календарь и погоду
-    self.players_list = PlayersList.new()
+    local debug_logger = require("custom.utils.debug_logger")
+    
+    debug_logger.log("Пытаемся создать PlayersList...")
+    local ok, result = pcall(function()
+        return PlayersList.new()
+    end)
+    
+    if not ok then
+        debug_logger.log("Ошибка создания PlayersList: " .. tostring(result))
+        self.players_list = nil
+    else
+        debug_logger.log("PlayersList создан успешно")
+        self.players_list = result
+        
+        -- Проверяем методы
+        debug_logger.log("PlayersList.widget: " .. tostring(self.players_list.widget ~= nil))
+        debug_logger.log("PlayersList.set_popup: " .. tostring(type(self.players_list.set_popup)))
+        debug_logger.log("PlayersList.refresh: " .. tostring(type(self.players_list.refresh)))
+        
+        -- Проверяем внутренние свойства
+        if self.players_list.playerctl then
+            debug_logger.log("PlayersList.playerctl: существует")
+        else
+            debug_logger.log("PlayersList.playerctl: ОТСУТСТВУЕТ!")
+        end
+    end
+    
     self.notification_list = NotificationList.new()
     self.calendar = Calendar.new()
     self.weather = Weather.new()
 
     
     -- Кнопка очистки уведомлений
-    local clear_button = Button.new({
-        content = wibox.widget {
+    local clear_button = Button2.new({
+        content = Text.new({
             text = "Очистить все",
-            font = settings.fonts.main .. " 10",
-            align = "center",
-            widget = wibox.widget.textbox,
-        },
+            theme_color = "text",
+            font = settings.fonts.main .. " 10"
+        }),
         height = 35,
         on_click = function()
             NotificationManager:clear_all()
         end
     })
     
-    -- Переключатель уведомлений
+    -- Оборачиваем кнопку в контейнер с флагом visible
+    self.clear_button_wrapper = wibox.widget {
+        clear_button.widget,
+        visible = false,
+        widget = wibox.container.background
+    }
+    
+    -- Переключатель уведомлений с Text
+    local Text = require("custom.widgets.base_widgets.text")
     self.notifications_switcher = Switcher.new({
-        label = "Не беспокоить",
-        label_font = settings.fonts.main .. " Bold 10",
+        label_widget = Text.new({
+            text = "Не беспокоить",
+            theme_color = "text",
+            font = settings.fonts.main .. " Bold 10"
+        }),
         initial_state = false,
         on_change = function(state)
             GlobalStorage.set("notifications_disabled", state)
             if state then
-                -- Включаем тихий режим - скрываем все уведомления
                 NotificationManager:enable_silent_mode()
             else
-                -- Выключаем тихий режим - показываем сохраненные уведомления
                 NotificationManager:disable_silent_mode()
             end
         end
@@ -109,7 +141,7 @@ function NotificationCenter:_create_widgets()
         },
         nil,
         {
-            clear_button.widget,
+            self.clear_button_wrapper,
             valign = "center",
             widget = wibox.container.place
         },
@@ -120,7 +152,7 @@ function NotificationCenter:_create_widgets()
         self.controls_container,
         forced_height = 35,
         forced_width = 350,
-        widget = wibox.container.constraint,
+        widget = wibox.container.constraint
     }
     
     -- Контент для скролла
@@ -207,16 +239,17 @@ function NotificationCenter:_create_widgets()
     if self.popup and self.popup.on and type(self.popup.on) == "function" then
         -- Включаем события для отслеживания состояния
         self.popup:on("opened", function()
+            local DebugLogger = require("custom.utils.debug_logger")
+            DebugLogger.log("NOTIFICATION_CENTER: popup opened, setting notification_center_open to true")
+            
             if self.scroll and self.scroll.set_visible then
                 self.scroll:set_visible(true)
             end
             
-            -- Обновляем календарь
             if self.calendar and self.calendar.update then
                 self.calendar:update()
             end
             
-            -- Обновляем время уведомлений
             if self.notification_list and self.notification_list.update_times then
                 self.notification_list:update_times()
             end
@@ -225,17 +258,15 @@ function NotificationCenter:_create_widgets()
                 GlobalStorage.set("notification_center_open", true)
             end
             
-            -- Принудительное обновление виджетов
             self.widget:emit_signal("widget::redraw_needed")
-
-                        
         end)
         
         self.popup:on("closed", function()
-        
+            local DebugLogger = require("custom.utils.debug_logger")
+            DebugLogger.log("NOTIFICATION_CENTER: popup closed, setting notification_center_open to false")
+            
             if self.scroll then
                 if self.scroll.reset then
-    
                     self.scroll:reset()
                 end
                 if self.scroll.set_visible then
@@ -248,10 +279,21 @@ function NotificationCenter:_create_widgets()
         end)
     end
     
-    -- Передаем ссылку на popup в списки
-    self.players_list:set_popup(self.popup)
-    self.notification_list:set_popup(self.popup)
-    self.notification_list:set_notification_center(self)
+    -- Передаем ссылку на popup в списки (с проверкой)
+    if self.players_list and self.players_list.set_popup then
+        self.players_list:set_popup(self.popup)
+    end
+    if self.notification_list and self.notification_list.set_popup then
+        self.notification_list:set_popup(self.popup)
+    end
+    if self.notification_list and self.notification_list.set_notification_center then
+        self.notification_list:set_notification_center(self)
+    end
+    
+    -- Подписываемся на изменения уведомлений
+    NotificationManager:subscribe(function(notifications)
+        self:_update_clear_button_visibility()
+    end)
     
 
 
@@ -312,12 +354,14 @@ end
 -- Обновление видимости кнопки очистки
 function NotificationCenter:_update_clear_button_visibility()
     local notifications = NotificationManager:get_notifications()
-    -- Кнопка очистки появляется при 2+ уведомлениях
-    if #notifications >= 2 then
-        self.clear_button.widget.visible = true
+    -- Кнопка очистки появляется при 1+ уведомлениях
+    if #notifications >= 1 then
+        self.clear_button_wrapper.visible = true
     else
-        self.clear_button.widget.visible = false
+        self.clear_button_wrapper.visible = false
     end
+    -- Принудительно обновляем layout
+    self.controls_container:emit_signal("widget::layout_changed")
 end
 
 -- Проверка смены дня и обновление виджетов

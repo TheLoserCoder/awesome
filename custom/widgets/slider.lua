@@ -18,10 +18,10 @@ function Slider.new(config)
     self.widget = wibox.widget {
         bar_shape = gears.shape.rounded_bar,
         bar_height = config.height or 6,
-        bar_color = config.bg_color or "#2A2A3C",
-        bar_active_color = config.bar_active_color or config.fg_color or "#FFF77A",
+        bar_color = config.bg_color or require("custom.settings").colors.surface,
+        bar_active_color = config.bar_active_color or config.fg_color or require("custom.settings").colors.accent,
         handle_shape = gears.shape.circle,
-        handle_color = config.handle_color or "#1E1E2E",
+        handle_color = config.handle_color or require("custom.settings").colors.background,
         handle_width = 0, -- Изначально скрыта
         handle_border_width = 0,
         minimum = config.minimum or 0,

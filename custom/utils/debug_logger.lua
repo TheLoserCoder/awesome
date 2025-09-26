@@ -1,6 +1,4 @@
 -- ~/.config/awesome/custom/utils/debug_logger.lua
-local gears = require("gears")
-
 local DebugLogger = {}
 
 local log_file = "/home/panic-attack/.config/awesome/debug.log"
@@ -11,12 +9,13 @@ function DebugLogger.log(message)
     
     -- Вывод в консоль с flush
     io.write(log_entry)
- 
+    io.flush()
     
     -- Запись в файл
     local file = io.open(log_file, "a")
     if file then
         file:write(log_entry)
+        file:flush()
         file:close()
     end
 end

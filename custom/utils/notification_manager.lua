@@ -1,7 +1,7 @@
 -- ~/.config/awesome/custom/utils/notification_manager.lua
 local naughty = require("naughty")
 local gears = require("gears")
-local DebugLogger = require("custom.utils.debug_logger")
+
 
 
 
@@ -111,12 +111,16 @@ function NotificationManager:clear_all()
 end
 
 function NotificationManager:clear_by_app(app_name)
+    local removed_any = false
     for id, notification in pairs(self.notifications) do
         if notification.app_name == app_name then
             self.notifications[id] = nil
+            removed_any = true
         end
     end
-    self:_notify_subscribers()
+    if removed_any then
+        self:_notify_subscribers()
+    end
 end
 
 function NotificationManager:get_notifications()

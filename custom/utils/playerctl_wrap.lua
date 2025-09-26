@@ -2,7 +2,7 @@
 local gobject = require("gears.object")
 local gtable = require("gears.table")
 local bling = require("custom.utils.bling")
-local debug_logger = require("custom.utils.debug_logger")
+
 
 local PlayerctlWrap = {}
 PlayerctlWrap.__index = PlayerctlWrap
