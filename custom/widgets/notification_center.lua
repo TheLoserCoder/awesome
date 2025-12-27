@@ -41,7 +41,7 @@ function NotificationCenter:_create_widgets()
     self.clock = Clock.new()
     local clock_button = Button2.new({
         content = self.clock.widget,
-        width = 80,
+        width = 110,
         height = 24,
         on_click = function()
             self:_toggle_popup()

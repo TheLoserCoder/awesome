@@ -86,7 +86,7 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
                     },
                     s.mypromptbox,
                 },
-                forced_width = 800,
+                forced_width = 600,
                
                 widget = wibox.container.constraint
             },
@@ -107,7 +107,7 @@ function Bar.create_for_screen(s, mylauncher, mykeyboardlayout, mytextclock)
                     halign = "right",
                     widget = wibox.container.place
                 },
-                forced_width = 800,
+                forced_width = 600,
                 widget = wibox.container.constraint
             },
         },

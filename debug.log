@@ -1,86 +1,263 @@
-[2025-09-26 08:59:38] AwesomeWM запускается...
-[2025-09-26 08:59:38] Пользовательские скрипты загружены
-[2025-09-26 08:59:38] Настройка экранов...
-[2025-09-26 08:59:38] Настройка экрана 1
-[2025-09-26 08:59:38] Обои установлены
-[2025-09-26 08:59:38] Теги созданы
-[2025-09-26 08:59:38] Bar создан
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.button_2
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.widgets.button_2
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.popup
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.widgets.popup
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.players_list
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.widgets.players_list
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.notification_list
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.widgets.notification_list
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.calendar
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.widgets.calendar
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.clock
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.widgets.clock
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.weather
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.widgets.weather
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.switcher
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.widgets.switcher
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.utils.notification_manager
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.utils.notification_manager
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.utils.global_storage
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.utils.global_storage
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.custom_scroll
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.widgets.custom_scroll
-[2025-09-26 08:59:38] SAFE_REQUIRE: пытаемся загрузить custom.settings
-[2025-09-26 08:59:38] SAFE_REQUIRE: успешно загружен custom.settings
-[2025-09-26 08:59:38] Пытаемся создать PlayersList...
-[2025-09-26 08:59:38] PLAYERS_LIST: создаем PlayersList...
-[2025-09-26 08:59:38] PLAYERS_LIST: создаем PlayerctlWrap...
-[2025-09-26 08:59:38] PLAYERS_LIST: PlayerctlWrap создан успешно
-[2025-09-26 08:59:38] PLAYERS_LIST: настраиваем сигналы...
-[2025-09-26 08:59:38] PLAYERS_LIST: подключаем сигнал metadata...
-[2025-09-26 08:59:38] PlayersList создан успешно
-[2025-09-26 08:59:38] PlayersList.widget: true
-[2025-09-26 08:59:38] PlayersList.set_popup: function
-[2025-09-26 08:59:38] PlayersList.refresh: function
-[2025-09-26 08:59:38] PlayersList.playerctl: существует
-[2025-09-26 08:59:38] Bar настроен для экрана
-[2025-09-26 08:59:38] Все экраны настроены
-[2025-09-26 08:59:38] Применение пользовательских настроек...
-[2025-09-26 08:59:38] Клавиши применены
-[2025-09-26 08:59:38] Автозапуск выполнен
-[2025-09-26 08:59:38] DESKTOP_NOTIFICATIONS: setup called
-[2025-09-26 08:59:38] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: nil
-[2025-09-26 08:59:38] WALLPAPER_SELECTOR: сканируем папку: /home/panic-attack/wallpapers/
-[2025-09-26 08:59:38] Настройки окон применены
-[2025-09-26 08:59:38] Обои установлены
-[2025-09-26 08:59:38] Настройка сигналов клиентов...
-[2025-09-26 08:59:38] AwesomeWM полностью загружен!
-[2025-09-26 08:59:39] PLAYERS_LIST: получен metadata для firefox
-[2025-09-26 08:59:39] PLAYERS_LIST: запускаем начальный рендер...
-[2025-09-26 08:59:39] PLAYERS_LIST: найдено 2 плееров
-[2025-09-26 08:59:39] PLAYERS_LIST: добавляем плеер firefox
-[2025-09-26 08:59:39] PLAYERS_LIST: добавляем плеер spotify
-[2025-09-26 08:59:40] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: nil
-[2025-09-26 08:59:40] DESKTOP_NOTIFICATIONS: created wibox for id: 1
-[2025-09-26 08:59:40] WALLPAPER_SELECTOR: найдено 13 обоев
-[2025-09-26 08:59:40] WALLPAPER_SELECTOR: обновляем список, обоев: 13
-[2025-09-26 08:59:41] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
-[2025-09-26 08:59:41] DESKTOP_NOTIFICATIONS: center open changed to: true
-[2025-09-26 08:59:41] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 1
-[2025-09-26 08:59:41] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: true
-[2025-09-26 08:59:41] DESKTOP_NOTIFICATIONS: all cleared
-[2025-09-26 08:59:42] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: true
-[2025-09-26 08:59:43] PLAYERS_LIST: получен metadata для spotify
-[2025-09-26 08:59:43] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: true
-[2025-09-26 08:59:45] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: true
-[2025-09-26 08:59:45] PLAYERS_LIST: получен metadata для spotify
-[2025-09-26 08:59:46] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: true
-[2025-09-26 08:59:47] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
-[2025-09-26 08:59:47] DESKTOP_NOTIFICATIONS: center open changed to: false
-[2025-09-26 09:00:01] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
-[2025-09-26 09:00:01] DESKTOP_NOTIFICATIONS: center open changed to: true
-[2025-09-26 09:00:01] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
-[2025-09-26 09:00:01] DESKTOP_NOTIFICATIONS: all cleared
-[2025-09-26 09:00:03] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: true
-[2025-09-26 09:00:03] PLAYERS_LIST: получен metadata для spotify
-[2025-09-26 09:00:04] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: true
-[2025-09-26 09:00:04] PLAYERS_LIST: получен metadata для spotify
-[2025-09-26 09:00:07] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
-[2025-09-26 09:00:07] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 10:20:38] AwesomeWM запускается...
+[2025-12-27 10:20:38] Пользовательские скрипты загружены
+[2025-12-27 10:20:38] Настройка экранов...
+[2025-12-27 10:20:38] Настройка экрана 1
+[2025-12-27 10:20:38] Обои установлены
+[2025-12-27 10:20:38] Теги созданы
+[2025-12-27 10:20:38] Bar создан
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.button_2
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.widgets.button_2
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.popup
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.widgets.popup
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.players_list
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.widgets.players_list
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.notification_list
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.widgets.notification_list
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.calendar
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.widgets.calendar
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.clock
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.widgets.clock
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.weather
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.widgets.weather
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.switcher
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.widgets.switcher
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.utils.notification_manager
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.utils.notification_manager
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.utils.global_storage
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.utils.global_storage
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.widgets.custom_scroll
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.widgets.custom_scroll
+[2025-12-27 10:20:38] SAFE_REQUIRE: пытаемся загрузить custom.settings
+[2025-12-27 10:20:38] SAFE_REQUIRE: успешно загружен custom.settings
+[2025-12-27 10:20:38] Пытаемся создать PlayersList...
+[2025-12-27 10:20:38] PLAYERS_LIST: создаем PlayersList...
+[2025-12-27 10:20:38] PLAYERS_LIST: создаем PlayerctlWrap...
+[2025-12-27 10:20:38] PLAYERS_LIST: PlayerctlWrap создан успешно
+[2025-12-27 10:20:38] PLAYERS_LIST: настраиваем сигналы...
+[2025-12-27 10:20:38] PLAYERS_LIST: подключаем сигнал metadata...
+[2025-12-27 10:20:38] PlayersList создан успешно
+[2025-12-27 10:20:38] PlayersList.widget: true
+[2025-12-27 10:20:38] PlayersList.set_popup: function
+[2025-12-27 10:20:38] PlayersList.refresh: function
+[2025-12-27 10:20:38] PlayersList.playerctl: существует
+[2025-12-27 10:20:38] Bar настроен для экрана
+[2025-12-27 10:20:38] Все экраны настроены
+[2025-12-27 10:20:38] Применение пользовательских настроек...
+[2025-12-27 10:20:38] Клавиши применены
+[2025-12-27 10:20:38] Автозапуск выполнен
+[2025-12-27 10:20:38] DESKTOP_NOTIFICATIONS: setup called
+[2025-12-27 10:20:38] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: nil
+[2025-12-27 10:20:38] WALLPAPER_SELECTOR: сканируем папку: /home/panic-attack/wallpapers/
+[2025-12-27 10:20:39] Настройки окон применены
+[2025-12-27 10:20:39] Обои установлены
+[2025-12-27 10:20:39] Настройка сигналов клиентов...
+[2025-12-27 10:20:39] AwesomeWM полностью загружен!
+[2025-12-27 10:20:39] PLAYERS_LIST: запускаем начальный рендер...
+[2025-12-27 10:20:39] PLAYERS_LIST: найдено 0 плееров
+[2025-12-27 10:20:40] WALLPAPER_SELECTOR: найдено 13 обоев
+[2025-12-27 10:20:40] WALLPAPER_SELECTOR: обновляем список, обоев: 13
+[2025-12-27 10:20:49] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: nil
+[2025-12-27 10:20:49] DESKTOP_NOTIFICATIONS: created wibox for id: 1
+[2025-12-27 10:20:50] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: nil
+[2025-12-27 10:20:50] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 10:20:50] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: nil
+[2025-12-27 10:20:50] DESKTOP_NOTIFICATIONS: created wibox for id: 2
+[2025-12-27 10:20:55] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: nil
+[2025-12-27 10:21:21] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 10:21:21] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 10:21:21] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 10:21:21] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 10:21:22] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 10:21:22] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 10:23:44] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:23:44] DESKTOP_NOTIFICATIONS: created wibox for id: 3
+[2025-12-27 10:23:49] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:24:52] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 10:24:52] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 10:24:52] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 10:24:52] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 10:24:53] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 10:24:53] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 10:26:16] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:26:16] DESKTOP_NOTIFICATIONS: created wibox for id: 4
+[2025-12-27 10:26:18] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:26:39] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:26:39] DESKTOP_NOTIFICATIONS: created wibox for id: 5
+[2025-12-27 10:26:42] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:26:57] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:26:57] DESKTOP_NOTIFICATIONS: created wibox for id: 6
+[2025-12-27 10:27:02] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:27:50] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:27:50] DESKTOP_NOTIFICATIONS: created wibox for id: 7
+[2025-12-27 10:27:55] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:29:08] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 10:29:10] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 10:29:34] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:29:34] DESKTOP_NOTIFICATIONS: created wibox for id: 8
+[2025-12-27 10:29:39] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:31:40] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 10:31:40] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 10:31:40] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 10:31:40] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 10:31:43] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 10:31:43] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 10:31:48] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:31:48] DESKTOP_NOTIFICATIONS: created wibox for id: 9
+[2025-12-27 10:31:50] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:32:17] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 10:33:17] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 10:33:23] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 10:33:25] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 10:33:27] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:33:27] DESKTOP_NOTIFICATIONS: created wibox for id: 10
+[2025-12-27 10:33:28] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 10:33:31] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:34:09] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:34:09] DESKTOP_NOTIFICATIONS: created wibox for id: 11
+[2025-12-27 10:34:14] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:35:43] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:35:43] DESKTOP_NOTIFICATIONS: created wibox for id: 12
+[2025-12-27 10:35:44] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:35:46] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 10:36:02] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 10:36:03] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 10:36:03] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 10:37:46] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 10:37:46] DESKTOP_NOTIFICATIONS: created wibox for id: 13
+[2025-12-27 10:37:51] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:06:53] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:06:53] DESKTOP_NOTIFICATIONS: created wibox for id: 14
+[2025-12-27 11:06:53] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:06:58] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:06:58] DESKTOP_NOTIFICATIONS: created wibox for id: 15
+[2025-12-27 11:07:03] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:12:10] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:12:10] DESKTOP_NOTIFICATIONS: created wibox for id: 16
+[2025-12-27 11:12:15] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:19:35] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:19:35] DESKTOP_NOTIFICATIONS: created wibox for id: 17
+[2025-12-27 11:19:40] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:32:14] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:32:14] DESKTOP_NOTIFICATIONS: created wibox for id: 18
+[2025-12-27 11:32:19] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 11:32:47] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 11:32:52] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 11:32:53] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 11:33:41] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 11:34:09] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 11:37:44] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 11:38:06] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 11:38:14] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 11:40:47] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 11:40:48] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 11:40:48] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 11:40:48] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 11:40:48] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 11:40:49] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 11:40:51] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 11:40:51] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 11:42:37] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 11:42:38] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 11:42:38] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 11:42:38] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 11:42:38] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 11:42:40] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 11:42:40] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 11:44:38] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 11:44:38] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 11:44:38] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 11:44:38] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 11:44:41] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 11:44:44] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 11:44:45] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 11:44:45] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 11:47:20] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 11:47:46] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 11:47:46] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 11:47:46] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 11:47:46] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 11:47:49] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 11:47:50] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 11:47:50] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 11:48:02] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 11:48:02] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 11:48:02] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 11:48:02] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 11:48:04] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 11:48:07] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 11:48:07] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 11:48:40] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 11:48:40] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 11:48:40] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 11:48:40] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 11:48:47] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 11:48:47] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 11:49:31] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 11:49:31] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 11:49:31] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 11:49:31] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 11:49:34] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 11:49:41] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 11:49:41] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 11:55:34] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 12:03:24] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 12:03:24] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 12:03:24] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 12:03:24] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 12:03:26] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 12:03:26] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 12:03:26] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 12:03:57] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 12:03:57] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 12:03:57] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 12:03:57] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 12:03:58] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 12:03:58] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 12:03:58] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 12:04:32] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 12:04:32] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 12:04:32] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 12:04:32] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 12:04:33] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 12:04:33] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 12:04:42] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 12:04:42] DESKTOP_NOTIFICATIONS: created wibox for id: 19
+[2025-12-27 12:04:43] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 12:04:45] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 12:04:46] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 12:04:46] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 12:04:46] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 12:04:47] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 12:04:48] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 12:04:48] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 12:08:49] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 12:14:06] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 12:19:50] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 12:21:18] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 12:21:18] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 12:21:18] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 12:21:18] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 12:21:19] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 12:21:20] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 12:21:20] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 12:22:50] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 12:22:50] DESKTOP_NOTIFICATIONS: created wibox for id: 20
+[2025-12-27 12:22:52] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 12:23:39] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 12:23:39] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 12:23:39] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 12:23:39] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 12:23:40] PLAYERS_LIST: получен metadata для spotify
+[2025-12-27 12:23:40] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 12:23:40] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 12:25:26] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 12:25:34] NOTIFICATION_CENTER: popup opened, setting notification_center_open to true
+[2025-12-27 12:25:34] DESKTOP_NOTIFICATIONS: center open changed to: true
+[2025-12-27 12:25:34] DESKTOP_NOTIFICATIONS: clearing all notifications, count: 0
+[2025-12-27 12:25:34] DESKTOP_NOTIFICATIONS: all cleared
+[2025-12-27 12:25:37] NOTIFICATION_CENTER: popup closed, setting notification_center_open to false
+[2025-12-27 12:25:37] DESKTOP_NOTIFICATIONS: center open changed to: false
+[2025-12-27 12:27:59] PLAYERS_LIST: получен metadata для firefox
+[2025-12-27 12:28:18] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
+[2025-12-27 12:28:18] DESKTOP_NOTIFICATIONS: created wibox for id: 21
+[2025-12-27 12:28:18] DESKTOP_NOTIFICATIONS: received notifications, disabled: nil, center_open: false
